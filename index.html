@@ -31,8 +31,8 @@
           <p class="eyebrow">EVIDENCE-LED RESEARCH</p>
           <h1>이름만 아는 ETF도,<br /><em>속까지</em> 들여다봅니다.</h1>
           <p>
-            상품 구조부터 구성 종목, 비용, 변동성, 상승 동력과 위험까지.<br />
-            기준일과 원문 출처를 함께 남기는 누적형 분석 노트입니다.
+            상품 구조부터 구성 종목, 배당, 비용, 변동성, 상승 동력과 위험까지.<br />
+            검색했던 날짜의 분석을 지우지 않고 차곡차곡 남기는 누적형 분석 노트입니다.
           </p>
         </div>
         <div class="hero-orbit" aria-hidden="true">
@@ -51,10 +51,17 @@
             <p class="eyebrow">ETF LIBRARY</p>
             <h2>분석 리포트</h2>
           </div>
-          <label class="search-box">
-            <span aria-hidden="true">⌕</span>
-            <input id="etf-search" type="search" placeholder="ETF명 또는 종목코드 검색" />
-          </label>
+          <div class="catalog-tools">
+            <div class="market-filters" role="group" aria-label="상장 시장 구분">
+              <button class="market-filter active" data-market="all">전체</button>
+              <button class="market-filter" data-market="kr">국내상장</button>
+              <button class="market-filter" data-market="us">해외상장</button>
+            </div>
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="etf-search" type="search" placeholder="ETF명 또는 종목코드 검색" />
+            </label>
+          </div>
         </div>
         <div id="etf-list" class="etf-list" aria-live="polite"></div>
         <article id="etf-report" class="report" aria-live="polite"></article>
