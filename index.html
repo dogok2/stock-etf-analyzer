@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="주식과 ETF를 공식 자료 중심으로 깊이 있게 정리하는 정적 분석 리포트"
+    />
+    <title>DeepTicker | 주식 & ETF 분석기</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="DeepTicker 홈">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>
+          <strong>DeepTicker</strong>
+          <small>STOCK & ETF RESEARCH</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="주요 메뉴">
+        <button class="nav-button active" data-view="etf">ETF 분석</button>
+        <button class="nav-button" data-view="stock">주식 분석 <span>준비 중</span></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">EVIDENCE-LED RESEARCH</p>
+          <h1>이름만 아는 ETF도,<br /><em>속까지</em> 들여다봅니다.</h1>
+          <p>
+            상품 구조부터 구성 종목, 비용, 변동성, 상승 동력과 위험까지.<br />
+            기준일과 원문 출처를 함께 남기는 누적형 분석 노트입니다.
+          </p>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-ring ring-one"></div>
+          <div class="orbit-ring ring-two"></div>
+          <div class="orbit-core">ETF</div>
+          <span class="orbit-label label-a">구성</span>
+          <span class="orbit-label label-b">비용</span>
+          <span class="orbit-label label-c">위험</span>
+        </div>
+      </section>
+
+      <section id="etf-view" class="view-section">
+        <div class="catalog-head">
+          <div>
+            <p class="eyebrow">ETF LIBRARY</p>
+            <h2>분석 리포트</h2>
+          </div>
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="etf-search" type="search" placeholder="ETF명 또는 종목코드 검색" />
+          </label>
+        </div>
+        <div id="etf-list" class="etf-list" aria-live="polite"></div>
+        <article id="etf-report" class="report" aria-live="polite"></article>
+      </section>
+
+      <section id="stock-view" class="view-section hidden">
+        <div class="coming-soon">
+          <p class="eyebrow">STOCK ANALYSIS</p>
+          <h2>주식 분석 기능은 설계 대기 중입니다.</h2>
+          <p>원하시는 세부 기능을 정하면 이 자리에 같은 형식으로 붙습니다.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>정보 제공용 분석이며 특정 상품의 매수·매도 권유가 아닙니다.</p>
+      <p>가격·구성 종목·세금은 바뀔 수 있으므로 거래 전 최신 원문을 확인하세요.</p>
+    </footer>
+
+    <script src="data/etfs.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
