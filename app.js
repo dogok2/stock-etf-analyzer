@@ -150,7 +150,7 @@ function renderReport(id, researchDate) {
 
   addSection(
     snapshot.performance.title,
-    `${snapshot.performance.asOf} 기준. ${snapshot.performance.note}`,
+    snapshot.performance.note,
     `<div class="performance-grid">${snapshot.performance.periods
       .map(
         (period) => `

@@ -104,7 +104,7 @@ const KODEX_20260707 = {
     "해외주식형 국내 ETF로서 일반계좌에서는 매매차익과 과표기준가 증가분 중 작은 금액, 그리고 분배금에 배당소득세가 적용될 수 있습니다. 세법과 개인 상황은 달라질 수 있으므로 거래 전 운용사 설명서와 금융기관 안내를 확인하세요.",
   sources: [
     { label: "KODEX 공식 상품 페이지", detail: "상품 구조·시세·보수·구성 종목", url: "https://www.samsungfund.com/etf/product/view.do?id=2ETFR1" },
-    { label: "Solactive 지수 팩트시트", detail: "2026-05-27 구성·성과·변동성", url: "https://solactive.com/downloads/Factsheet_DE000SL0PWR0" },
+    { label: "Solactive 지수 팩트시트", detail: "구성·성과·변동성 원자료", url: "https://solactive.com/downloads/Factsheet_DE000SL0PWR0" },
     { label: "Solactive 지수 방법론", detail: "2026-01-07 버전 2.0", url: "https://www.solactive.com/downloads/Guideline-Solactive-SOLCHRB.pdf" },
     { label: "Solactive 출시 보도자료", detail: "선정·가중 방식과 상품 출시 배경", url: "https://www.solactive.com/wp-content/uploads/2025/05/Press-Release-In-a-first-collaboration-Samsung-Asset-Management-Launches-New-SAMSUNG-KODEX-China-Humanoid-Robot-ETF-Tracking-the-Solactive-China-Humanoid-Robotics-Index.pdf" }
   ]
