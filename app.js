@@ -263,14 +263,14 @@ function renderSecurityCharts(snapshot) {
   return `<div class="security-chart-shell" data-security-chart>
     <div class="security-chart-copy">
       <strong>${chartConfig.asOf ? `${chartConfig.asOf} 기준` : "현재 기록 기준"}</strong>
-      <p>왼쪽 종목을 누르면 오른쪽 차트가 해당 종목으로 바뀝니다. 비중 차트가 아니라 실제 편입 주식/참고 지표의 가격 차트입니다.</p>
+      <p>왼쪽 종목을 누르면 오른쪽 영역이 해당 종목으로 바뀝니다. 임베드가 허용되는 심볼은 내부 차트로, 제한 심볼은 외부 차트 버튼으로 연결합니다.</p>
     </div>
     <div class="security-chart-layout">
       <div class="security-list" role="group" aria-label="차트 종목 선택">
         ${chartItems
           .map(
             (item, index) => `
-              <button class="security-item ${index === 0 ? "active" : ""}" data-symbol="${escapeAttr(item.chartSymbol)}" data-name="${escapeAttr(item.name)}" data-ticker="${escapeAttr(item.exchange ? `${item.exchange}:${item.ticker}` : item.ticker)}" aria-pressed="${index === 0 ? "true" : "false"}">
+              <button class="security-item ${index === 0 ? "active" : ""}" data-symbol="${escapeAttr(item.chartSymbol)}" data-name="${escapeAttr(item.name)}" data-ticker="${escapeAttr(item.exchange ? `${item.exchange}:${item.ticker}` : item.ticker)}" data-yahoo="${escapeAttr(item.yahooSymbol || "")}" data-fred="${escapeAttr(item.fredSymbol || "")}" data-embed="${item.embed === false ? "false" : "true"}" aria-pressed="${index === 0 ? "true" : "false"}">
                 <span><b>${item.name}</b><small>${item.role || ""}</small></span>
                 <em>${item.weight ? `${item.weight.toFixed(2)}%` : item.ticker}</em>
               </button>`
@@ -280,10 +280,14 @@ function renderSecurityCharts(snapshot) {
       <div class="security-chart-area">
         <div class="security-chart-meta">
           <span><strong data-chart-name>${first.name}</strong><small data-chart-symbol>${first.exchange ? `${first.exchange}:${first.ticker}` : first.ticker}</small></span>
-          <a data-chart-link href="${tradingViewLink(first.chartSymbol)}" target="_blank" rel="noreferrer">TradingView에서 크게 보기</a>
+          <div class="chart-link-row">
+            <a data-chart-link href="${tradingViewLink(first.chartSymbol)}" target="_blank" rel="noreferrer">TradingView</a>
+            <a data-yahoo-link href="${yahooFinanceLink(first.yahooSymbol)}" target="_blank" rel="noreferrer" ${first.yahooSymbol ? "" : "hidden"}>Yahoo Finance</a>
+            <a data-fred-link href="${fredLink(first.fredSymbol)}" target="_blank" rel="noreferrer" ${first.fredSymbol ? "" : "hidden"}>FRED</a>
+          </div>
         </div>
         <div class="tradingview-widget-container" data-tv-widget data-tv-symbol="${escapeAttr(first.chartSymbol)}">
-          <div class="chart-fallback">차트를 불러오는 중입니다. 인터넷 연결이나 TradingView 제공 범위에 따라 표시가 늦을 수 있습니다.</div>
+          <div class="chart-fallback">차트를 준비하는 중입니다.</div>
         </div>
       </div>
     </div>
@@ -357,6 +361,8 @@ function bindReportInteractions(item) {
     const nameElement = shell.querySelector("[data-chart-name]");
     const symbolElement = shell.querySelector("[data-chart-symbol]");
     const linkElement = shell.querySelector("[data-chart-link]");
+    const yahooLinkElement = shell.querySelector("[data-yahoo-link]");
+    const fredLinkElement = shell.querySelector("[data-fred-link]");
 
     const activate = (button) => {
       buttons.forEach((item) => {
@@ -367,6 +373,20 @@ function bindReportInteractions(item) {
       nameElement.textContent = button.dataset.name;
       symbolElement.textContent = button.dataset.ticker;
       linkElement.href = tradingViewLink(button.dataset.symbol);
+      updateOptionalLink(yahooLinkElement, yahooFinanceLink(button.dataset.yahoo), Boolean(button.dataset.yahoo));
+      updateOptionalLink(fredLinkElement, fredLink(button.dataset.fred), Boolean(button.dataset.fred));
+
+      if (button.dataset.embed === "false") {
+        renderExternalChartFallback(container, {
+          name: button.dataset.name,
+          ticker: button.dataset.ticker,
+          symbol: button.dataset.symbol,
+          yahooSymbol: button.dataset.yahoo,
+          fredSymbol: button.dataset.fred
+        });
+        return;
+      }
+
       mountTradingViewChart(container, button.dataset.symbol);
     };
 
@@ -375,6 +395,40 @@ function bindReportInteractions(item) {
       activate(buttons[0]);
     }
   });
+}
+
+function updateOptionalLink(linkElement, href, isVisible) {
+  if (!linkElement) {
+    return;
+  }
+  linkElement.hidden = !isVisible;
+  if (isVisible) {
+    linkElement.href = href;
+  }
+}
+
+function renderExternalChartFallback(container, item) {
+  if (!container) {
+    return;
+  }
+
+  const yahooButton = item.yahooSymbol
+    ? `<a href="${yahooFinanceLink(item.yahooSymbol)}" target="_blank" rel="noreferrer">Yahoo Finance 차트</a>`
+    : "";
+  const fredButton = item.fredSymbol
+    ? `<a href="${fredLink(item.fredSymbol)}" target="_blank" rel="noreferrer">FRED 금리 차트</a>`
+    : "";
+
+  container.innerHTML = `<div class="external-chart-card">
+    <span class="external-chart-icon">↗</span>
+    <h4>${escapeHtml(item.name)}</h4>
+    <p><strong>${escapeHtml(item.ticker)}</strong>는 TradingView 외부 위젯에서 제한되는 심볼이라, 이 페이지 안에 억지로 띄우면 제한 메시지가 먼저 보입니다. 대신 바로 열 수 있는 외부 차트 링크를 제공합니다.</p>
+    <div class="external-chart-actions">
+      <a href="${tradingViewLink(item.symbol)}" target="_blank" rel="noreferrer">TradingView에서 열기</a>
+      ${yahooButton}
+      ${fredButton}
+    </div>
+  </div>`;
 }
 
 function mountTradingViewChart(container, symbol) {
@@ -412,6 +466,18 @@ function formatDistribution(value, currency) {
 
 function tradingViewLink(symbol) {
   return `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(symbol)}`;
+}
+
+function yahooFinanceLink(symbol) {
+  return symbol ? `https://finance.yahoo.com/quote/${encodeURIComponent(symbol)}/chart/` : "#";
+}
+
+function fredLink(symbol) {
+  return symbol ? `https://fred.stlouisfed.org/series/${encodeURIComponent(symbol)}` : "#";
+}
+
+function escapeHtml(value) {
+  return escapeAttr(value);
 }
 
 function escapeAttr(value) {

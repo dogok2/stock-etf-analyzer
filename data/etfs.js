@@ -44,16 +44,16 @@ const KODEX_20260707 = {
   },
   holdingsAsOf: "2026-05-27",
   holdings: [
-    { name: "Leader Harmonious Drive", ticker: "688017", exchange: "SSE", chartSymbol: "SSE:688017", role: "정밀 감속기", weight: 7.96 },
-    { name: "Shenzhen Inovance", ticker: "300124", exchange: "SZSE", chartSymbol: "SZSE:300124", role: "산업자동화·모션제어", weight: 7.56 },
-    { name: "Wolong Electric", ticker: "600580", exchange: "SSE", chartSymbol: "SSE:600580", role: "모터·드라이브", weight: 7.14 },
-    { name: "Zhejiang Sanhua", ticker: "002050", exchange: "SZSE", chartSymbol: "SZSE:002050", role: "열관리·제어부품", weight: 6.51 },
-    { name: "UBTECH Robotics", ticker: "9880", exchange: "HKEX", chartSymbol: "HKEX:9880", role: "휴머노이드 완성로봇", weight: 6.37 },
-    { name: "Ningbo Tuopu", ticker: "601689", exchange: "SSE", chartSymbol: "SSE:601689", role: "자동차 부품·액추에이터", weight: 6.26 },
-    { name: "Jiangsu Hengli Hydraulic", ticker: "601100", exchange: "SSE", chartSymbol: "SSE:601100", role: "유압 부품", weight: 5.96 },
-    { name: "Shenzhen Everwin Precision", ticker: "300115", exchange: "SZSE", chartSymbol: "SZSE:300115", role: "정밀 구조부품", weight: 5.7 },
-    { name: "Ningbo Joyson Electronic", ticker: "600699", exchange: "SSE", chartSymbol: "SSE:600699", role: "자동차 전장", weight: 5.5 },
-    { name: "Guangdong LY Intelligent", ticker: "002600", exchange: "SZSE", chartSymbol: "SZSE:002600", role: "정밀 제조", weight: 5.49 }
+    { name: "Leader Harmonious Drive", ticker: "688017", exchange: "SSE", chartSymbol: "SSE:688017", yahooSymbol: "688017.SS", embed: false, role: "정밀 감속기", weight: 7.96 },
+    { name: "Shenzhen Inovance", ticker: "300124", exchange: "SZSE", chartSymbol: "SZSE:300124", yahooSymbol: "300124.SZ", embed: false, role: "산업자동화·모션제어", weight: 7.56 },
+    { name: "Wolong Electric", ticker: "600580", exchange: "SSE", chartSymbol: "SSE:600580", yahooSymbol: "600580.SS", embed: false, role: "모터·드라이브", weight: 7.14 },
+    { name: "Zhejiang Sanhua", ticker: "002050", exchange: "SZSE", chartSymbol: "SZSE:002050", yahooSymbol: "002050.SZ", embed: false, role: "열관리·제어부품", weight: 6.51 },
+    { name: "UBTECH Robotics", ticker: "9880", exchange: "HKEX", chartSymbol: "HKEX:9880", yahooSymbol: "9880.HK", embed: false, role: "휴머노이드 완성로봇", weight: 6.37 },
+    { name: "Ningbo Tuopu", ticker: "601689", exchange: "SSE", chartSymbol: "SSE:601689", yahooSymbol: "601689.SS", embed: false, role: "자동차 부품·액추에이터", weight: 6.26 },
+    { name: "Jiangsu Hengli Hydraulic", ticker: "601100", exchange: "SSE", chartSymbol: "SSE:601100", yahooSymbol: "601100.SS", embed: false, role: "유압 부품", weight: 5.96 },
+    { name: "Shenzhen Everwin Precision", ticker: "300115", exchange: "SZSE", chartSymbol: "SZSE:300115", yahooSymbol: "300115.SZ", embed: false, role: "정밀 구조부품", weight: 5.7 },
+    { name: "Ningbo Joyson Electronic", ticker: "600699", exchange: "SSE", chartSymbol: "SSE:600699", yahooSymbol: "600699.SS", embed: false, role: "자동차 전장", weight: 5.5 },
+    { name: "Guangdong LY Intelligent", ticker: "002600", exchange: "SZSE", chartSymbol: "SZSE:002600", yahooSymbol: "002600.SZ", embed: false, role: "정밀 제조", weight: 5.49 }
   ],
   concentrationNote:
     "상위 10개 종목 비중이 약 64.5%입니다. 개별 기업 뉴스가 ETF 전체 수익률에 미치는 영향이 작지 않고, 완성 로봇보다 핵심부품 업체 비중이 눈에 띕니다.",
@@ -150,7 +150,7 @@ const KODEX_20260708 = {
       "상위 구성 종목을 누르면 해당 중국·홍콩 상장사의 TradingView 차트를 바로 띄웁니다. ETF 비중표와 별개로, 실제 편입 주식의 주가 흐름을 보는 영역입니다.",
     asOf: "2026-05-27",
     note:
-      "티커는 Solactive 팩트시트의 상위 구성 종목 티커를 TradingView 거래소 코드(SSE·SZSE·HKEX)로 매핑했습니다. 차트 제공 범위와 지연 시세 여부는 TradingView/거래소 정책을 따릅니다."
+      "중국 A주와 일부 홍콩주는 TradingView 본 사이트에서는 검색되더라도 외부 위젯 임베드가 제한될 수 있습니다. 그래서 페이지 안에서는 제한 메시지 대신 TradingView·Yahoo Finance 외부 차트 버튼으로 연결합니다."
   },
   distribution: {
     frequency: "분기",
@@ -272,9 +272,9 @@ const TLT_20260708 = {
     note:
       "국채 ETF는 편입 채권 각각의 주식형 차트보다 금리 방향과 ETF 가격의 반대 움직임을 같이 보는 편이 실전적으로 유용합니다.",
     symbols: [
-      { name: "TLT", ticker: "TLT", exchange: "NASDAQ", chartSymbol: "NASDAQ:TLT", role: "ETF 가격", weight: 100 },
-      { name: "미국 10년 국채금리", ticker: "US10Y", exchange: "TVC", chartSymbol: "TVC:US10Y", role: "중장기 금리 참고", weight: 0 },
-      { name: "미국 30년 국채금리", ticker: "US30Y", exchange: "TVC", chartSymbol: "TVC:US30Y", role: "초장기 금리 참고", weight: 0 }
+      { name: "TLT", ticker: "TLT", exchange: "NASDAQ", chartSymbol: "NASDAQ:TLT", yahooSymbol: "TLT", embed: true, role: "ETF 가격", weight: 100 },
+      { name: "미국 10년 국채금리", ticker: "US10Y", exchange: "TVC", chartSymbol: "TVC:US10Y", yahooSymbol: "^TNX", fredSymbol: "DGS10", embed: false, role: "중장기 금리 참고", weight: 0 },
+      { name: "미국 30년 국채금리", ticker: "US30Y", exchange: "TVC", chartSymbol: "TVC:US30Y", yahooSymbol: "^TYX", fredSymbol: "DGS30", embed: false, role: "초장기 금리 참고", weight: 0 }
     ]
   },
   distribution: {

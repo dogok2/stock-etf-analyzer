@@ -182,10 +182,18 @@ main { width: min(1280px, 92vw); margin: 0 auto; }
 .security-chart-meta { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 12px; }
 .security-chart-meta strong, .security-chart-meta small { display: block; }
 .security-chart-meta small { margin-top: 3px; color: var(--muted); font-size: .74rem; }
-.security-chart-meta a { padding: 8px 11px; color: white; text-decoration: none; background: var(--navy); border-radius: 999px; font-size: .72rem; font-weight: 900; white-space: nowrap; }
+.chart-link-row { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.chart-link-row a, .external-chart-actions a { padding: 8px 11px; color: white; text-decoration: none; background: var(--navy); border-radius: 999px; font-size: .72rem; font-weight: 900; white-space: nowrap; }
+.chart-link-row a:nth-child(2), .external-chart-actions a:nth-child(2) { color: var(--ink); background: var(--lime); }
+.chart-link-row a:nth-child(3), .external-chart-actions a:nth-child(3) { color: var(--ink); background: #dfe8ff; }
 .tradingview-widget-container { position: relative; height: 520px; overflow: hidden; background: #eef1ea; border-radius: 12px; }
 .tradingview-widget-container__widget { height: 100%; }
 .chart-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: 30px; text-align: center; color: var(--muted); line-height: 1.6; }
+.external-chart-card { display: grid; place-items: center; align-content: center; min-height: 100%; padding: clamp(26px, 5vw, 56px); text-align: center; background: linear-gradient(135deg, #eff4ee, #fffdf6); border: 1px dashed rgba(17,43,59,.25); border-radius: 12px; }
+.external-chart-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 18px; color: white; background: var(--navy); border-radius: 50%; font-size: 1.35rem; font-weight: 900; }
+.external-chart-card h4 { margin: 0 0 12px; font-size: 1.25rem; letter-spacing: -0.03em; }
+.external-chart-card p { max-width: 640px; margin: 0; color: var(--muted); line-height: 1.7; }
+.external-chart-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .concentration-card { padding: 28px; color: white; background: var(--ink); border-radius: 18px; }
 .concentration-card strong { display: block; margin: 14px 0; color: var(--lime); font: 700 3.8rem Georgia, serif; }
 .concentration-card p { color: #b9c7ca; line-height: 1.65; font-size: 0.88rem; }
