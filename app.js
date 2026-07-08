@@ -463,6 +463,8 @@ function renderMarketChart(container, item) {
     return;
   }
 
+  container.dataset.chartType = item.embed ? "tradingview" : "inline";
+
   if (item.embed) {
     renderTradingViewChart(container, item);
     return;
@@ -470,6 +472,7 @@ function renderMarketChart(container, item) {
 
   const history = marketHistory[item.yahooSymbol] || marketHistory[item.symbol];
   if (!history || !Array.isArray(history.points) || history.points.length < 2) {
+    container.dataset.chartType = "external";
     renderChartUnavailable(container, item);
     return;
   }

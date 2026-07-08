@@ -404,10 +404,11 @@ const KODEX_20260709 = {
   },
   securityCharts: {
     ...KODEX_20260708.securityCharts,
+    symbols: KODEX_20260707.holdings.map((item) => ({ ...item, embed: true })),
     description:
-      "상위 구성 종목별 실제 주가 흐름입니다. TradingView 외부 표시가 확인된 종목은 TradingView로, 제한되는 중국·홍콩 종목은 저장된 1년 일봉 자체 차트로 보여줍니다.",
+      "상위 구성 종목별 실제 주가 흐름입니다. TradingView 공식 심볼 페이지가 확인된 중국·홍콩 종목은 TradingView로 바로 보여주고, 제한이 생긴 종목은 저장된 1년 일봉 자체 차트로 되돌릴 수 있게 데이터를 보관합니다.",
     note:
-      "현재 상위 중국·홍콩 종목은 외부 위젯 표시 제한을 확인해 자체 차트를 사용합니다. 향후 정상 표시가 확인된 심볼은 종목별로 TradingView 방식으로 전환합니다."
+      "상위 10개 구성 종목의 TradingView 공식 심볼 페이지를 다시 확인해 최신 분석에서는 TradingView 차트를 기본으로 사용합니다. 자체 차트용 1년 일봉 데이터는 예비 경로로 유지합니다."
   },
   sources: [
     ...KODEX_20260708.sources,

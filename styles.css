@@ -193,7 +193,9 @@ main { width: min(1280px, 92vw); margin: 0 auto; }
 .chart-link-row a:nth-child(2), .external-chart-actions a:nth-child(2) { color: var(--ink); background: var(--lime); }
 .chart-link-row a:nth-child(3), .external-chart-actions a:nth-child(3) { color: var(--ink); background: #dfe8ff; }
 .market-chart-container { position: relative; min-height: 520px; overflow: hidden; background: #eef1ea; border-radius: 12px; }
-.tradingview-widget-container, .tradingview-widget-container__widget { width: 100%; height: 520px; }
+.market-chart-container[data-chart-type="tradingview"] { height: clamp(580px, 70vh, 760px); min-height: 580px; }
+.tradingview-widget-container, .tradingview-widget-container__widget { width: 100%; height: 100% !important; min-height: inherit; }
+.tradingview-widget-container iframe { display: block; width: 100% !important; height: 100% !important; border: 0; }
 .market-chart-card { min-height: 520px; padding: 18px; background: linear-gradient(135deg, #fffdf6, #eef4ef); border: 1px solid rgba(17,43,59,.08); border-radius: 12px; }
 .market-chart-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
 .market-chart-stats > div { padding: 14px; background: white; border: 1px solid var(--line); border-radius: 12px; }
@@ -456,6 +458,7 @@ footer { display: flex; justify-content: space-between; gap: 30px; padding: 26px
   .security-chart-shell { padding: 16px; }
   .security-chart-meta { align-items: flex-start; flex-direction: column; }
   .market-chart-container, .market-chart-card { min-height: 430px; }
+  .market-chart-container[data-chart-type="tradingview"] { height: 540px; min-height: 540px; }
   .market-chart-stats { grid-template-columns: 1fr; }
   .distribution-summary { grid-template-columns: 1fr 1fr; }
   .distribution-summary > div { min-height: 132px; padding: 16px; }
