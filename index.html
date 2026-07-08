@@ -52,15 +52,18 @@
             <h2>분석 리포트</h2>
           </div>
           <div class="catalog-tools">
-            <div class="market-filters" role="group" aria-label="상장 시장 구분">
-              <button class="market-filter active" data-market="all">전체</button>
-              <button class="market-filter" data-market="kr">국내상장</button>
-              <button class="market-filter" data-market="us">해외상장</button>
-            </div>
             <label class="search-box">
               <span aria-hidden="true">⌕</span>
               <input id="etf-search" type="search" placeholder="ETF명 또는 종목코드 검색" />
             </label>
+            <div class="filter-group" aria-label="상장 시장 구분">
+              <span>상장 시장</span>
+              <div class="market-filters" role="group">
+                <button class="market-filter active" data-market="all">전체</button>
+                <button class="market-filter" data-market="kr">국내</button>
+                <button class="market-filter" data-market="us">해외</button>
+              </div>
+            </div>
           </div>
         </div>
         <div id="etf-list" class="etf-list" aria-live="polite"></div>

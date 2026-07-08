@@ -13,15 +13,31 @@ function latestSnapshot(item) {
   return [...item.snapshots].sort((a, b) => b.researchDate.localeCompare(a.researchDate))[0];
 }
 
-function renderList(query = "") {
+function getFilteredAnalyses(query = "") {
   const needle = query.trim().toLowerCase();
-  const filtered = analyses.filter((item) => {
+  return analyses.filter((item) => {
     const matchesText = `${item.name} ${item.shortName || ""} ${item.id} ${item.category}`
       .toLowerCase()
       .includes(needle);
     const matchesMarket = selectedMarket === "all" || item.listingMarket === selectedMarket;
     return matchesText && matchesMarket;
   });
+}
+
+function syncSelectionToList(filtered) {
+  if (!filtered.length || filtered.some((item) => item.id === selectedId)) {
+    return false;
+  }
+
+  const first = filtered[0];
+  selectedId = first.id;
+  selectedResearchDate = latestSnapshot(first).researchDate;
+  return true;
+}
+
+function renderList(query = "") {
+  const filtered = getFilteredAnalyses(query);
+  const selectionChanged = syncSelectionToList(filtered);
 
   if (!filtered.length) {
     listElement.innerHTML = '<div class="empty-state">아직 등록되지 않은 ETF입니다. 분석할 이름을 알려주세요.</div>';
@@ -34,10 +50,12 @@ function renderList(query = "") {
       return `
         <button class="etf-card ${item.id === selectedId ? "active" : ""}" data-id="${item.id}">
           <span class="card-kicker"><span>${item.category}</span><i class="card-dot"></i></span>
-          <span class="listing-badge ${item.listingMarket}">${item.listingLabel}</span>
+          <span class="card-meta-row">
+            <span class="listing-badge ${item.listingMarket}">${item.listingLabel}</span>
+            <small class="archive-count">분석 기록 ${item.snapshots.length}회</small>
+          </span>
           <h3>${item.shortName || item.name}</h3>
           <p>${item.id} · 최근 분석 ${snapshot.researchDate}</p>
-          <small class="archive-count">분석 기록 ${item.snapshots.length}회</small>
         </button>`;
     })
     .join("");
@@ -51,6 +69,10 @@ function renderList(query = "") {
       reportElement.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
+
+  if (selectionChanged) {
+    renderReport(selectedId, selectedResearchDate);
+  }
 }
 
 function renderReport(id, researchDate) {
@@ -109,6 +131,12 @@ function renderReport(id, researchDate) {
       ? `${snapshot.composition.asOf} 기준. 버튼을 눌러 서로 다른 구성 차트를 볼 수 있습니다.`
       : `${snapshot.holdingsAsOf} 기준 당시 기록된 상위 종목입니다.`,
     renderComposition(snapshot)
+  );
+
+  addSection(
+    snapshot.securityCharts?.title || "구성 종목 주가 차트",
+    snapshot.securityCharts?.description || "상위 구성 종목을 누르면 실제 편입 주식의 주가 차트를 볼 수 있습니다.",
+    renderSecurityCharts(snapshot)
   );
 
   addSection(
@@ -223,6 +251,46 @@ function renderComposition(snapshot) {
   </div>`;
 }
 
+function renderSecurityCharts(snapshot) {
+  const chartConfig = snapshot.securityCharts || {};
+  const chartItems = chartConfig.symbols || (snapshot.holdings || []).filter((holding) => holding.chartSymbol);
+
+  if (!chartItems.length) {
+    return `<div class="archive-warning"><strong>차트 연결 정보 없음</strong><p>이 날짜의 분석에는 TradingView에 연결할 구성 종목 티커가 아직 기록되지 않았습니다.</p></div>`;
+  }
+
+  const first = chartItems[0];
+  return `<div class="security-chart-shell" data-security-chart>
+    <div class="security-chart-copy">
+      <strong>${chartConfig.asOf ? `${chartConfig.asOf} 기준` : "현재 기록 기준"}</strong>
+      <p>왼쪽 종목을 누르면 오른쪽 차트가 해당 종목으로 바뀝니다. 비중 차트가 아니라 실제 편입 주식/참고 지표의 가격 차트입니다.</p>
+    </div>
+    <div class="security-chart-layout">
+      <div class="security-list" role="group" aria-label="차트 종목 선택">
+        ${chartItems
+          .map(
+            (item, index) => `
+              <button class="security-item ${index === 0 ? "active" : ""}" data-symbol="${escapeAttr(item.chartSymbol)}" data-name="${escapeAttr(item.name)}" data-ticker="${escapeAttr(item.exchange ? `${item.exchange}:${item.ticker}` : item.ticker)}" aria-pressed="${index === 0 ? "true" : "false"}">
+                <span><b>${item.name}</b><small>${item.role || ""}</small></span>
+                <em>${item.weight ? `${item.weight.toFixed(2)}%` : item.ticker}</em>
+              </button>`
+          )
+          .join("")}
+      </div>
+      <div class="security-chart-area">
+        <div class="security-chart-meta">
+          <span><strong data-chart-name>${first.name}</strong><small data-chart-symbol>${first.exchange ? `${first.exchange}:${first.ticker}` : first.ticker}</small></span>
+          <a data-chart-link href="${tradingViewLink(first.chartSymbol)}" target="_blank" rel="noreferrer">TradingView에서 크게 보기</a>
+        </div>
+        <div class="tradingview-widget-container" data-tv-widget data-tv-symbol="${escapeAttr(first.chartSymbol)}">
+          <div class="chart-fallback">차트를 불러오는 중입니다. 인터넷 연결이나 TradingView 제공 범위에 따라 표시가 늦을 수 있습니다.</div>
+        </div>
+      </div>
+    </div>
+    <p class="data-note">${chartConfig.note || "차트는 외부 TradingView 위젯으로 표시됩니다. 실시간성, 지연 시세, 거래소 제공 범위는 TradingView 정책을 따릅니다."}</p>
+  </div>`;
+}
+
 function renderBars(items) {
   const max = Math.max(...items.map((item) => item.value), 1);
   return `<div class="composition-bars">${items
@@ -274,6 +342,7 @@ function bindReportInteractions(item) {
   reportElement.querySelectorAll(".history-date").forEach((button) => {
     button.addEventListener("click", () => renderReport(item.id, button.dataset.date));
   });
+
   reportElement.querySelectorAll(".chart-tab").forEach((button) => {
     button.addEventListener("click", () => {
       const shell = button.closest(".chart-shell");
@@ -281,6 +350,56 @@ function bindReportInteractions(item) {
       shell.querySelectorAll(".chart-panel").forEach((panel) => panel.classList.toggle("active", panel.dataset.chartPanel === button.dataset.chartView));
     });
   });
+
+  reportElement.querySelectorAll("[data-security-chart]").forEach((shell) => {
+    const buttons = Array.from(shell.querySelectorAll(".security-item"));
+    const container = shell.querySelector("[data-tv-widget]");
+    const nameElement = shell.querySelector("[data-chart-name]");
+    const symbolElement = shell.querySelector("[data-chart-symbol]");
+    const linkElement = shell.querySelector("[data-chart-link]");
+
+    const activate = (button) => {
+      buttons.forEach((item) => {
+        const isActive = item === button;
+        item.classList.toggle("active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+      });
+      nameElement.textContent = button.dataset.name;
+      symbolElement.textContent = button.dataset.ticker;
+      linkElement.href = tradingViewLink(button.dataset.symbol);
+      mountTradingViewChart(container, button.dataset.symbol);
+    };
+
+    buttons.forEach((button) => button.addEventListener("click", () => activate(button)));
+    if (buttons[0]) {
+      activate(buttons[0]);
+    }
+  });
+}
+
+function mountTradingViewChart(container, symbol) {
+  if (!container || !symbol) {
+    return;
+  }
+
+  container.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+  script.async = true;
+  script.innerHTML = JSON.stringify({
+    autosize: true,
+    symbol,
+    interval: "D",
+    timezone: "Asia/Seoul",
+    theme: "light",
+    style: "1",
+    locale: "kr",
+    allow_symbol_change: false,
+    calendar: false,
+    support_host: "https://www.tradingview.com"
+  });
+  container.appendChild(script);
 }
 
 function formatMoney(value, currency) {
@@ -289,6 +408,20 @@ function formatMoney(value, currency) {
 
 function formatDistribution(value, currency) {
   return currency === "$" ? `$${value.toFixed(6)}` : `${numberFormat.format(value)}${currency}`;
+}
+
+function tradingViewLink(symbol) {
+  return `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(symbol)}`;
+}
+
+function escapeAttr(value) {
+  return String(value || "").replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[character]);
 }
 
 function chartColor(index) {
