@@ -356,6 +356,125 @@ const TLT_20260708 = {
   ]
 };
 
+const KODEX_20260709 = {
+  ...KODEX_20260708,
+  researchDate: "2026-07-09",
+  archiveNote: "비교·변경점·혼합차트",
+  dataAsOf: "2026-07-03",
+  changeLog: {
+    previousDate: "2026-07-08",
+    summary: "상품 판단에 바로 쓰는 비교표와 차트 제공 방식을 보강했습니다.",
+    items: [
+      { type: "new", label: "동종 ETF 비교", detail: "TIGER 차이나휴머노이드로봇과 보수·규칙·집중도·환노출을 나란히 비교" },
+      { type: "new", label: "거래 품질", detail: "괴리율·거래량·추적오차를 별도 판단 항목으로 추가" },
+      { type: "chart", label: "차트 방식 구분", detail: "외부 임베드가 제한되는 중국 종목은 저장된 1년 일봉 자체 차트 유지" },
+      { type: "same", label: "투자 가설", detail: "중국 휴머노이드 부품 밸류체인에 집중된 고변동성 테마라는 핵심 판단은 유지" }
+    ]
+  },
+  peerComparison: {
+    title: "중국 휴머노이드 ETF 구조 비교",
+    asOf: "KODEX 2026-06~07, TIGER 2025-07 공식 자료 기준",
+    note: "두 상품의 수치 기준일이 다릅니다. 최신 거래량·괴리율은 주문 직전에 각 운용사와 거래소에서 다시 확인해야 합니다.",
+    products: [
+      { key: "kodex", name: "KODEX 차이나휴머노이드로봇", ticker: "0048K0", featured: true },
+      { key: "tiger", name: "TIGER 차이나휴머노이드로봇", ticker: "0053L0", featured: false }
+    ],
+    rows: [
+      { label: "투자 범위", values: { kodex: "중국·홍콩 20종목", tiger: "중국 본토·홍콩 종목" } },
+      { label: "총보수", values: { kodex: "연 0.45%", tiger: "연 0.49%" }, winner: "kodex" },
+      { label: "순자산", values: { kodex: "2,102억원 (06.22)", tiger: "416억원 (2025.07.31)" } },
+      { label: "거래 유동성", values: { kodex: "58.7만주 (07.03)", tiger: "최신 거래량 확인 필요" } },
+      { label: "괴리·스프레드", values: { kodex: "괴리 약 -0.28% (07.03)", tiger: "주문 전 iNAV·호가 확인" } },
+      { label: "추적 품질", values: { kodex: "트래킹에러 1.51% (06.12)", tiger: "최신 공식 수치 확인 필요" } },
+      { label: "분배", values: { kodex: "분기 · 최근 4회 68원", tiger: "분기 기준일" } },
+      { label: "상위 10종목", values: { kodex: "약 64.5%", tiger: "약 73.2% (2025.07.31)" }, winner: "kodex" },
+      { label: "환율 노출", values: { kodex: "환헤지 없음", tiger: "해외주식 환노출" } },
+      { label: "위험 특성", values: { kodex: "변동성 33.81% · 최대낙폭 -44.75%*", tiger: "설정 초기라 장기 비교 제한" } },
+      { label: "어울리는 목적", values: { kodex: "부품·모션제어 비중을 포함한 규칙형 노출", tiger: "별도 지수 규칙의 중국 휴머노이드 노출" } }
+    ],
+    takeaways: [
+      "보수와 상위 종목 집중도만 보면 KODEX가 상대적으로 낮지만, 지수 규칙과 실제 편입 차이가 수익률을 더 크게 가를 수 있습니다.",
+      "두 ETF 모두 중국·홍콩 주식과 환율에 동시에 노출되므로 이름이 비슷해도 구성 종목 중복률을 확인해야 합니다.",
+      "테마형 ETF는 보수 차이보다 매수 시점의 괴리율·호가 스프레드와 리밸런싱 이후 구성 변화가 더 중요할 수 있습니다."
+    ],
+    sources: [
+      { label: "KODEX 공식", url: "https://www.samsungfund.com/etf/product/view.do?id=2ETFR1" },
+      { label: "TIGER 공식 월간자료", url: "https://investments.miraeasset.com/tigeretf/upload/etf/20250804095125003314.pdf" }
+    ]
+  },
+  securityCharts: {
+    ...KODEX_20260708.securityCharts,
+    description:
+      "상위 구성 종목별 실제 주가 흐름입니다. TradingView 외부 표시가 확인된 종목은 TradingView로, 제한되는 중국·홍콩 종목은 저장된 1년 일봉 자체 차트로 보여줍니다.",
+    note:
+      "현재 상위 중국·홍콩 종목은 외부 위젯 표시 제한을 확인해 자체 차트를 사용합니다. 향후 정상 표시가 확인된 심볼은 종목별로 TradingView 방식으로 전환합니다."
+  },
+  sources: [
+    ...KODEX_20260708.sources,
+    { label: "TIGER 비교 공식 월간자료", detail: "비교 ETF의 보수·구성·순자산", url: "https://investments.miraeasset.com/tigeretf/upload/etf/20250804095125003314.pdf" }
+  ]
+};
+
+const TLT_20260709 = {
+  ...TLT_20260708,
+  researchDate: "2026-07-09",
+  archiveNote: "비교·변경점·혼합차트",
+  changeLog: {
+    previousDate: "2026-07-08",
+    summary: "장기국채 ETF 안에서도 듀레이션과 비용이 어떻게 다른지 비교할 수 있게 보강했습니다.",
+    items: [
+      { type: "new", label: "대안 ETF 비교", detail: "TLT·VGLT·EDV의 보수, 듀레이션, SEC 수익률, 스프레드를 비교" },
+      { type: "chart", label: "차트 방식 구분", detail: "TLT 가격은 TradingView, 외부 표시가 제한되는 10년·30년 금리는 자체 차트 사용" },
+      { type: "same", label: "핵심 위험", detail: "미국 신용위험보다 장기금리와 달러 변동에 집중된다는 판단은 유지" }
+    ]
+  },
+  peerComparison: {
+    title: "미국 장기국채 ETF 비교",
+    asOf: "2026-05~07 각 운용사 공식 자료 기준",
+    note: "수익률과 듀레이션 기준일은 상품마다 조금씩 다릅니다. EDV는 STRIPS 중심이라 금리 민감도가 특히 큽니다.",
+    products: [
+      { key: "tlt", name: "iShares TLT", ticker: "TLT", featured: true },
+      { key: "vglt", name: "Vanguard VGLT", ticker: "VGLT", featured: false },
+      { key: "edv", name: "Vanguard EDV", ticker: "EDV", featured: false }
+    ],
+    rows: [
+      { label: "핵심 노출", values: { tlt: "20년 초과 미국 국채", vglt: "장기 미국 국채", edv: "장기 STRIPS" } },
+      { label: "총보수", values: { tlt: "0.15%", vglt: "0.03%", edv: "0.05%" }, winner: "vglt" },
+      { label: "순자산", values: { tlt: "$417.5억 (07.02)", vglt: "공식 페이지 확인", edv: "$43억 (05.31)" } },
+      { label: "평균 거래량", values: { tlt: "2,538만주 (07.02)", vglt: "상대적으로 작음", edv: "상대적으로 작음" }, winner: "tlt" },
+      { label: "중간 호가 스프레드", values: { tlt: "0.01%", vglt: "0.02%", edv: "0.02%" }, winner: "tlt" },
+      { label: "유효·평균 듀레이션", values: { tlt: "15.31년", vglt: "13.8년", edv: "24.1년" } },
+      { label: "30일 SEC 수익률", values: { tlt: "4.95%", vglt: "5.00%", edv: "5.18%" } },
+      { label: "분배", values: { tlt: "월분배", vglt: "운용사 일정 확인", edv: "운용사 일정 확인" } },
+      { label: "집중 위험", values: { tlt: "미 장기금리", vglt: "미 장기금리", edv: "미 초장기금리·STRIPS" } },
+      { label: "원화 투자자", values: { tlt: "USD 환노출", vglt: "USD 환노출", edv: "USD 환노출" } },
+      { label: "어울리는 목적", values: { tlt: "유동성·대표성", vglt: "낮은 보수·조금 짧은 듀레이션", edv: "강한 금리 하락 베팅" } }
+    ],
+    takeaways: [
+      "TLT는 보수가 가장 낮지는 않지만 거래량과 스프레드가 압도적으로 좋아 매매 편의성이 강점입니다.",
+      "VGLT는 더 낮은 비용과 조금 짧은 듀레이션, EDV는 훨씬 긴 듀레이션이라는 차이가 핵심입니다.",
+      "SEC 수익률이 조금 높다는 이유만으로 EDV를 고르면 금리 상승 시 가격 충격이 훨씬 커질 수 있습니다."
+    ],
+    sources: [
+      { label: "iShares TLT", url: "https://www.ishares.com/us/products/239454/ishares-20-year-treasury-bond-etf" },
+      { label: "Vanguard VGLT", url: "https://advisors.vanguard.com/investments/products/vglt/vanguard-long-term-treasury-etf.html" },
+      { label: "Vanguard EDV", url: "https://advisors.vanguard.com/investments/products/edv/vanguard-extended-duration-treasury-etf" }
+    ]
+  },
+  securityCharts: {
+    ...TLT_20260708.securityCharts,
+    description:
+      "TLT 가격은 TradingView 차트로, 외부 위젯에서 제한되는 미국 10년·30년 국채금리는 저장된 1년 일봉 자체 차트로 보여줍니다.",
+    note:
+      "종목별 표시 가능 여부를 따로 저장합니다. TLT는 TradingView, 미국 국채금리 심볼은 자체 차트를 사용합니다."
+  },
+  sources: [
+    ...TLT_20260708.sources,
+    { label: "Vanguard VGLT 공식", detail: "비교 ETF 보수·듀레이션·SEC 수익률", url: "https://advisors.vanguard.com/investments/products/vglt/vanguard-long-term-treasury-etf.html" },
+    { label: "Vanguard EDV 공식", detail: "STRIPS ETF 보수·듀레이션·SEC 수익률", url: "https://advisors.vanguard.com/investments/products/edv/vanguard-extended-duration-treasury-etf" }
+  ]
+};
+
 window.ETF_ANALYSES = [
   {
     id: "0048K0",
@@ -364,7 +483,7 @@ window.ETF_ANALYSES = [
     listingMarket: "kr",
     listingLabel: "국내상장 ETF",
     tradingCurrency: "KRW",
-    snapshots: [KODEX_20260708, KODEX_20260707]
+    snapshots: [KODEX_20260709, KODEX_20260708, KODEX_20260707]
   },
   {
     id: "TLT",
@@ -374,6 +493,6 @@ window.ETF_ANALYSES = [
     listingMarket: "us",
     listingLabel: "해외상장 ETF",
     tradingCurrency: "USD",
-    snapshots: [TLT_20260708]
+    snapshots: [TLT_20260709, TLT_20260708]
   }
 ];

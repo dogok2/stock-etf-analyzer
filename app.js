@@ -85,6 +85,8 @@ function renderReport(id, researchDate) {
 
   const orderedSnapshots = [...item.snapshots].sort((a, b) => b.researchDate.localeCompare(a.researchDate));
   const snapshot = orderedSnapshots.find((entry) => entry.researchDate === researchDate) || orderedSnapshots[0];
+  const snapshotIndex = orderedSnapshots.findIndex((entry) => entry.researchDate === snapshot.researchDate);
+  const previousSnapshot = snapshotIndex >= 0 ? orderedSnapshots[snapshotIndex + 1] : null;
   selectedResearchDate = snapshot.researchDate;
 
   const quoteDirection = snapshot.quote.changePct == null ? "flat" : snapshot.quote.changePct >= 0 ? "up" : "down";
@@ -98,12 +100,28 @@ function renderReport(id, researchDate) {
   };
 
   addSection(
+    "직전 분석 이후 변경",
+    previousSnapshot
+      ? `${previousSnapshot.researchDate} 기록과 비교해 새로 확인했거나 유지한 판단입니다.`
+      : "이 날짜는 해당 ETF의 첫 분석 기록입니다.",
+    renderSnapshotChanges(snapshot, previousSnapshot)
+  );
+
+  addSection(
     "상품의 정체",
     "먼저 무엇을 사고 있는 ETF인지 구조부터 확인합니다.",
     `<div class="fact-grid">${snapshot.facts
       .map((fact) => `<div class="fact"><small>${fact.label}</small><strong>${fact.value}</strong></div>`)
       .join("")}</div>`
   );
+
+  if (snapshot.peerComparison) {
+    addSection(
+      "비슷한 ETF와 비교",
+      "보수 하나만 보지 않고 구조·거래 품질·위험·분배를 같은 표에서 비교합니다.",
+      renderPeerComparison(snapshot.peerComparison)
+    );
+  }
 
   addSection(
     "분석 레이더",
@@ -273,14 +291,14 @@ function renderSecurityCharts(snapshot) {
             (item, index) => `
               <button class="security-item ${index === 0 ? "active" : ""}" data-symbol="${escapeAttr(item.chartSymbol)}" data-name="${escapeAttr(item.name)}" data-ticker="${escapeAttr(item.exchange ? `${item.exchange}:${item.ticker}` : item.ticker)}" data-yahoo="${escapeAttr(item.yahooSymbol || "")}" data-fred="${escapeAttr(item.fredSymbol || "")}" data-embed="${item.embed === false ? "false" : "true"}" aria-pressed="${index === 0 ? "true" : "false"}">
                 <span><b>${item.name}</b><small>${item.role || ""}</small></span>
-                <em>${item.weight ? `${item.weight.toFixed(2)}%` : item.ticker}</em>
+                <span class="security-item-side"><em>${item.weight ? `${item.weight.toFixed(2)}%` : item.ticker}</em><small class="chart-mode ${item.embed === false ? "inline" : "tv"}">${item.embed === false ? "자체 차트" : "TradingView"}</small></span>
               </button>`
           )
           .join("")}
       </div>
       <div class="security-chart-area">
         <div class="security-chart-meta">
-          <span><strong data-chart-name>${first.name}</strong><small data-chart-symbol>${first.exchange ? `${first.exchange}:${first.ticker}` : first.ticker}</small></span>
+          <span><strong data-chart-name>${first.name}</strong><small data-chart-symbol>${first.exchange ? `${first.exchange}:${first.ticker}` : first.ticker}</small><small class="chart-provider" data-chart-provider>${first.embed === false ? "저장된 1년 일봉" : "TradingView 실시간 차트"}</small></span>
           <div class="chart-link-row">
             <a data-chart-link href="${tradingViewLink(first.chartSymbol)}" target="_blank" rel="noreferrer">TradingView</a>
             <a data-yahoo-link href="${yahooFinanceLink(first.yahooSymbol)}" target="_blank" rel="noreferrer" ${first.yahooSymbol ? "" : "hidden"}>Yahoo Finance</a>
@@ -343,6 +361,41 @@ function renderDistribution(distribution) {
     <p class="tax-callout"><strong>세금 메모</strong>${distribution.tax}</p>`;
 }
 
+function renderSnapshotChanges(snapshot, previousSnapshot) {
+  if (snapshot.changeLog?.items?.length) {
+    return `<div class="change-summary">
+      <div class="change-summary-lead"><span>${snapshot.changeLog.previousDate || previousSnapshot?.researchDate || "첫 기록"} → ${snapshot.researchDate}</span><strong>${snapshot.changeLog.summary}</strong></div>
+      <div class="change-grid">${snapshot.changeLog.items.map((item) => `<div class="change-card ${item.type || "same"}"><small>${changeTypeLabel(item.type)}</small><strong>${item.label}</strong><p>${item.detail}</p></div>`).join("")}</div>
+    </div>`;
+  }
+
+  if (!previousSnapshot) {
+    return `<div class="archive-warning"><strong>첫 분석 기록</strong><p>다음 업데이트부터 가격·구성·배당·점수·핵심 판단의 변화를 이 영역에서 비교합니다.</p></div>`;
+  }
+
+  const priceChange = snapshot.quote?.price && previousSnapshot.quote?.price
+    ? ((snapshot.quote.price - previousSnapshot.quote.price) / previousSnapshot.quote.price) * 100
+    : null;
+  return `<div class="change-grid"><div class="change-card same"><small>자동 비교</small><strong>${priceChange == null ? "가격 비교 자료 없음" : `가격 ${priceChange >= 0 ? "+" : ""}${priceChange.toFixed(2)}%`}</strong><p>별도 변경 메모가 없는 과거 기록입니다. 원문 수치와 판단은 해당 날짜 상태 그대로 보존됩니다.</p></div></div>`;
+}
+
+function changeTypeLabel(type) {
+  return ({ new: "새로 추가", chart: "차트 변경", up: "개선", down: "악화", same: "판단 유지" })[type] || "변경 확인";
+}
+
+function renderPeerComparison(comparison) {
+  const products = comparison.products || [];
+  return `<div class="peer-comparison">
+    <div class="peer-comparison-head"><div><p class="eyebrow">DECISION TABLE</p><h4>${comparison.title}</h4></div><span>${comparison.asOf}</span></div>
+    <div class="comparison-table-wrap"><table class="comparison-table">
+      <thead><tr><th>비교 항목</th>${products.map((product) => `<th class="${product.featured ? "featured" : ""}"><strong>${product.name}</strong><small>${product.ticker}${product.featured ? " · 현재 분석" : ""}</small></th>`).join("")}</tr></thead>
+      <tbody>${(comparison.rows || []).map((row) => `<tr><th>${row.label}</th>${products.map((product) => `<td class="${row.winner === product.key ? "best" : ""}">${row.values?.[product.key] || "—"}${row.winner === product.key ? "<small>비교 우위</small>" : ""}</td>`).join("")}</tr>`).join("")}</tbody>
+    </table></div>
+    <div class="comparison-takeaways">${(comparison.takeaways || []).map((text, index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><p>${text}</p></div>`).join("")}</div>
+    <div class="comparison-foot"><p>${comparison.note}</p><div>${(comparison.sources || []).map((source) => `<a href="${source.url}" target="_blank" rel="noreferrer">${source.label} ↗</a>`).join("")}</div></div>
+  </div>`;
+}
+
 function bindReportInteractions(item) {
   reportElement.querySelectorAll(".history-date").forEach((button) => {
     button.addEventListener("click", () => renderReport(item.id, button.dataset.date));
@@ -364,6 +417,7 @@ function bindReportInteractions(item) {
     const linkElement = shell.querySelector("[data-chart-link]");
     const yahooLinkElement = shell.querySelector("[data-yahoo-link]");
     const fredLinkElement = shell.querySelector("[data-fred-link]");
+    const providerElement = shell.querySelector("[data-chart-provider]");
 
     const activate = (button) => {
       buttons.forEach((item) => {
@@ -376,12 +430,14 @@ function bindReportInteractions(item) {
       linkElement.href = tradingViewLink(button.dataset.symbol);
       updateOptionalLink(yahooLinkElement, yahooFinanceLink(button.dataset.yahoo), Boolean(button.dataset.yahoo));
       updateOptionalLink(fredLinkElement, fredLink(button.dataset.fred), Boolean(button.dataset.fred));
+      providerElement.textContent = button.dataset.embed === "true" ? "TradingView 실시간 차트" : "저장된 1년 일봉";
       renderMarketChart(container, {
         name: button.dataset.name,
         ticker: button.dataset.ticker,
         symbol: button.dataset.symbol,
         yahooSymbol: button.dataset.yahoo,
-        fredSymbol: button.dataset.fred
+        fredSymbol: button.dataset.fred,
+        embed: button.dataset.embed === "true"
       });
     };
 
@@ -404,6 +460,11 @@ function updateOptionalLink(linkElement, href, isVisible) {
 
 function renderMarketChart(container, item) {
   if (!container) {
+    return;
+  }
+
+  if (item.embed) {
+    renderTradingViewChart(container, item);
     return;
   }
 
@@ -467,6 +528,37 @@ function renderMarketChart(container, item) {
     </svg>
     <p class="market-chart-note">저장된 최근 1년 일봉 데이터로 그린 차트입니다.${unit ? ` 단위: ${unit}.` : ""} 외부 링크는 보조 확인용입니다.</p>
   </div>`;
+}
+
+function renderTradingViewChart(container, item) {
+  container.innerHTML = `<div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div></div>`;
+  const widget = container.querySelector(".tradingview-widget-container");
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+  script.async = true;
+  script.textContent = JSON.stringify({
+    autosize: true,
+    symbol: item.symbol,
+    interval: "D",
+    timezone: "Asia/Seoul",
+    theme: "light",
+    style: "1",
+    locale: "kr",
+    allow_symbol_change: false,
+    calendar: false,
+    details: false,
+    hide_side_toolbar: true,
+    hide_top_toolbar: false,
+    hide_legend: false,
+    hide_volume: false,
+    save_image: false,
+    withdateranges: true,
+    range: "12M",
+    backgroundColor: "#fffdf6",
+    gridColor: "rgba(17, 43, 59, 0.08)"
+  });
+  widget.appendChild(script);
 }
 
 function renderChartUnavailable(container, item) {
