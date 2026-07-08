@@ -150,7 +150,7 @@ const KODEX_20260708 = {
       "상위 구성 종목을 누르면 해당 중국·홍콩 상장사의 TradingView 차트를 바로 띄웁니다. ETF 비중표와 별개로, 실제 편입 주식의 주가 흐름을 보는 영역입니다.",
     asOf: "2026-05-27",
     note:
-      "중국 A주와 일부 홍콩주는 TradingView 본 사이트에서는 검색되더라도 외부 위젯 임베드가 제한될 수 있습니다. 그래서 페이지 안에서는 제한 메시지 대신 TradingView·Yahoo Finance 외부 차트 버튼으로 연결합니다."
+      "중국 A주와 일부 홍콩주는 TradingView 외부 위젯 임베드가 제한될 수 있어, 저장된 1년 일봉 데이터를 사용해 페이지 안에서 직접 선차트로 표시합니다."
   },
   distribution: {
     frequency: "분기",
@@ -270,7 +270,7 @@ const TLT_20260708 = {
       "TLT는 구성 자산이 개별 주식이 아니라 미국 장기국채입니다. 그래서 구성 종목 주가 차트 대신 TLT 가격, 미국 10년물·30년물 금리 차트를 함께 보여줍니다.",
     asOf: "2026-07-08",
     note:
-      "국채 ETF는 편입 채권 각각의 주식형 차트보다 금리 방향과 ETF 가격의 반대 움직임을 같이 보는 편이 실전적으로 유용합니다.",
+      "국채 ETF는 편입 채권 각각보다 금리 방향과 ETF 가격의 반대 움직임을 같이 보는 편이 실전적으로 유용합니다. 페이지 안에서는 저장된 1년 일봉 데이터로 직접 차트를 그립니다.",
     symbols: [
       { name: "TLT", ticker: "TLT", exchange: "NASDAQ", chartSymbol: "NASDAQ:TLT", yahooSymbol: "TLT", embed: true, role: "ETF 가격", weight: 100 },
       { name: "미국 10년 국채금리", ticker: "US10Y", exchange: "TVC", chartSymbol: "TVC:US10Y", yahooSymbol: "^TNX", fredSymbol: "DGS10", embed: false, role: "중장기 금리 참고", weight: 0 },

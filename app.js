@@ -1,4 +1,5 @@
 const analyses = window.ETF_ANALYSES || [];
+const marketHistory = window.MARKET_HISTORY?.series || {};
 const listElement = document.querySelector("#etf-list");
 const reportElement = document.querySelector("#etf-report");
 const searchElement = document.querySelector("#etf-search");
@@ -128,7 +129,7 @@ function renderReport(id, researchDate) {
   addSection(
     "구성은 어떻게 생겼나",
     snapshot.composition
-      ? `${snapshot.composition.asOf} 기준. 버튼을 눌러 서로 다른 구성 차트를 볼 수 있습니다.`
+      ? "상위 종목과 역할별 노출을 나눠서 봅니다."
       : `${snapshot.holdingsAsOf} 기준 당시 기록된 상위 종목입니다.`,
     renderComposition(snapshot)
   );
@@ -262,8 +263,8 @@ function renderSecurityCharts(snapshot) {
   const first = chartItems[0];
   return `<div class="security-chart-shell" data-security-chart>
     <div class="security-chart-copy">
-      <strong>${chartConfig.asOf ? `${chartConfig.asOf} 기준` : "현재 기록 기준"}</strong>
-      <p>왼쪽 종목을 누르면 오른쪽 영역이 해당 종목으로 바뀝니다. 임베드가 허용되는 심볼은 내부 차트로, 제한 심볼은 외부 차트 버튼으로 연결합니다.</p>
+      <strong>1년 가격 흐름</strong>
+      <p>왼쪽 종목을 누르면 오른쪽 차트가 해당 종목으로 바뀝니다. 외부 위젯 제한과 관계없이 저장된 가격 데이터를 사용해 페이지 안에서 직접 그립니다.</p>
     </div>
     <div class="security-chart-layout">
       <div class="security-list" role="group" aria-label="차트 종목 선택">
@@ -286,7 +287,7 @@ function renderSecurityCharts(snapshot) {
             <a data-fred-link href="${fredLink(first.fredSymbol)}" target="_blank" rel="noreferrer" ${first.fredSymbol ? "" : "hidden"}>FRED</a>
           </div>
         </div>
-        <div class="tradingview-widget-container" data-tv-widget data-tv-symbol="${escapeAttr(first.chartSymbol)}">
+        <div class="market-chart-container" data-market-chart data-tv-symbol="${escapeAttr(first.chartSymbol)}">
           <div class="chart-fallback">차트를 준비하는 중입니다.</div>
         </div>
       </div>
@@ -357,7 +358,7 @@ function bindReportInteractions(item) {
 
   reportElement.querySelectorAll("[data-security-chart]").forEach((shell) => {
     const buttons = Array.from(shell.querySelectorAll(".security-item"));
-    const container = shell.querySelector("[data-tv-widget]");
+    const container = shell.querySelector("[data-market-chart]");
     const nameElement = shell.querySelector("[data-chart-name]");
     const symbolElement = shell.querySelector("[data-chart-symbol]");
     const linkElement = shell.querySelector("[data-chart-link]");
@@ -375,19 +376,13 @@ function bindReportInteractions(item) {
       linkElement.href = tradingViewLink(button.dataset.symbol);
       updateOptionalLink(yahooLinkElement, yahooFinanceLink(button.dataset.yahoo), Boolean(button.dataset.yahoo));
       updateOptionalLink(fredLinkElement, fredLink(button.dataset.fred), Boolean(button.dataset.fred));
-
-      if (button.dataset.embed === "false") {
-        renderExternalChartFallback(container, {
-          name: button.dataset.name,
-          ticker: button.dataset.ticker,
-          symbol: button.dataset.symbol,
-          yahooSymbol: button.dataset.yahoo,
-          fredSymbol: button.dataset.fred
-        });
-        return;
-      }
-
-      mountTradingViewChart(container, button.dataset.symbol);
+      renderMarketChart(container, {
+        name: button.dataset.name,
+        ticker: button.dataset.ticker,
+        symbol: button.dataset.symbol,
+        yahooSymbol: button.dataset.yahoo,
+        fredSymbol: button.dataset.fred
+      });
     };
 
     buttons.forEach((button) => button.addEventListener("click", () => activate(button)));
@@ -407,11 +402,74 @@ function updateOptionalLink(linkElement, href, isVisible) {
   }
 }
 
-function renderExternalChartFallback(container, item) {
+function renderMarketChart(container, item) {
   if (!container) {
     return;
   }
 
+  const history = marketHistory[item.yahooSymbol] || marketHistory[item.symbol];
+  if (!history || !Array.isArray(history.points) || history.points.length < 2) {
+    renderChartUnavailable(container, item);
+    return;
+  }
+
+  const points = history.points
+    .map(([date, value]) => ({ date, value: Number(value) }))
+    .filter((point) => Number.isFinite(point.value));
+  const values = points.map((point) => point.value);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const padding = Math.max((max - min) * 0.08, Math.abs(max) * 0.01, 0.01);
+  const low = min - padding;
+  const high = max + padding;
+  const width = 760;
+  const height = 340;
+  const left = 48;
+  const right = 24;
+  const top = 26;
+  const bottom = 42;
+  const chartWidth = width - left - right;
+  const chartHeight = height - top - bottom;
+  const xFor = (index) => left + (chartWidth * index) / Math.max(points.length - 1, 1);
+  const yFor = (value) => top + chartHeight - ((value - low) / (high - low)) * chartHeight;
+  const path = points.map((point, index) => `${index === 0 ? "M" : "L"}${xFor(index).toFixed(2)},${yFor(point.value).toFixed(2)}`).join(" ");
+  const areaPath = `${path} L${xFor(points.length - 1).toFixed(2)},${height - bottom} L${left},${height - bottom} Z`;
+  const first = points[0];
+  const latest = points[points.length - 1];
+  const change = ((latest.value - first.value) / first.value) * 100;
+  const mid = points[Math.floor(points.length / 2)];
+  const gridValues = [high - padding, (high + low) / 2, low + padding];
+  const unit = history.kind === "rate" ? "%" : history.currency;
+  const gradientId = `chartFill-${safeId(item.yahooSymbol || item.symbol)}`;
+
+  container.innerHTML = `<div class="market-chart-card">
+    <div class="market-chart-stats">
+      <div><small>최근값</small><strong>${formatChartValue(latest.value, history)}</strong></div>
+      <div><small>1년 변화</small><strong class="${change < 0 ? "negative" : "positive"}">${change >= 0 ? "+" : ""}${change.toFixed(2)}%</strong></div>
+      <div><small>고점 / 저점</small><strong>${formatChartValue(max, history)} / ${formatChartValue(min, history)}</strong></div>
+    </div>
+    <svg class="line-chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeAttr(item.name)} 1년 가격 흐름">
+      <defs>
+        <linearGradient id="${gradientId}" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#69b79c" stop-opacity="0.34" />
+          <stop offset="100%" stop-color="#69b79c" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      ${gridValues.map((value) => `<g class="chart-grid"><line x1="${left}" x2="${width - right}" y1="${yFor(value).toFixed(2)}" y2="${yFor(value).toFixed(2)}"></line><text x="8" y="${(yFor(value) + 4).toFixed(2)}">${formatAxisValue(value, history)}</text></g>`).join("")}
+      <path class="line-chart-area" d="${areaPath}" fill="url(#${gradientId})"></path>
+      <path class="line-chart-path ${change < 0 ? "down" : "up"}" d="${path}"></path>
+      <circle class="line-chart-dot" cx="${xFor(points.length - 1).toFixed(2)}" cy="${yFor(latest.value).toFixed(2)}" r="4"></circle>
+      <g class="chart-dates">
+        <text x="${left}" y="${height - 10}">${first.date.slice(5)}</text>
+        <text x="${xFor(Math.floor(points.length / 2)).toFixed(2)}" y="${height - 10}" text-anchor="middle">${mid.date.slice(5)}</text>
+        <text x="${width - right}" y="${height - 10}" text-anchor="end">${latest.date.slice(5)}</text>
+      </g>
+    </svg>
+    <p class="market-chart-note">저장된 최근 1년 일봉 데이터로 그린 차트입니다.${unit ? ` 단위: ${unit}.` : ""} 외부 링크는 보조 확인용입니다.</p>
+  </div>`;
+}
+
+function renderChartUnavailable(container, item) {
   const yahooButton = item.yahooSymbol
     ? `<a href="${yahooFinanceLink(item.yahooSymbol)}" target="_blank" rel="noreferrer">Yahoo Finance 차트</a>`
     : "";
@@ -422,7 +480,7 @@ function renderExternalChartFallback(container, item) {
   container.innerHTML = `<div class="external-chart-card">
     <span class="external-chart-icon">↗</span>
     <h4>${escapeHtml(item.name)}</h4>
-    <p><strong>${escapeHtml(item.ticker)}</strong>는 TradingView 외부 위젯에서 제한되는 심볼이라, 이 페이지 안에 억지로 띄우면 제한 메시지가 먼저 보입니다. 대신 바로 열 수 있는 외부 차트 링크를 제공합니다.</p>
+    <p><strong>${escapeHtml(item.ticker)}</strong>의 저장 차트 데이터가 아직 없습니다. 다음 업데이트 때 이 종목의 1년 일봉 데이터를 저장하면 이 영역에 바로 차트가 표시됩니다.</p>
     <div class="external-chart-actions">
       <a href="${tradingViewLink(item.symbol)}" target="_blank" rel="noreferrer">TradingView에서 열기</a>
       ${yahooButton}
@@ -431,37 +489,36 @@ function renderExternalChartFallback(container, item) {
   </div>`;
 }
 
-function mountTradingViewChart(container, symbol) {
-  if (!container || !symbol) {
-    return;
-  }
-
-  container.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
-  const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
-  script.async = true;
-  script.innerHTML = JSON.stringify({
-    autosize: true,
-    symbol,
-    interval: "D",
-    timezone: "Asia/Seoul",
-    theme: "light",
-    style: "1",
-    locale: "kr",
-    allow_symbol_change: false,
-    calendar: false,
-    support_host: "https://www.tradingview.com"
-  });
-  container.appendChild(script);
-}
-
 function formatMoney(value, currency) {
   return currency === "$" ? `$${value.toFixed(2)}` : `${numberFormat.format(value)}${currency}`;
 }
 
 function formatDistribution(value, currency) {
   return currency === "$" ? `$${value.toFixed(6)}` : `${numberFormat.format(value)}${currency}`;
+}
+
+function formatChartValue(value, history) {
+  if (history.kind === "rate") {
+    return `${value.toFixed(2)}%`;
+  }
+
+  if (history.currency === "USD" || history.currency === "HKD" || history.currency === "CNY") {
+    return `${history.currency} ${value.toLocaleString("ko-KR", { maximumFractionDigits: 2 })}`;
+  }
+
+  return value.toLocaleString("ko-KR", { maximumFractionDigits: 2 });
+}
+
+function formatAxisValue(value, history) {
+  if (history.kind === "rate") {
+    return `${value.toFixed(1)}%`;
+  }
+
+  if (Math.abs(value) >= 1000) {
+    return numberFormat.format(Math.round(value));
+  }
+
+  return value.toLocaleString("ko-KR", { maximumFractionDigits: 1 });
 }
 
 function tradingViewLink(symbol) {
@@ -478,6 +535,10 @@ function fredLink(symbol) {
 
 function escapeHtml(value) {
   return escapeAttr(value);
+}
+
+function safeId(value) {
+  return String(value || "chart").replace(/[^a-zA-Z0-9_-]/g, "-");
 }
 
 function escapeAttr(value) {
