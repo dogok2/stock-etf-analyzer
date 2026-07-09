@@ -1,18 +1,20 @@
 const KODEX_20260707 = {
   researchDate: "2026-07-07",
-  dataAsOf: "2026-07-03",
+  dataAsOf: "2026-07-07",
   archiveNote: "첫 분석 기록",
   tags: ["환노출", "20종목", "패시브"],
   thesis:
     "중국 휴머노이드 로봇의 완성품보다 감속기·모터·액추에이터·정밀부품 밸류체인에 더 강하게 노출되는 고변동성 테마 ETF입니다. 산업의 양산 전환이 핵심 상승 동력이지만, 기대가 실적으로 바뀌는 속도와 중국·환율 리스크를 함께 봐야 합니다.",
   quote: {
-    price: 11000,
-    changePct: -1.65,
-    nav: 11031,
-    volume: 586638,
-    date: "2026-07-03",
+    price: 11095,
+    changePct: -4.31,
+    nav: null,
+    navLabel: "일자별 NAV 별도 확인",
+    volume: 834017,
+    date: "2026-07-07",
+    label: "2026-07-07 종가",
     currency: "원",
-    sourceLabel: "삼성자산운용"
+    sourceLabel: "Naver Finance"
   },
   facts: [
     { label: "종목코드", value: "0048K0" },
@@ -103,6 +105,7 @@ const KODEX_20260707 = {
   taxNote:
     "해외주식형 국내 ETF로서 일반계좌에서는 매매차익과 과표기준가 증가분 중 작은 금액, 그리고 분배금에 배당소득세가 적용될 수 있습니다. 세법과 개인 상황은 달라질 수 있으므로 거래 전 운용사 설명서와 금융기관 안내를 확인하세요.",
   sources: [
+    { label: "Naver Finance 날짜별 시세", detail: "0048K0 2026-07-07~09 종가·거래량", url: "https://api.stock.naver.com/chart/domestic/item/0048K0/day?startDateTime=202607010000&endDateTime=202607092359" },
     { label: "KODEX 공식 상품 페이지", detail: "상품 구조·시세·보수·구성 종목", url: "https://www.samsungfund.com/etf/product/view.do?id=2ETFR1" },
     { label: "Solactive 지수 팩트시트", detail: "구성·성과·변동성 원자료", url: "https://solactive.com/downloads/Factsheet_DE000SL0PWR0" },
     { label: "Solactive 지수 방법론", detail: "2026-01-07 버전 2.0", url: "https://www.solactive.com/downloads/Guideline-Solactive-SOLCHRB.pdf" },
@@ -113,7 +116,16 @@ const KODEX_20260707 = {
 const KODEX_20260708 = {
   ...KODEX_20260707,
   researchDate: "2026-07-08",
+  dataAsOf: "2026-07-08",
   archiveNote: "배당·구성 차트 추가",
+  quote: {
+    ...KODEX_20260707.quote,
+    price: 10225,
+    changePct: -7.84,
+    volume: 1472851,
+    date: "2026-07-08",
+    label: "2026-07-08 종가"
+  },
   facts: [
     ...KODEX_20260707.facts,
     { label: "순자산", value: "2,102억원 (06.22)" },
@@ -157,8 +169,8 @@ const KODEX_20260708 = {
     schedule: "1·4·7·10월 마지막 영업일 기준",
     latestAmount: "21원",
     trailingAmount: "68원",
-    trailingYield: "약 0.62%",
-    yieldAsOf: "최근 4회 합계 ÷ 2026-07-03 종가 단순 계산",
+    trailingYield: "약 0.66%",
+    yieldAsOf: "최근 4회 합계 ÷ 해당 분석일 종가 단순 계산",
     explanation:
       "배당 성장형 상품이 아니라 로봇 테마의 주가 상승을 주목적으로 하는 ETF입니다. 분배금은 보유 중국 기업의 배당과 펀드 운용 결과에 따라 매번 달라지며, 정해진 금액을 보장하지 않습니다.",
     rows: [
@@ -180,19 +192,20 @@ const KODEX_20260708 = {
 
 const TLT_20260708 = {
   researchDate: "2026-07-08",
-  dataAsOf: "2026-07-06",
+  dataAsOf: "2026-07-08",
   archiveNote: "첫 분석 기록",
   tags: ["미국상장", "월분배", "장기국채"],
   thesis:
     "미국 재무부의 만기 20년 초과 국채에 집중하는 대표적인 초장기 듀레이션 ETF입니다. 신용위험은 매우 낮지만 금리 변화에는 매우 민감합니다. 경기침체·물가둔화·장기금리 하락 국면에서는 강한 자본차익이 가능하고, 반대 국면에서는 국채임에도 주식처럼 크게 흔들릴 수 있습니다.",
   quote: {
-    price: 85.51,
-    changePct: null,
-    nav: 85.44,
-    volume: 20957229,
-    date: "2026-07-02",
+    price: 84.36,
+    changePct: -0.22,
+    nav: 84.32,
+    volume: 25806645,
+    date: "2026-07-08",
+    label: "2026-07-08 종가",
     currency: "$",
-    sourceLabel: "iShares"
+    sourceLabel: "iShares · Nasdaq"
   },
   facts: [
     { label: "티커", value: "TLT" },
@@ -201,11 +214,11 @@ const TLT_20260708 = {
     { label: "설정일", value: "2002.07.22" },
     { label: "보수(연)", value: "0.15%" },
     { label: "기초지수", value: "ICE US Treasury 20+ Year Bond Index" },
-    { label: "순자산", value: "$418.2억 (07.06)" },
+    { label: "순자산", value: "$415.3억 (07.08)" },
     { label: "분배 주기", value: "매월" },
-    { label: "보유 종목", value: "46개 (06.22)" },
-    { label: "유효 듀레이션", value: "15.39년 (06.22)" },
-    { label: "평균 만기", value: "26.06년 (06.22)" },
+    { label: "보유 종목", value: "46개 (07.08)" },
+    { label: "유효 듀레이션", value: "15.20년 (07.08)" },
+    { label: "평균 만기", value: "26.10년 (07.08)" },
     { label: "거래 통화", value: "미국 달러(USD)" }
   ],
   scores: [
@@ -349,6 +362,7 @@ const TLT_20260708 = {
   taxNote:
     "미국상장 ETF는 국내상장 해외ETF와 과세 구조가 다릅니다. 해외주식 손익 합산, 연 250만원 기본공제, 배당 원천징수와 국내 금융소득 합산 가능성을 거래 증권사 또는 세무 전문가에게 확인하세요.",
   sources: [
+    { label: "Nasdaq TLT 날짜별 시세", detail: "2026-07-08 종가·거래량과 2026-07-09 실시간 가격", url: "https://api.nasdaq.com/api/quote/TLT/historical?assetclass=etf&fromdate=2026-07-01&todate=2026-07-09&limit=9999" },
     { label: "iShares TLT 공식 페이지", detail: "가격·수익률·분배·포트폴리오 특성", url: "https://www.ishares.com/us/products/239454/ishares-20-year-treasury-bond-etf" },
     { label: "TLT 공식 팩트시트", detail: "상품 목표·성과·위험", url: "https://www.ishares.com/us/literature/fact-sheet/tlt-ishares-20-year-treasury-bond-etf-fund-fact-sheet-en-us.pdf" },
     { label: "국세청 양도소득 기본공제", detail: "국외주식 연 250만원", url: "https://www.nts.go.kr/tax/sub/1.2.3.%EC%96%91%EB%8F%84%EC%86%8C%EB%93%9D%EA%B3%BC%EC%84%B8%ED%91%9C%EC%A4%80%20%EC%8B%A0%EA%B3%A0%20%EB%B0%8F%20%EB%82%A9%EB%B6%80%EA%B3%84%EC%82%B0%EC%84%9C.html" },
@@ -360,7 +374,15 @@ const KODEX_20260709 = {
   ...KODEX_20260708,
   researchDate: "2026-07-09",
   archiveNote: "비교·변경점·혼합차트",
-  dataAsOf: "2026-07-03",
+  dataAsOf: "2026-07-09",
+  quote: {
+    ...KODEX_20260708.quote,
+    price: 10310,
+    changePct: 0.83,
+    volume: 1520377,
+    date: "2026-07-09",
+    label: "2026-07-09 종가"
+  },
   changeLog: {
     previousDate: "2026-07-08",
     summary: "상품 판단에 바로 쓰는 비교표와 차트 제공 방식을 보강했습니다.",
@@ -383,8 +405,8 @@ const KODEX_20260709 = {
       { label: "투자 범위", values: { kodex: "중국·홍콩 20종목", tiger: "중국 본토·홍콩 종목" } },
       { label: "총보수", values: { kodex: "연 0.45%", tiger: "연 0.49%" }, winner: "kodex" },
       { label: "순자산", values: { kodex: "2,102억원 (06.22)", tiger: "416억원 (2025.07.31)" } },
-      { label: "거래 유동성", values: { kodex: "58.7만주 (07.03)", tiger: "최신 거래량 확인 필요" } },
-      { label: "괴리·스프레드", values: { kodex: "괴리 약 -0.28% (07.03)", tiger: "주문 전 iNAV·호가 확인" } },
+      { label: "거래 유동성", values: { kodex: "152.0만주 (07.09)", tiger: "최신 거래량 확인 필요" } },
+      { label: "괴리·스프레드", values: { kodex: "일자별 iNAV 별도 확인 · 주문 전 호가 확인", tiger: "주문 전 iNAV·호가 확인" } },
       { label: "추적 품질", values: { kodex: "트래킹에러 1.51% (06.12)", tiger: "최신 공식 수치 확인 필요" } },
       { label: "분배", values: { kodex: "분기 · 최근 4회 68원", tiger: "분기 기준일" } },
       { label: "상위 10종목", values: { kodex: "약 64.5%", tiger: "약 73.2% (2025.07.31)" }, winner: "kodex" },
@@ -420,6 +442,17 @@ const TLT_20260709 = {
   ...TLT_20260708,
   researchDate: "2026-07-09",
   archiveNote: "비교·변경점·혼합차트",
+  dataAsOf: "2026-07-09 09:17 ET",
+  quote: {
+    ...TLT_20260708.quote,
+    price: 84.2701,
+    changePct: -0.11,
+    navLabel: "$84.32 (07/08 NAV)",
+    volume: 384445,
+    volumeLabel: "384,445주 (09:17 ET)",
+    date: "2026-07-09 09:17 ET",
+    label: "2026-07-09 09:17 ET 실시간"
+  },
   changeLog: {
     previousDate: "2026-07-08",
     summary: "장기국채 ETF 안에서도 듀레이션과 비용이 어떻게 다른지 비교할 수 있게 보강했습니다.",
@@ -441,11 +474,11 @@ const TLT_20260709 = {
     rows: [
       { label: "핵심 노출", values: { tlt: "20년 초과 미국 국채", vglt: "장기 미국 국채", edv: "장기 STRIPS" } },
       { label: "총보수", values: { tlt: "0.15%", vglt: "0.03%", edv: "0.05%" }, winner: "vglt" },
-      { label: "순자산", values: { tlt: "$417.5억 (07.02)", vglt: "공식 페이지 확인", edv: "$43억 (05.31)" } },
-      { label: "평균 거래량", values: { tlt: "2,538만주 (07.02)", vglt: "상대적으로 작음", edv: "상대적으로 작음" }, winner: "tlt" },
+      { label: "순자산", values: { tlt: "$415.3억 (07.08)", vglt: "공식 페이지 확인", edv: "$43억 (05.31)" } },
+      { label: "평균 거래량", values: { tlt: "2,581만주 (07.08)", vglt: "상대적으로 작음", edv: "상대적으로 작음" }, winner: "tlt" },
       { label: "중간 호가 스프레드", values: { tlt: "0.01%", vglt: "0.02%", edv: "0.02%" }, winner: "tlt" },
-      { label: "유효·평균 듀레이션", values: { tlt: "15.31년", vglt: "13.8년", edv: "24.1년" } },
-      { label: "30일 SEC 수익률", values: { tlt: "4.95%", vglt: "5.00%", edv: "5.18%" } },
+      { label: "유효·평균 듀레이션", values: { tlt: "15.20년", vglt: "13.8년", edv: "24.1년" } },
+      { label: "30일 SEC 수익률", values: { tlt: "5.00%", vglt: "5.00%", edv: "5.18%" } },
       { label: "분배", values: { tlt: "월분배", vglt: "운용사 일정 확인", edv: "운용사 일정 확인" } },
       { label: "집중 위험", values: { tlt: "미 장기금리", vglt: "미 장기금리", edv: "미 초장기금리·STRIPS" } },
       { label: "원화 투자자", values: { tlt: "USD 환노출", vglt: "USD 환노출", edv: "USD 환노출" } },

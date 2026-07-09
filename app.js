@@ -93,6 +93,9 @@ function renderReport(id, researchDate) {
   const quoteChange = snapshot.quote.changePct == null
     ? "당일 등락 미기록"
     : `${snapshot.quote.changePct > 0 ? "+" : ""}${snapshot.quote.changePct.toFixed(2)}%`;
+  const quoteLabel = snapshot.quote.label || `${snapshot.quote.date} 가격`;
+  const quoteNav = snapshot.quote.navLabel || (Number.isFinite(snapshot.quote.nav) ? formatMoney(snapshot.quote.nav, snapshot.quote.currency) : "일자별 NAV 별도 확인");
+  const quoteVolume = snapshot.quote.volumeLabel || (Number.isFinite(snapshot.quote.volume) ? `${numberFormat.format(snapshot.quote.volume)}주` : "거래량 미기록");
   const sections = [];
   let sectionIndex = 1;
   const addSection = (title, description, body) => {
@@ -237,12 +240,12 @@ function renderReport(id, researchDate) {
         <p class="report-thesis">${snapshot.thesis}</p>
       </div>
       <aside class="quote-panel">
-        <small>${snapshot.quote.date} 가격</small>
+        <small>${quoteLabel}</small>
         <strong class="quote-price">${formatMoney(snapshot.quote.price, snapshot.quote.currency)}</strong>
         <span class="quote-change ${quoteDirection}">${quoteChange}</span>
         <div class="quote-meta">
-          <span><small>NAV / iNAV</small><strong>${formatMoney(snapshot.quote.nav, snapshot.quote.currency)}</strong></span>
-          <span><small>거래량</small><strong>${numberFormat.format(snapshot.quote.volume)}주</strong></span>
+          <span><small>NAV / iNAV</small><strong>${quoteNav}</strong></span>
+          <span><small>거래량</small><strong>${quoteVolume}</strong></span>
         </div>
       </aside>
     </header>
