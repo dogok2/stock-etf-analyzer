@@ -1,5 +1,8 @@
 const analyses = window.ETF_ANALYSES || [];
-const marketHistory = window.MARKET_HISTORY?.series || {};
+const marketHistory = {
+  ...(window.MARKET_HISTORY?.series || {}),
+  ...(window.INDICATOR_HISTORY?.series || {})
+};
 const listElement = document.querySelector("#etf-list");
 const reportElement = document.querySelector("#etf-report");
 const searchElement = document.querySelector("#etf-search");
