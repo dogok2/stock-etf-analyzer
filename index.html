@@ -8,7 +8,7 @@
       content="주식과 ETF를 공식 자료 중심으로 깊이 있게 정리하는 정적 분석 리포트"
     />
     <title>DeepTicker | 주식 & ETF 분석기</title>
-    <link rel="stylesheet" href="styles.css?v=20260710-chart-fallback-1" />
+    <link rel="stylesheet" href="styles.css?v=20260710-stock-rating-1" />
   </head>
   <body>
     <header class="site-header">
@@ -81,9 +81,17 @@
               <span aria-hidden="true">⌕</span>
               <input id="stock-search" type="search" placeholder="종목명 또는 티커 검색" />
             </label>
+            <div class="filter-group" aria-label="주식 상장 시장 구분">
+              <span>상장 시장</span>
+              <div class="market-filters" role="group">
+                <button class="stock-market-filter active" data-stock-market="all">전체</button>
+                <button class="stock-market-filter" data-stock-market="kr">국내</button>
+                <button class="stock-market-filter" data-stock-market="us">해외</button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="stock-intro"><strong>주식도 ETF처럼 날짜별로 보존합니다.</strong><p>나의 단기·중기·장기 평가, Codex 독립 평가, 주가 차트, 최근 5년 분기 실적, 근거 기반 전망까지 한 리포트에 남깁니다.</p></div>
+        <div class="stock-intro"><strong>주식도 ETF처럼 날짜별로 보존합니다.</strong><p>내 최종 가중점수, 추천 보유 관점, Codex 독립 평가, 주가 차트, 최근 5년 분기 실적, 근거 기반 전망까지 한 리포트에 남깁니다.</p></div>
         <div id="stock-list" class="stock-list" aria-live="polite"></div>
         <article id="stock-report" class="report stock-report" aria-live="polite"></article>
       </section>
@@ -97,8 +105,8 @@
     <script src="data/etfs.js?v=20260710-chart-fallback-1"></script>
     <script src="data/market-history.js?v=20260710-chart-fallback-1"></script>
     <script src="data/market-history-overrides.js?v=20260710-chart-fallback-1"></script>
-    <script src="data/stocks.js?v=20260710-chart-fallback-1"></script>
-    <script src="app.js?v=20260710-chart-fallback-1"></script>
-    <script src="stocks.js?v=20260710-chart-fallback-1"></script>
+    <script src="data/stocks.js?v=20260710-stock-rating-1"></script>
+    <script src="app.js?v=20260710-stock-rating-1"></script>
+    <script src="stocks.js?v=20260710-stock-rating-1"></script>
   </body>
 </html>

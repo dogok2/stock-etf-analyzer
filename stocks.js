@@ -3,12 +3,14 @@
   const list = document.querySelector("#stock-list");
   const report = document.querySelector("#stock-report");
   const search = document.querySelector("#stock-search");
+  const marketButtons = document.querySelectorAll(".stock-market-filter");
   if (!list || !report || !search) return;
 
   const numberFormat = new Intl.NumberFormat("ko-KR");
 
   let selectedId = stocks[0]?.id || null;
   let selectedDate = stocks[0]?.snapshots?.[0]?.researchDate || null;
+  let selectedMarket = "all";
 
   const escape = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -20,9 +22,11 @@
 
   function renderList(query = "") {
     const needle = query.trim().toLowerCase();
-    const filtered = stocks.filter((item) =>
-      `${item.name} ${item.shortName || ""} ${item.id} ${item.category}`.toLowerCase().includes(needle)
-    );
+    const filtered = stocks.filter((item) => {
+      const matchesText = `${item.name} ${item.shortName || ""} ${item.id} ${item.category}`.toLowerCase().includes(needle);
+      const matchesMarket = selectedMarket === "all" || item.listingMarket === selectedMarket;
+      return matchesText && matchesMarket;
+    });
 
     if (!filtered.length) {
       list.innerHTML = '<div class="empty-state">아직 등록되지 않은 주식입니다. 분석할 종목명과 티커를 알려주세요.</div>';
@@ -71,7 +75,7 @@
     selectedDate = snapshot.researchDate;
 
     const sections = [
-      stockSection("01", "나의 평가와 Codex 평가", "사용자 판단은 사용자 원문으로, Codex 판단은 독립 평가로 보존합니다. 둘 다 단기·중기·장기 시계를 남길 수 있습니다.", renderAssessments(snapshot)),
+      stockSection("01", "나의 평가와 Codex 평가", "사용자 점수는 8개 항목 가중평균의 최종점수만 보여주고, 보유 방식은 단기·중기·장기 중 추천 관점 하나로 남깁니다.", renderAssessments(snapshot)),
       stockSection("02", "주가 차트", "ETF 구성 종목 차트와 같은 방식으로, TradingView에서 표시 가능한 종목은 페이지 안에 바로 띄웁니다.", renderStockChart(snapshot.stockChart)),
       stockSection("03", "최근 5년 분기 실적", "매출과 영업이익 20개 분기를 한 흐름으로 보고, 확인 가능한 구간은 막대와 표로 함께 표시합니다.", renderQuarterly(snapshot.quarterlyPerformance)),
       stockSection("04", "Codex 전망 코멘트", "확인된 사실과 조건부 해석을 구분하고, 전망이 틀렸다고 판단할 조건까지 남깁니다.", renderOutlook(snapshot.outlook)),
@@ -144,31 +148,73 @@
   function renderAssessments(snapshot) {
     const user = snapshot.userAssessment || {};
     const codex = snapshot.codexAssessment || {};
+    const userScore = resolveWeightedScore(user);
+    const codexScore = resolveWeightedScore(codex);
     return `<div class="assessment-columns">
       <article class="assessment-panel user-assessment">
         <div class="assessment-title">
           <span>USER</span>
-          <div><small>나의 평가</small><strong>${formatScore(user.total)}<i>/5</i></strong></div>
+          <div><small>나의 최종점수</small><strong>${formatScore(userScore)}<i>/5</i></strong></div>
           <b>${escape(user.stance || "미입력")}</b>
         </div>
         <p>${escape(user.note || "")}</p>
-        ${renderHorizon(user.horizon, "사용자 투자 시계")}
-        <div class="user-fields">${(user.fields || []).map((field) => `<div><small>${escape(field.label)}</small><strong>${escape(field.value)}</strong></div>`).join("")}</div>
+        <p class="score-privacy">세부 8개 항목은 기록에만 쓰고, 공유 화면에는 7·8번 항목 2배 가중 최종점수만 표시합니다.</p>
+        ${renderHoldingPlan(user.recommendation, "내 추천 보유 방식")}
       </article>
       <article class="assessment-panel codex-assessment">
         <div class="assessment-title">
           <span>AI</span>
-          <div><small>${escape(codex.author || "Codex 평가")}</small><strong>${formatScore(codex.total)}<i>/5</i></strong></div>
+          <div><small>${escape(codex.author || "Codex 평가")}</small><strong>${formatScore(codexScore)}<i>/5</i></strong></div>
           <b>${escape(codex.stance || codex.confidence || "미평가")}</b>
         </div>
         <p>${escape(codex.note || "")}</p>
-        ${renderHorizon(codex.horizon, "Codex 투자 시계")}
+        ${renderHoldingPlan(codex.recommendation, "Codex 추천 보유 방식")}
         <div class="codex-metrics">${(codex.metrics || []).map((metric) => {
           const width = isFiniteNumber(metric.score) ? Math.max(0, Math.min(100, (Number(metric.score) / 5) * 100)) : 0;
           return `<div><span><strong>${escape(metric.label)}</strong><b>${isFiniteNumber(metric.score) ? `${Number(metric.score).toFixed(1)}점` : "미평가"}</b></span><i><em style="width:${width}%"></em></i><small>${escape(metric.note)}</small></div>`;
         }).join("")}</div>
       </article>
     </div>`;
+  }
+
+  function renderHoldingPlan(plan = {}, title) {
+    const period = plan.period || plan.horizon || "미입력";
+    const stance = plan.stance || "미입력";
+    const reason = plan.reason || "보유 기간과 투자 의견을 함께 기록합니다.";
+    return `<div class="holding-plan">
+      <small>${escape(title)}</small>
+      <strong>${escape(period)}</strong>
+      <b>${escape(stance)}</b>
+      <p>${escape(reason)}</p>
+    </div>`;
+  }
+
+  function resolveWeightedScore(assessment = {}) {
+    if (isFiniteNumber(assessment.total)) {
+      return Number(assessment.total);
+    }
+
+    const items = assessment.scoreItems || assessment.criteria || [];
+    if (!Array.isArray(items) || !items.length) {
+      return null;
+    }
+
+    const defaultWeights = [1, 1, 1, 1, 1, 1, 2, 2];
+    const aggregate = items.slice(0, 8).reduce(
+      (acc, item, index) => {
+        const score = typeof item === "number" ? item : item?.score;
+        const weight = typeof item === "object" && isFiniteNumber(item.weight) ? Number(item.weight) : defaultWeights[index];
+        if (!isFiniteNumber(score) || !isFiniteNumber(weight)) {
+          return acc;
+        }
+        acc.sum += Number(score) * Number(weight);
+        acc.weight += Number(weight);
+        return acc;
+      },
+      { sum: 0, weight: 0 }
+    );
+
+    return aggregate.weight ? aggregate.sum / aggregate.weight : null;
   }
 
   function renderHorizon(horizon = {}, title) {
@@ -388,5 +434,12 @@
   }
 
   search.addEventListener("input", (event) => renderList(event.target.value));
+  marketButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedMarket = button.dataset.stockMarket || "all";
+      marketButtons.forEach((entry) => entry.classList.toggle("active", entry === button));
+      renderList(search.value);
+    });
+  });
   renderList();
 })();

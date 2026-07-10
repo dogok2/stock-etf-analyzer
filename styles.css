@@ -76,8 +76,8 @@ main { width: min(1280px, 92vw); margin: 0 auto; }
 .filter-group { display: flex; align-items: center; gap: 9px; padding: 6px; background: rgba(17, 43, 59, 0.06); border: 1px solid rgba(17, 43, 59, 0.06); border-radius: 14px; }
 .filter-group > span { padding-left: 8px; color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; white-space: nowrap; }
 .market-filters { display: flex; gap: 4px; }
-.market-filter { padding: 9px 12px; border: 0; border-radius: 9px; background: transparent; color: var(--muted); cursor: pointer; font-size: 0.78rem; font-weight: 900; }
-.market-filter.active { color: white; background: var(--navy); }
+.market-filter, .stock-market-filter { padding: 9px 12px; border: 0; border-radius: 9px; background: transparent; color: var(--muted); cursor: pointer; font-size: 0.78rem; font-weight: 900; }
+.market-filter.active, .stock-market-filter.active { color: white; background: var(--navy); }
 .search-box { display: flex; align-items: center; gap: 8px; min-width: min(330px, 100%); padding: 13px 17px; background: var(--paper-strong); border: 1px solid var(--line); border-radius: 12px; }
 .search-box span { font-size: 1.4rem; transform: rotate(-20deg); }
 .search-box input { width: 100%; border: 0; outline: 0; background: transparent; }
@@ -338,6 +338,16 @@ main { width: min(1280px, 92vw); margin: 0 auto; }
 .assessment-title strong i { margin-left: 3px; font: 700 .7rem sans-serif; font-style: normal; opacity: .55; }
 .assessment-title > b { max-width: 150px; padding: 6px 8px; text-align: center; border: 1px solid currentColor; border-radius: 999px; font-size: .62rem; }
 .assessment-panel > p { margin: 18px 0; opacity: .75; font-size: .78rem; line-height: 1.65; }
+.score-privacy { margin: -6px 0 14px; color: inherit; opacity: .62; font-size: .68rem; line-height: 1.5; }
+.holding-plan { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; align-items: center; margin: 0 0 14px; padding: 14px; border-radius: 13px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); }
+.codex-assessment .holding-plan { background: white; border-color: var(--line); }
+.holding-plan > small { grid-column: 1 / -1; color: #b8cbcf; font-size: .65rem; font-weight: 900; letter-spacing: .08em; }
+.codex-assessment .holding-plan > small { color: var(--muted); }
+.holding-plan strong { color: white; font-size: 1.12rem; letter-spacing: -.03em; }
+.codex-assessment .holding-plan strong { color: var(--ink); }
+.holding-plan b { justify-self: end; padding: 6px 9px; color: var(--ink); background: var(--lime); border-radius: 999px; font-size: .68rem; }
+.holding-plan p { grid-column: 1 / -1; margin: 0; color: #cbdadd; font-size: .72rem; line-height: 1.5; }
+.codex-assessment .holding-plan p { color: var(--muted); }
 .user-fields { display: grid; gap: 8px; }
 .user-fields > div { padding: 14px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; }
 .user-fields small, .user-fields strong { display: block; }
@@ -499,6 +509,8 @@ footer { display: flex; justify-content: space-between; gap: 30px; padding: 26px
   .peer-comparison { padding: 16px; }
   .assessment-title { grid-template-columns: 42px 1fr; }
   .assessment-title > b { grid-column: 1 / -1; max-width: none; }
+  .holding-plan { grid-template-columns: 1fr; }
+  .holding-plan b { justify-self: stretch; text-align: center; }
   .outlook-author { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 4px; }
 }
