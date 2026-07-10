@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-07-10",
+  asOf: "2026-07-11",
   calendar: {
-      "asOf": "2026-07-10 19:53 KST",
+      "asOf": "2026-07-11 01:42 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-07-05",
       "weekEnd": "2026-07-11",
@@ -236,48 +236,92 @@ window.OTHER_INDICATORS = {
     }
   ],
   fedWatch: {
-    asOf: "2026-07-10 05:25 EDT / 18:25 KST",
-    source: "Investing.com Fed Rate Monitor · CME 30-Day Fed Funds futures 기반",
-    sourceUrl: "https://www.investing.com/central-banks/fed-rate-monitor",
-    cmeUrl: "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
-    currentTarget: "3.50% ~ 3.75%",
-    note:
-      "CME FedWatch 직접 API는 별도 접근이 필요해 현재 버전은 Investing.com Fed Rate Monitor에 표시된 CME 기반 확률 스냅샷으로 저장합니다.",
-    meetings: [
-      {
-        date: "2026-07-29",
-        label: "7월 FOMC",
-        meetingTime: "2026-07-29 02:00 PM ET",
-        dominant: "동결 우세",
-        probabilities: [
-          { range: "3.50 - 3.75", probability: 75.6, previousDay: 75.6, previousWeek: 82.3 },
-          { range: "3.75 - 4.00", probability: 24.4, previousDay: 24.4, previousWeek: 17.7 }
-        ]
-      },
-      {
-        date: "2026-09-16",
-        label: "9월 FOMC",
-        meetingTime: "2026-09-16 02:00 PM ET",
-        dominant: "25bp 인상 확률 우세",
-        probabilities: [
-          { range: "3.50 - 3.75", probability: 41.6, previousDay: 38.5, previousWeek: 46.9 },
-          { range: "3.75 - 4.00", probability: 47.5, previousDay: 49.5, previousWeek: 45.5 },
-          { range: "4.00 - 4.25", probability: 11.0, previousDay: 11.9, previousWeek: 7.6 }
-        ]
-      },
-      {
-        date: "2026-10-28",
-        label: "10월 FOMC",
-        meetingTime: "2026-10-28 02:00 PM ET",
-        dominant: "3.75~4.00% 우세",
-        probabilities: [
-          { range: "3.50 - 3.75", probability: 32.0, previousDay: 29.7, previousWeek: 36.1 },
-          { range: "3.75 - 4.00", probability: 46.1, previousDay: 47.0, previousWeek: 45.8 },
-          { range: "4.00 - 4.25", probability: 19.3, previousDay: 20.6, previousWeek: 16.3 },
-          { range: "4.25 - 4.50", probability: 2.5, previousDay: 2.7, previousWeek: 1.8 }
-        ]
-      }
-    ]
+      "asOf": "2026-07-10 12:15 EDT / 2026-07-11 01:15 KST",
+      "source": "Investing.com Fed Rate Monitor · CME 30-Day Fed Funds futures 기반",
+      "sourceUrl": "https://www.investing.com/central-banks/fed-rate-monitor",
+      "cmeUrl": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
+      "currentTarget": "3.50% ~ 3.75%",
+      "note": "경제 캘린더 주간 업데이트와 같은 실행에서 Investing.com Fed Rate Monitor에 표시된 CME 기반 확률을 함께 저장합니다. 실제 거래 전에는 원문 링크에서 최신 값을 다시 확인해야 합니다.",
+      "meetings": [
+          {
+              "date": "2026-07-29",
+              "label": "7월 FOMC",
+              "meetingTime": "Jul 29, 2026 02:00PM ET",
+              "dominant": "동결 우세",
+              "probabilities": [
+                  {
+                      "range": "3.50 - 3.75",
+                      "probability": 70.1,
+                      "previousDay": 75.6,
+                      "previousWeek": 75.6
+                  },
+                  {
+                      "range": "3.75 - 4.00",
+                      "probability": 29.9,
+                      "previousDay": 24.4,
+                      "previousWeek": 24.4
+                  }
+              ]
+          },
+          {
+              "date": "2026-09-16",
+              "label": "9월 FOMC",
+              "meetingTime": "Sep 16, 2026 02:00PM ET",
+              "dominant": "25bp 인상 우세",
+              "probabilities": [
+                  {
+                      "range": "3.50 - 3.75",
+                      "probability": 34.1,
+                      "previousDay": 38.5,
+                      "previousWeek": 44.4
+                  },
+                  {
+                      "range": "3.75 - 4.00",
+                      "probability": 50.5,
+                      "previousDay": 49.5,
+                      "previousWeek": 45.6
+                  },
+                  {
+                      "range": "4.00 - 4.25",
+                      "probability": 15.3,
+                      "previousDay": 11.9,
+                      "previousWeek": 10.1
+                  }
+              ]
+          },
+          {
+              "date": "2026-10-28",
+              "label": "10월 FOMC",
+              "meetingTime": "Oct 28, 2026 02:00PM ET",
+              "dominant": "25bp 인상 우세",
+              "probabilities": [
+                  {
+                      "range": "3.50 - 3.75",
+                      "probability": 27.1,
+                      "previousDay": 29.7,
+                      "previousWeek": 35.2
+                  },
+                  {
+                      "range": "3.75 - 4.00",
+                      "probability": 47.1,
+                      "previousDay": 47.0,
+                      "previousWeek": 45.3
+                  },
+                  {
+                      "range": "4.00 - 4.25",
+                      "probability": 22.6,
+                      "previousDay": 20.6,
+                      "previousWeek": 17.4
+                  },
+                  {
+                      "range": "4.25 - 4.50",
+                      "probability": 3.2,
+                      "previousDay": 2.7,
+                      "previousWeek": 2.1
+                  }
+              ]
+          }
+      ]
   },
   sourcePolicy: [
     "TradingView 임베드가 정상 표시되는 종목은 페이지 안에서 우선 보여줍니다.",

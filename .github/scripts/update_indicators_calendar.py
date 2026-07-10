@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Update DeepTicker's weekly high-importance economic calendar.
+"""Update DeepTicker's weekly high-importance macro indicators.
 
 The static site stores its macro dashboard in data/indicators.js. This script
 fetches the current Investing.com "this week" calendar filtered to importance 3
-events, removes holiday rows, and rewrites only window.OTHER_INDICATORS.calendar.
+events, removes holiday rows, fetches the Investing.com Fed Rate Monitor
+snapshot, and rewrites the calendar and FedWatch blocks together.
 
 It intentionally fails instead of inventing events when the source is blocked or
-the response cannot be verified as high-importance data.
+the response cannot be verified as source-backed data.
 """
 
 from __future__ import annotations
@@ -25,7 +26,24 @@ ROOT = Path(__file__).resolve().parents[2]
 INDICATORS_PATH = ROOT / "data" / "indicators.js"
 ENDPOINT = "https://www.investing.com/economic-calendar/Service/getCalendarFilteredData"
 SOURCE_URL = "https://www.investing.com/economic-calendar/"
+FEDWATCH_URL = "https://www.investing.com/central-banks/fed-rate-monitor"
+CME_FEDWATCH_URL = "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
 KST = timezone(timedelta(hours=9), name="KST")
+
+MONTHS = {
+    "Jan": 1,
+    "Feb": 2,
+    "Mar": 3,
+    "Apr": 4,
+    "May": 5,
+    "Jun": 6,
+    "Jul": 7,
+    "Aug": 8,
+    "Sep": 9,
+    "Oct": 10,
+    "Nov": 11,
+    "Dec": 12,
+}
 
 COUNTRY_CODES = {
     "Australia": "AU",
@@ -230,6 +248,216 @@ def build_calendar(payload: dict, events: list[dict]) -> dict:
     }
 
 
+def fetch_fedwatch_html() -> str:
+    request = urllib.request.Request(
+        FEDWATCH_URL,
+        headers={
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
+            ),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Referer": "https://www.investing.com/",
+        },
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return response.read().decode("utf-8", errors="replace")
+
+
+def html_to_lines(document: str) -> list[str]:
+    document = re.sub(r"<script\b.*?</script>", "", document, flags=re.I | re.S)
+    document = re.sub(r"<style\b.*?</style>", "", document, flags=re.I | re.S)
+    document = re.sub(r"<br\s*/?>", "\n", document, flags=re.I)
+    document = re.sub(
+        r"</(?:div|p|tr|td|th|li|section|article|header|footer|h[1-6]|span)>",
+        "\n",
+        document,
+        flags=re.I,
+    )
+    document = re.sub(r"<[^>]+>", " ", document)
+    document = html.unescape(document).replace("\xa0", " ")
+    return [re.sub(r"\s+", " ", line).strip() for line in document.splitlines() if line.strip()]
+
+
+def parse_probability_row(line: str) -> dict | None:
+    match = re.match(
+        r"^(?P<range>\d+\.\d{2}\s*-\s*\d+\.\d{2})\s+"
+        r"(?P<probability>\d+(?:\.\d+)?)%\s+"
+        r"(?P<previous_day>\d+(?:\.\d+)?)%\s+"
+        r"(?P<previous_week>\d+(?:\.\d+)?)%",
+        line,
+    )
+    if not match:
+        return None
+    return {
+        "range": re.sub(r"\s+", " ", match.group("range")).strip(),
+        "probability": float(match.group("probability")),
+        "previousDay": float(match.group("previous_day")),
+        "previousWeek": float(match.group("previous_week")),
+    }
+
+
+def parse_percent_line(line: str) -> float | None:
+    match = re.match(r"^(\d+(?:\.\d+)?)%$", line.strip())
+    return float(match.group(1)) if match else None
+
+
+def parse_probability_cells(lines: list[str], index: int) -> tuple[dict, int] | None:
+    if index + 3 >= len(lines):
+        return None
+    if not re.match(r"^\d+\.\d{2}\s*-\s*\d+\.\d{2}$", lines[index]):
+        return None
+
+    current = parse_percent_line(lines[index + 1])
+    previous_day = parse_percent_line(lines[index + 2])
+    previous_week = parse_percent_line(lines[index + 3])
+    if current is None or previous_day is None or previous_week is None:
+        return None
+
+    return (
+        {
+            "range": re.sub(r"\s+", " ", lines[index]).strip(),
+            "probability": current,
+            "previousDay": previous_day,
+            "previousWeek": previous_week,
+        },
+        index + 4,
+    )
+
+
+def parse_source_datetime(value: str) -> str:
+    match = re.match(
+        r"^([A-Z][a-z]{2})\s+(\d{1,2}),\s+(\d{4})\s+(\d{1,2}):(\d{2})(AM|PM)\s+(EDT|EST)$",
+        value.strip(),
+    )
+    if not match:
+        return value.strip()
+
+    month_name, day, year, hour, minute, meridiem, zone_name = match.groups()
+    hour_number = int(hour) % 12
+    if meridiem == "PM":
+        hour_number += 12
+    offset = -4 if zone_name == "EDT" else -5
+    source_tz = timezone(timedelta(hours=offset), name=zone_name)
+    source_time = datetime(
+        int(year),
+        MONTHS[month_name],
+        int(day),
+        hour_number,
+        int(minute),
+        tzinfo=source_tz,
+    )
+    kst_time = source_time.astimezone(KST)
+    return f"{source_time.strftime('%Y-%m-%d %H:%M')} {zone_name} / {kst_time.strftime('%Y-%m-%d %H:%M KST')}"
+
+
+def normalize_target_range(value: str) -> str:
+    return re.sub(r"\s+", "", value.replace("~", "-").replace("%", ""))
+
+
+def range_midpoint(value: str) -> float | None:
+    match = re.match(r"^\s*(\d+(?:\.\d+)?)\s*(?:-|~)\s*(\d+(?:\.\d+)?)\s*$", value.replace("%", ""))
+    if not match:
+        return None
+    return (float(match.group(1)) + float(match.group(2))) / 2
+
+
+def dominant_label(probabilities: list[dict], current_target: str) -> str:
+    top = max(probabilities, key=lambda item: item["probability"])
+    top_range = top["range"]
+    if normalize_target_range(top_range) == normalize_target_range(current_target):
+        return "동결 우세"
+
+    top_midpoint = range_midpoint(top_range)
+    current_midpoint = range_midpoint(current_target)
+    if top_midpoint is None or current_midpoint is None:
+        return f"{top_range}% 우세"
+
+    move_bp = round(abs(top_midpoint - current_midpoint) * 100)
+    direction = "인상" if top_midpoint > current_midpoint else "인하"
+    return f"{move_bp}bp {direction} 우세"
+
+
+def existing_current_target(content: str) -> str:
+    match = re.search(r'currentTarget:\s*"([^"]+)"', content)
+    if not match:
+        match = re.search(r'"currentTarget":\s*"([^"]+)"', content)
+    return match.group(1) if match else "-"
+
+
+def build_fedwatch(content: str) -> dict:
+    lines = html_to_lines(fetch_fedwatch_html())
+    date_pattern = re.compile(r"^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2},\s+\d{4}$")
+    current_target = existing_current_target(content)
+    meetings: list[dict] = []
+    latest_update = ""
+
+    for index, line in enumerate(lines):
+        if not date_pattern.match(line):
+            continue
+
+        meeting_time = ""
+        probabilities: list[dict] = []
+        updated_at = ""
+        cursor = index + 1
+        while cursor < len(lines) and not date_pattern.match(lines[cursor]):
+            current_line = lines[cursor]
+            if current_line == "Meeting Time:" and cursor + 1 < len(lines):
+                meeting_time = lines[cursor + 1].strip()
+                cursor += 2
+                continue
+            if current_line.startswith("Meeting Time:"):
+                meeting_time = current_line.replace("Meeting Time:", "", 1).strip()
+            elif current_line.startswith("Updated:"):
+                updated_at = current_line.replace("Updated:", "", 1).strip()
+                break
+            else:
+                probability = parse_probability_row(current_line)
+                if probability:
+                    probabilities.append(probability)
+                else:
+                    cell_probability = parse_probability_cells(lines, cursor)
+                    if cell_probability:
+                        probability, cursor = cell_probability
+                        probabilities.append(probability)
+                        continue
+            cursor += 1
+
+        if not meeting_time or not probabilities or not updated_at:
+            continue
+
+        parsed_date = datetime.strptime(line, "%b %d, %Y")
+        if not latest_update:
+            latest_update = parse_source_datetime(updated_at)
+        meetings.append(
+            {
+                "date": parsed_date.strftime("%Y-%m-%d"),
+                "label": f"{parsed_date.month}월 FOMC",
+                "meetingTime": meeting_time,
+                "dominant": dominant_label(probabilities, current_target),
+                "probabilities": probabilities,
+            }
+        )
+        if len(meetings) == 3:
+            break
+
+    if len(meetings) < 3:
+        raise RuntimeError("Could not parse the next three FedWatch meetings from Investing.com.")
+
+    return {
+        "asOf": latest_update or datetime.now(KST).strftime("%Y-%m-%d %H:%M KST"),
+        "source": "Investing.com Fed Rate Monitor · CME 30-Day Fed Funds futures 기반",
+        "sourceUrl": FEDWATCH_URL,
+        "cmeUrl": CME_FEDWATCH_URL,
+        "currentTarget": current_target,
+        "note": (
+            "경제 캘린더 주간 업데이트와 같은 실행에서 Investing.com Fed Rate Monitor에 표시된 "
+            "CME 기반 확률을 함께 저장합니다. 실제 거래 전에는 원문 링크에서 최신 값을 다시 확인해야 합니다."
+        ),
+        "meetings": meetings,
+    }
+
+
 def replace_calendar(content: str, calendar: dict) -> str:
     today = datetime.now(KST).strftime("%Y-%m-%d")
     content = re.sub(
@@ -255,21 +483,41 @@ def replace_calendar(content: str, calendar: dict) -> str:
     return updated
 
 
+def replace_fedwatch(content: str, fedwatch: dict) -> str:
+    fedwatch_lines = json.dumps(fedwatch, ensure_ascii=False, indent=4).splitlines()
+    fedwatch_json = "  fedWatch: " + fedwatch_lines[0]
+    if len(fedwatch_lines) > 1:
+        fedwatch_json += "\n" + "\n".join("  " + line for line in fedwatch_lines[1:])
+    replacement = f"{fedwatch_json},\n  sourcePolicy:"
+    updated, count = re.subn(
+        r"  fedWatch:\s*\{.*?\n  \},\n  sourcePolicy:",
+        replacement,
+        content,
+        count=1,
+        flags=re.S,
+    )
+    if count != 1:
+        raise RuntimeError("Could not locate the FedWatch block in data/indicators.js.")
+    return updated
+
+
 def main() -> int:
     payload = fetch_calendar()
     events = parse_events(payload)
     calendar = build_calendar(payload, events)
 
     content = INDICATORS_PATH.read_text(encoding="utf-8")
-    updated = replace_calendar(content, calendar)
+    fedwatch = build_fedwatch(content)
+    updated = replace_fedwatch(replace_calendar(content, calendar), fedwatch)
     if updated == content:
-        print(f"No changes. {len(events)} high-importance events already current.")
+        print(f"No changes. {len(events)} high-importance events and FedWatch are already current.")
         return 0
 
     INDICATORS_PATH.write_text(updated, encoding="utf-8", newline="\n")
     print(
         "Updated data/indicators.js with "
-        f"{len(events)} high-importance events for {calendar['weekStart']} ~ {calendar['weekEnd']}."
+        f"{len(events)} high-importance events for {calendar['weekStart']} ~ {calendar['weekEnd']} "
+        f"and {len(fedwatch['meetings'])} FedWatch meetings."
     )
     return 0
 
