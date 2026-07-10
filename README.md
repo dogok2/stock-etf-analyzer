@@ -37,6 +37,12 @@ ETF 분석 데이터는 `data/etfs.js`의 `window.ETF_ANALYSES` 배열에 하나
 
 기타 지표 데이터는 `data/indicators.js`의 `window.OTHER_INDICATORS`에 저장합니다. TradingView에서 표시 가능한 심볼은 페이지 안에서 바로 띄우고, 경제 캘린더와 FedWatch 확률은 업데이트 시점의 스냅샷으로 남깁니다.
 
+## 자동 업데이트
+
+`.github/workflows/update-economic-calendar.yml`은 매주 월요일 오전 8:30(KST)에 GitHub Actions에서 실행됩니다. 이 작업은 Investing.com 경제 캘린더의 이번 주 중요도 3 이벤트만 받아 `data/indicators.js`의 경제 이벤트 영역을 갱신하고, 변경 사항이 있으면 자동 커밋·푸시합니다.
+
+수동으로 즉시 실행하고 싶을 때는 GitHub 저장소의 `Actions` 탭에서 `Update weekly economic calendar` 워크플로우를 선택한 뒤 `Run workflow`를 누르면 됩니다.
+
 ## 공유
 
 공개 주소: https://dogok2.github.io/stock-etf-analyzer/
