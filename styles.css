@@ -304,6 +304,58 @@ main { width: min(1280px, 92vw); margin: 0 auto; }
 .comparison-foot div { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 .comparison-foot a { padding: 7px 9px; color: white; text-decoration: none; background: var(--navy); border-radius: 999px; font-size: .64rem; font-weight: 900; white-space: nowrap; }
 
+.indicator-source-links { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.indicator-source-links a { padding: 10px 12px; color: white; text-decoration: none; background: var(--navy); border-radius: 999px; font-size: .74rem; font-weight: 900; }
+.indicator-source-links a:nth-child(2) { color: var(--ink); background: var(--lime); }
+.indicator-source-links.compact { justify-content: flex-start; margin-top: 12px; }
+.indicator-source-links.compact a { padding: 8px 10px; font-size: .68rem; }
+.indicator-intro { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 18px; padding: 18px 20px; color: white; background: linear-gradient(120deg, #133044, #315f58); border-radius: 16px; }
+.indicator-intro strong { flex: 0 0 auto; color: var(--lime); }
+.indicator-intro p { max-width: 780px; margin: 0; color: #cad7dd; font-size: .84rem; line-height: 1.6; }
+.indicator-hero { display: grid; grid-template-columns: 1.35fr .65fr; gap: 30px; padding: clamp(30px, 5vw, 66px); color: white; background: linear-gradient(135deg, #0f2636 0%, #194850 54%, #4b6d55 100%); }
+.indicator-hero h2 { max-width: 760px; margin: 0; font-family: Georgia, "Nanum Myeongjo", serif; font-size: clamp(2.5rem, 5vw, 5.3rem); line-height: 1.05; letter-spacing: -.055em; }
+.indicator-status-panel { align-self: center; }
+.indicator-status-panel > strong { display: block; margin-top: 10px; color: var(--lime); font: 700 2.4rem Georgia, serif; }
+.indicator-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 54px; }
+.indicator-summary > div { min-height: 138px; padding: 20px; color: white; background: var(--ink); border-radius: 16px; }
+.indicator-summary small { color: #b8cbcf; font-size: .68rem; font-weight: 900; letter-spacing: .08em; }
+.indicator-summary strong { display: block; margin: 14px 0 6px; color: var(--lime); font: 700 2.15rem Georgia, serif; }
+.indicator-summary p { margin: 0; color: #c6d8d8; font-size: .75rem; line-height: 1.5; }
+.indicator-section-head { margin-top: 12px; }
+.calendar-shell, .fedwatch-shell { display: grid; gap: 16px; }
+.calendar-note, .fedwatch-note { display: grid; grid-template-columns: minmax(160px, .32fr) 1fr auto; align-items: center; gap: 16px; padding: 18px 20px; background: #e8ebe2; border: 1px solid var(--line); border-radius: 16px; }
+.calendar-note span, .fedwatch-note small { display: block; color: #47625f; font-size: .68rem; font-weight: 900; letter-spacing: .08em; }
+.calendar-note p, .fedwatch-note p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.65; }
+.calendar-note a { padding: 9px 11px; color: white; text-decoration: none; background: var(--navy); border-radius: 999px; font-size: .7rem; font-weight: 900; white-space: nowrap; }
+.fedwatch-note strong { display: block; margin-top: 6px; font: 700 1.5rem Georgia, serif; }
+.event-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: white; }
+.event-table { width: 100%; min-width: 960px; border-collapse: collapse; font-size: .76rem; }
+.event-table th, .event-table td { padding: 13px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+.event-table thead th { color: #47625f; background: #f3f5ef; font-size: .66rem; letter-spacing: .04em; }
+.event-table tbody tr:last-child td { border-bottom: 0; }
+.event-table td:nth-child(4), .event-table td:nth-child(5), .event-table td:nth-child(6) { white-space: nowrap; font-family: Georgia, serif; font-weight: 700; }
+.country-pill { display: inline-flex; min-width: 34px; justify-content: center; padding: 5px 7px; color: white; background: var(--navy); border-radius: 999px; font-size: .65rem; font-weight: 900; }
+.impact-stars { color: #a97700; font-weight: 900; letter-spacing: .04em; white-space: nowrap; }
+.indicator-chart-shell { background: #eef4ef; }
+.indicator-list { max-height: 640px; }
+.indicator-item .chart-mode.tv { color: #174f3b; background: #d9f0e6; }
+.indicator-chart-meta .chart-provider { color: #1f4f9a; background: #dfe9ff; }
+.fedwatch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.fedwatch-card { padding: 20px; background: #f3f5ef; border: 1px solid var(--line); border-radius: 16px; }
+.fedwatch-card-head { display: grid; gap: 6px; margin-bottom: 16px; }
+.fedwatch-card-head span { color: #47625f; font-size: .68rem; font-weight: 900; letter-spacing: .08em; }
+.fedwatch-card-head strong { font: 700 1.6rem Georgia, serif; }
+.fedwatch-card-head small { width: max-content; max-width: 100%; padding: 5px 8px; color: var(--ink); background: var(--lime); border-radius: 999px; font-size: .66rem; font-weight: 900; }
+.probability-list { display: grid; gap: 12px; }
+.probability-row span { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 6px; font-size: .72rem; }
+.probability-row span b { font-weight: 900; }
+.probability-row span em { color: #16734f; font-style: normal; font-weight: 900; }
+.probability-track { display: block; height: 8px; overflow: hidden; background: #e1e4dd; border-radius: 999px; }
+.probability-track strong { display: block; height: 100%; background: linear-gradient(90deg, var(--mint), var(--navy)); border-radius: inherit; }
+.probability-row small { display: block; margin-top: 5px; color: var(--muted); font-size: .62rem; }
+.fedwatch-card > p { margin: 16px 0 0; color: var(--muted); font-size: .68rem; line-height: 1.5; }
+.indicator-policy { margin-top: 0; }
+
 .stock-intro { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 18px; padding: 18px 20px; color: white; background: linear-gradient(120deg, #312847, #173e51); border-radius: 16px; }
 .stock-intro strong { flex: 0 0 auto; color: var(--lime); }
 .stock-intro p { max-width: 760px; margin: 0; color: #cad7dd; font-size: .84rem; line-height: 1.6; }
@@ -448,7 +500,7 @@ footer { display: flex; justify-content: space-between; gap: 30px; padding: 26px
   .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 70px; }
   .hero-orbit { display: none; }
   .etf-list { grid-template-columns: 1fr 1fr; }
-  .report-hero, .section-head, .holdings-layout, .security-chart-layout { grid-template-columns: 1fr; }
+  .report-hero, .indicator-hero, .section-head, .holdings-layout, .security-chart-layout, .indicator-chart-layout { grid-template-columns: 1fr; }
   .fact-grid { grid-template-columns: 1fr 1fr; }
   .score-grid { grid-template-columns: 1fr 1fr; }
   .performance-grid { grid-template-columns: repeat(3, 1fr); }
@@ -456,6 +508,8 @@ footer { display: flex; justify-content: space-between; gap: 30px; padding: 26px
   .catalog-tools { justify-content: space-between; }
   .security-chart-copy { align-items: flex-start; flex-direction: column; }
   .security-list { max-height: 260px; }
+  .indicator-summary, .fedwatch-grid { grid-template-columns: 1fr; }
+  .calendar-note, .fedwatch-note { grid-template-columns: 1fr; }
   .distribution-summary { grid-template-columns: 1fr 1fr; }
   .distribution-layout { grid-template-columns: 1fr; }
   .change-grid { grid-template-columns: 1fr 1fr; }
@@ -503,7 +557,7 @@ footer { display: flex; justify-content: space-between; gap: 30px; padding: 26px
   .distribution-bar { grid-template-columns: 48px 1fr 76px; }
   .tax-callout { grid-template-columns: 1fr; }
   .scenario-table th:nth-child(3), .scenario-table td:nth-child(3) { display: none; }
-  .change-summary-lead, .peer-comparison-head, .comparison-foot, .stock-intro { align-items: flex-start; flex-direction: column; }
+  .change-summary-lead, .peer-comparison-head, .comparison-foot, .stock-intro, .indicator-intro { align-items: flex-start; flex-direction: column; }
   .change-grid, .stock-fact-grid, .codex-metrics, .horizon-grid, .quarterly-meta, .outlook-columns, .stock-scenarios, .valuation-grid, .source-policy { grid-template-columns: 1fr; }
   .change-card { min-height: 0; }
   .peer-comparison { padding: 16px; }

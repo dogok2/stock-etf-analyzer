@@ -8,7 +8,7 @@
       content="주식과 ETF를 공식 자료 중심으로 깊이 있게 정리하는 정적 분석 리포트"
     />
     <title>DeepTicker | 주식 & ETF 분석기</title>
-    <link rel="stylesheet" href="styles.css?v=20260710-stock-rating-1" />
+    <link rel="stylesheet" href="styles.css?v=20260710-indicators-1" />
   </head>
   <body>
     <header class="site-header">
@@ -22,6 +22,7 @@
       <nav class="top-nav" aria-label="주요 메뉴">
         <button class="nav-button active" data-view="etf">ETF 분석</button>
         <button class="nav-button" data-view="stock">주식 분석</button>
+        <button class="nav-button" data-view="indicators">기타 지표</button>
       </nav>
     </header>
 
@@ -95,6 +96,24 @@
         <div id="stock-list" class="stock-list" aria-live="polite"></div>
         <article id="stock-report" class="report stock-report" aria-live="polite"></article>
       </section>
+
+      <section id="indicators-view" class="view-section hidden">
+        <div class="catalog-head indicator-catalog-head">
+          <div>
+            <p class="eyebrow">MACRO BOARD</p>
+            <h2>기타 지표 대시보드</h2>
+          </div>
+          <div class="indicator-source-links">
+            <a href="https://www.investing.com/economic-calendar/" target="_blank" rel="noreferrer">Investing 캘린더</a>
+            <a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" rel="noreferrer">CME FedWatch</a>
+          </div>
+        </div>
+        <div class="indicator-intro">
+          <strong>ETF·주식 보기 전에 거시 환경을 먼저 봅니다.</strong>
+          <p>고중요 경제 이벤트, 환율·원자재·코인 차트, 다음 FOMC 확률을 한 화면에 모았습니다. 차트는 TradingView 표시 가능 심볼을 우선 사용합니다.</p>
+        </div>
+        <article id="indicators-root" class="report indicator-report" aria-live="polite"></article>
+      </section>
     </main>
 
     <footer>
@@ -106,7 +125,9 @@
     <script src="data/market-history.js?v=20260710-chart-fallback-1"></script>
     <script src="data/market-history-overrides.js?v=20260710-chart-fallback-1"></script>
     <script src="data/stocks.js?v=20260710-stock-rating-1"></script>
-    <script src="app.js?v=20260710-stock-rating-1"></script>
+    <script src="data/indicators.js?v=20260710-indicators-1"></script>
+    <script src="app.js?v=20260710-indicators-1"></script>
     <script src="stocks.js?v=20260710-stock-rating-1"></script>
+    <script src="indicators.js?v=20260710-indicators-1"></script>
   </body>
 </html>

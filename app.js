@@ -662,8 +662,9 @@ document.querySelectorAll(".nav-button").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".nav-button").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
-    document.querySelector("#etf-view").classList.toggle("hidden", button.dataset.view !== "etf");
-    document.querySelector("#stock-view").classList.toggle("hidden", button.dataset.view !== "stock");
+    document.querySelectorAll(".view-section").forEach((section) => {
+      section.classList.toggle("hidden", section.id !== `${button.dataset.view}-view`);
+    });
   });
 });
 
