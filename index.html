@@ -23,6 +23,7 @@
         <button class="nav-button active" data-view="etf">ETF 분석</button>
         <button class="nav-button" data-view="stock">주식 분석</button>
         <button class="nav-button" data-view="indicators">기타 지표</button>
+        <button class="nav-button" data-view="chat">채팅</button>
       </nav>
     </header>
 
@@ -114,6 +115,21 @@
         </div>
         <article id="indicators-root" class="report indicator-report" aria-live="polite"></article>
       </section>
+
+      <section id="chat-view" class="view-section hidden">
+        <div class="catalog-head chat-catalog-head">
+          <div>
+            <p class="eyebrow">REQUEST BOARD</p>
+            <h2>분석 요청 댓글함</h2>
+          </div>
+          <div class="chat-status-pill" id="chat-status-pill">연결 확인 중</div>
+        </div>
+        <div class="chat-intro">
+          <strong>분석해줬으면 하는 ETF나 주식을 편하게 남겨주세요.</strong>
+          <p>실시간 채팅방이 아니라 분석 요청을 모아두는 익명 댓글함입니다. 댓글마다 새 랜덤 익명 이름이 붙고, 운영자가 부적절한 요청은 숨기거나 삭제할 수 있습니다.</p>
+        </div>
+        <article id="chat-root" class="report chat-report" aria-live="polite"></article>
+      </section>
     </main>
 
     <footer>
@@ -127,8 +143,10 @@
     <script src="data/indicator-history.js?v=20260710-indicators-2"></script>
     <script src="data/stocks.js?v=20260710-stock-rating-1"></script>
     <script src="data/indicators.js?v=20260710-indicators-2"></script>
+    <script src="data/request-board-config.js?v=20260711-chat-1"></script>
     <script src="app.js?v=20260710-indicators-2"></script>
     <script src="stocks.js?v=20260710-stock-rating-1"></script>
     <script src="indicators.js?v=20260710-indicators-2"></script>
+    <script src="requests.js?v=20260711-chat-1"></script>
   </body>
 </html>
