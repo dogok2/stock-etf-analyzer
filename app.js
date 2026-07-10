@@ -507,6 +507,7 @@ function renderMarketChart(container, item) {
   const mid = points[Math.floor(points.length / 2)];
   const gridValues = [high - padding, (high + low) / 2, low + padding];
   const unit = history.kind === "rate" ? "%" : history.currency;
+  const intervalLabel = history.interval === "sampled" ? "가격 표본" : "일봉";
   const gradientId = `chartFill-${safeId(item.yahooSymbol || item.symbol)}`;
 
   container.innerHTML = `<div class="market-chart-card">
@@ -532,7 +533,7 @@ function renderMarketChart(container, item) {
         <text x="${width - right}" y="${height - 10}" text-anchor="end">${latest.date.slice(5)}</text>
       </g>
     </svg>
-    <p class="market-chart-note">저장된 최근 1년 일봉 데이터로 그린 차트입니다.${unit ? ` 단위: ${unit}.` : ""} 외부 링크는 보조 확인용입니다.</p>
+    <p class="market-chart-note">저장된 최근 1년 ${intervalLabel} 데이터로 그린 차트입니다.${unit ? ` 단위: ${unit}.` : ""} 외부 링크는 보조 확인용입니다.</p>
   </div>`;
 }
 

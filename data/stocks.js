@@ -231,10 +231,10 @@ const LGES_20260709 = {
     ticker: "373220",
     symbol: "KRX:373220",
     yahooSymbol: "373220.KS",
-    embed: true,
-    provider: "TradingView 실시간 차트",
+    embed: false,
+    provider: "저장된 1년 가격 차트",
     note:
-      "KRX 상장 종목은 TradingView 심볼로 우선 표시합니다. 위젯 제공 범위가 바뀌면 다음 업데이트에서 자체 저장 차트로 전환할 수 있습니다."
+      "KRX:373220은 TradingView 사이트 안에서는 조회되지만 외부 임베드 위젯에서는 'TradingView에서만 제공' 문구가 뜨는 것으로 확인했습니다. 그래서 페이지 안에서는 저장 가격 차트를 기본으로 보여주고, TradingView 링크는 보조 확인용으로 유지합니다."
   },
   userAssessment: USER_ASSESSMENT_PENDING,
   codexAssessment: {
