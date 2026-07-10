@@ -51,11 +51,11 @@ drop policy if exists "Admin can update requests" on public.analysis_requests;
 create policy "Admin can update requests"
 on public.analysis_requests
 for update
-using ((auth.jwt() ->> 'email') = 'YOUR_ADMIN_EMAIL@example.com')
-with check ((auth.jwt() ->> 'email') = 'YOUR_ADMIN_EMAIL@example.com');
+using ((auth.jwt() ->> 'email') = 'c01088673901@gmail.com')
+with check ((auth.jwt() ->> 'email') = 'c01088673901@gmail.com');
 
 drop policy if exists "Admin can delete requests" on public.analysis_requests;
 create policy "Admin can delete requests"
 on public.analysis_requests
 for delete
-using ((auth.jwt() ->> 'email') = 'YOUR_ADMIN_EMAIL@example.com');
+using ((auth.jwt() ->> 'email') = 'c01088673901@gmail.com');

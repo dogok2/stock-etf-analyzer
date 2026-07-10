@@ -42,11 +42,13 @@
     list.innerHTML = filtered.map((item) => {
       const snapshot = latest(item);
       const quote = snapshot.quote;
+      const scoreSummary = renderStockCardScores(snapshot);
       return `<button class="stock-card ${item.id === selectedId ? "active" : ""}" data-stock-id="${escapeAttr(item.id)}">
         <span class="card-kicker"><span>${escape(item.category)}</span><i class="card-dot"></i></span>
         <span class="card-meta-row">
           <span class="listing-badge stock ${escapeAttr(item.listingMarket || "")}">${escape(item.listingLabel)}</span>
           <small class="archive-count">분석 기록 ${item.snapshots.length}회</small>
+          ${scoreSummary}
         </span>
         <h3>${escape(item.shortName || item.name)}</h3>
         <p>${escape(item.id)} · 최근 분석 ${snapshot.researchDate}</p>
@@ -75,7 +77,7 @@
     selectedDate = snapshot.researchDate;
 
     const sections = [
-      stockSection("01", "나의 평가와 Codex 평가", "사용자 점수는 8개 항목 가중평균의 최종점수만 보여주고, 보유 방식은 단기·중기·장기 중 추천 관점 하나로 남깁니다.", renderAssessments(snapshot)),
+      stockSection("01", "나의 평가와 Codex 평가", "사용자 점수는 8개 항목 가중평균, Codex 점수는 10개 항목 평균으로 분리해 보여주고, 보유 방식은 단기·중기·장기 중 추천 관점 하나로 남깁니다.", renderAssessments(snapshot)),
       stockSection("02", "주가 차트", "ETF 구성 종목 차트와 같은 방식으로, TradingView에서 표시 가능한 종목은 페이지 안에 바로 띄웁니다.", renderStockChart(snapshot.stockChart)),
       stockSection("03", "최근 5년 분기 실적", "매출과 영업이익 20개 분기를 한 흐름으로 보고, 확인 가능한 구간은 막대와 표로 함께 표시합니다.", renderQuarterly(snapshot.quarterlyPerformance)),
       stockSection("04", "Codex 전망 코멘트", "확인된 사실과 조건부 해석을 구분하고, 전망이 틀렸다고 판단할 조건까지 남깁니다.", renderOutlook(snapshot.outlook)),
@@ -189,21 +191,34 @@
     </div>`;
   }
 
+  function renderStockCardScores(snapshot = {}) {
+    const userScore = resolveWeightedScore(snapshot.userAssessment || {});
+    const codexScore = resolveWeightedScore(snapshot.codexAssessment || {});
+    return `<span class="stock-card-scores">
+      <small class="stock-score-pill user">내 점수 ${scoreLabel(userScore)}</small>
+      <small class="stock-score-pill codex">Codex ${scoreLabel(codexScore)}</small>
+    </span>`;
+  }
+
   function resolveWeightedScore(assessment = {}) {
     if (isFiniteNumber(assessment.total)) {
       return Number(assessment.total);
     }
 
-    const items = assessment.scoreItems || assessment.criteria || [];
+    const items = assessment.scoreItems || assessment.criteria || assessment.metrics || [];
     if (!Array.isArray(items) || !items.length) {
       return null;
     }
 
+    const usesCodexMetrics = !assessment.scoreItems && !assessment.criteria && Array.isArray(assessment.metrics);
     const defaultWeights = [1, 1, 1, 1, 1, 1, 2, 2];
-    const aggregate = items.slice(0, 8).reduce(
+    const usableItems = usesCodexMetrics ? items : items.slice(0, 8);
+    const aggregate = usableItems.reduce(
       (acc, item, index) => {
         const score = typeof item === "number" ? item : item?.score;
-        const weight = typeof item === "object" && isFiniteNumber(item.weight) ? Number(item.weight) : defaultWeights[index];
+        const weight = typeof item === "object" && isFiniteNumber(item.weight)
+          ? Number(item.weight)
+          : (usesCodexMetrics ? 1 : defaultWeights[index]);
         if (!isFiniteNumber(score) || !isFiniteNumber(weight)) {
           return acc;
         }
@@ -401,6 +416,10 @@
 
   function formatScore(value) {
     return isFiniteNumber(value) ? Number(value).toFixed(1) : "—";
+  }
+
+  function scoreLabel(value) {
+    return isFiniteNumber(value) ? `${Number(value).toFixed(1)}/5` : "미입력";
   }
 
   function formatQuarterValue(value) {
