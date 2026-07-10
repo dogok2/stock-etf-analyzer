@@ -38,7 +38,7 @@ ETF 분석 데이터는 `data/etfs.js`의 `window.ETF_ANALYSES` 배열에 하나
 
 기타 지표 데이터는 `data/indicators.js`의 `window.OTHER_INDICATORS`에 저장합니다. TradingView에서 표시 가능한 심볼은 페이지 안에서 바로 띄우고, 경제 캘린더와 FedWatch 확률은 업데이트 시점의 스냅샷으로 남깁니다.
 
-채팅/분석 요청 댓글함은 `requests.js`와 `data/request-board-config.js`가 담당합니다. GitHub Pages는 정적 사이트라 방문자 댓글을 자체 저장할 수 없으므로 Supabase 같은 외부 DB 연결이 필요합니다. Supabase SQL 설정 예시는 `docs/supabase-analysis-requests.sql`에 있습니다. 연결 후에는 방문자가 이름 없이 요청을 남기고, 댓글마다 새 랜덤 익명명이 붙습니다. 삭제 권한은 Supabase RLS에서 지정한 관리자 이메일에만 부여합니다.
+채팅/분석 요청 댓글함은 `requests.js`와 `data/request-board-config.js`가 담당합니다. 기본 화면은 댓글식 입력란과 최근 요청 목록만 보여주며, 댓글마다 새 랜덤 익명명이 붙고 7일이 지나면 목록에서 사라집니다. 외부 저장소를 연결하지 않으면 각 방문자 브라우저에만 임시 저장됩니다. 여러 방문자의 요청을 운영자가 한곳에서 보려면 `data/request-board-config.js`에 Supabase 같은 외부 저장소를 연결해야 합니다. Supabase SQL 설정 예시는 `docs/supabase-analysis-requests.sql`에 있습니다.
 
 ## 자동 업데이트
 

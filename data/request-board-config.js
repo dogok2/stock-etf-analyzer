@@ -5,6 +5,6 @@ window.REQUEST_BOARD_CONFIG = {
   table: "analysis_requests",
   maxMessageLength: 700,
   pageSize: 80,
-  dashboardUrl: "",
-  setupGuideUrl: "docs/supabase-analysis-requests.sql"
+  retentionDays: 7,
+  localFallback: true
 };
