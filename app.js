@@ -395,7 +395,7 @@ function renderDistribution(distribution) {
   const maxAmount = Math.max(...distribution.rows.map((row) => row.amount), 1);
   return `<div class="distribution-summary">
       <div><small>지급 주기</small><strong>${distribution.frequency}</strong><p>${distribution.schedule}</p></div>
-      <div><small>최근 주당 분배</small><strong>${distribution.latestAmount}</strong><p>${distribution.rows[0].payDate} 지급</p></div>
+      <div><small>최근 주당 분배</small><strong>${distribution.latestAmount}</strong><p>${distribution.latestNote || `${distribution.rows[0].payDate} 지급`}</p></div>
       <div><small>${distribution.secYield ? "30일 SEC 수익률" : "최근 4회 합계"}</small><strong>${distribution.secYield || distribution.trailingAmount}</strong><p>${distribution.yieldAsOf}</p></div>
       <div><small>12개월 분배수익률</small><strong>${distribution.trailingYield}</strong><p>${distribution.yieldAsOf}</p></div>
     </div>

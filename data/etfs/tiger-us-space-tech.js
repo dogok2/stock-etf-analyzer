@@ -165,6 +165,7 @@ const TIGER_US_SPACE_TECH_20260710 = {
     frequency: "분기 기준일",
     schedule: "매년 1·4·7·10월 마지막 영업일 및 회계기간 종료일, 지급은 기준일 익영업일부터 7영업일 이내",
     latestAmount: "0원",
+    latestNote: "상장 이후 지급 이력 없음",
     trailingAmount: "지급 이력 없음",
     trailingYield: "0.00%",
     yieldAsOf: "2026-07-10 기준 상장 이후 공시된 분배금 없음",
