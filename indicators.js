@@ -203,7 +203,7 @@
         ticker: item.ticker,
         symbol: item.symbol,
         yahooSymbol: item.yahooSymbol || "",
-        embed: item.embed !== false
+        embed: item.embed === true
       });
       chartHydrated = true;
       return;
@@ -224,19 +224,19 @@
   }
 
   function chartModeClass(item) {
-    return item.embed === false ? "inline" : "tv";
+    return item.embed === true ? "tv" : "inline";
   }
 
   function chartModeLabel(item) {
-    return item.embed === false ? (item.provider || "저장 차트") : "TradingView";
+    return item.embed === true ? "TradingView" : (item.provider || "저장 차트");
   }
 
   function chartProviderLabel(item) {
-    return item.embed === false ? (item.provider || "저장 차트") : "TradingView 차트";
+    return item.embed === true ? "TradingView 차트" : (item.provider || "저장 차트");
   }
 
   function displaySymbol(item) {
-    return item.embed === false && item.yahooSymbol ? `${item.yahooSymbol} · 원문 ${item.symbol}` : item.symbol;
+    return item.embed !== true && item.yahooSymbol ? `${item.yahooSymbol} · 원문 ${item.symbol}` : item.symbol;
   }
 
   function topProbability(meeting) {

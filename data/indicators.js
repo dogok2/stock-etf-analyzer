@@ -150,6 +150,7 @@ window.OTHER_INDICATORS = {
       name: "달러/원 환율",
       ticker: "USD/KRW",
       symbol: "FX_IDC:USDKRW",
+      embed: true,
       category: "환율",
       memo: "국내 ETF와 해외 주식 환산 수익률을 볼 때 가장 먼저 확인합니다."
     },
@@ -158,6 +159,7 @@ window.OTHER_INDICATORS = {
       name: "엔/원 환율",
       ticker: "JPY/KRW",
       symbol: "FX_IDC:JPYKRW",
+      embed: true,
       category: "환율",
       memo: "일본 수출주, 엔화 약세/강세, 엔 캐리 청산 리스크를 볼 때 참고합니다."
     },
@@ -166,6 +168,7 @@ window.OTHER_INDICATORS = {
       name: "유로/원 환율",
       ticker: "EUR/KRW",
       symbol: "FX_IDC:EURKRW",
+      embed: true,
       category: "환율",
       memo: "유럽 경기와 ECB 기대가 한국 투자자 환산 수익률에 미치는 영향을 봅니다."
     },
@@ -174,6 +177,7 @@ window.OTHER_INDICATORS = {
       name: "비트코인/달러",
       ticker: "BTC/USD",
       symbol: "COINBASE:BTCUSD",
+      embed: true,
       category: "코인",
       memo: "위험자산 선호와 유동성 민감도를 빠르게 보는 대표 코인 지표입니다."
     },
@@ -182,6 +186,7 @@ window.OTHER_INDICATORS = {
       name: "이더리움/달러",
       ticker: "ETH/USD",
       symbol: "COINBASE:ETHUSD",
+      embed: true,
       category: "코인",
       memo: "코인 내부 위험선호와 스마트컨트랙트 테마를 같이 봅니다."
     },
@@ -190,6 +195,7 @@ window.OTHER_INDICATORS = {
       name: "금",
       ticker: "XAU/USD",
       symbol: "OANDA:XAUUSD",
+      embed: true,
       category: "귀금속",
       memo: "실질금리, 달러, 지정학 리스크를 함께 반영하는 방어 자산입니다."
     },
@@ -198,6 +204,7 @@ window.OTHER_INDICATORS = {
       name: "은",
       ticker: "XAG/USD",
       symbol: "OANDA:XAGUSD",
+      embed: true,
       category: "귀금속",
       memo: "귀금속 성격과 산업재 성격을 동시에 가져 금보다 경기 민감도가 큽니다."
     },

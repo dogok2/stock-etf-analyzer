@@ -263,7 +263,7 @@
       data-ticker="${escapeAttr(chart.ticker)}"
       data-symbol="${escapeAttr(chart.symbol)}"
       data-yahoo="${escapeAttr(chart.yahooSymbol || "")}"
-      data-embed="${chart.embed === false ? "false" : "true"}">
+      data-embed="${chart.embed === true ? "true" : "false"}">
       <div class="security-chart-copy">
         <strong>${escape(chart.provider || "주가 차트")}</strong>
         <p>${escape(chart.note || "차트는 외부 위젯 또는 저장된 일봉 데이터로 표시합니다.")}</p>
@@ -273,7 +273,7 @@
           <span>
             <strong>${escape(chart.name || chart.ticker)}</strong>
             <small>${escape(chart.symbol || chart.ticker)}</small>
-            <small class="chart-provider">${chart.embed === false ? "저장된 1년 일봉" : "TradingView 실시간 차트"}</small>
+            <small class="chart-provider">${chart.embed === true ? "TradingView 실시간 차트" : "저장된 1년 일봉"}</small>
           </span>
           <div class="chart-link-row">
             <a href="${stockTradingViewLink(chart.symbol)}" target="_blank" rel="noreferrer">TradingView</a>

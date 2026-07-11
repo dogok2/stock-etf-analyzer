@@ -340,16 +340,16 @@ function renderSecurityCharts(snapshot) {
         ${chartItems
           .map(
             (item, index) => `
-              <button class="security-item ${index === 0 ? "active" : ""}" data-symbol="${escapeAttr(item.chartSymbol)}" data-name="${escapeAttr(item.name)}" data-ticker="${escapeAttr(item.exchange ? `${item.exchange}:${item.ticker}` : item.ticker)}" data-yahoo="${escapeAttr(item.yahooSymbol || "")}" data-fred="${escapeAttr(item.fredSymbol || "")}" data-embed="${item.embed === false ? "false" : "true"}" aria-pressed="${index === 0 ? "true" : "false"}">
+              <button class="security-item ${index === 0 ? "active" : ""}" data-symbol="${escapeAttr(item.chartSymbol)}" data-name="${escapeAttr(item.name)}" data-ticker="${escapeAttr(item.exchange ? `${item.exchange}:${item.ticker}` : item.ticker)}" data-yahoo="${escapeAttr(item.yahooSymbol || "")}" data-fred="${escapeAttr(item.fredSymbol || "")}" data-embed="${item.embed === true ? "true" : "false"}" aria-pressed="${index === 0 ? "true" : "false"}">
                 <span><b>${item.name}</b><small>${item.role || ""}</small></span>
-                <span class="security-item-side"><em>${item.weight ? `${item.weight.toFixed(2)}%` : item.ticker}</em><small class="chart-mode ${item.embed === false ? "inline" : "tv"}">${item.embed === false ? "자체 차트" : "TradingView"}</small></span>
+                <span class="security-item-side"><em>${item.weight ? `${item.weight.toFixed(2)}%` : item.ticker}</em><small class="chart-mode ${item.embed === true ? "tv" : "inline"}">${item.embed === true ? "TradingView" : "자체 차트"}</small></span>
               </button>`
           )
           .join("")}
       </div>
       <div class="security-chart-area">
         <div class="security-chart-meta">
-          <span><strong data-chart-name>${first.name}</strong><small data-chart-symbol>${first.exchange ? `${first.exchange}:${first.ticker}` : first.ticker}</small><small class="chart-provider" data-chart-provider>${first.embed === false ? inlineChartProviderLabel(first) : "TradingView 실시간 차트"}</small></span>
+          <span><strong data-chart-name>${first.name}</strong><small data-chart-symbol>${first.exchange ? `${first.exchange}:${first.ticker}` : first.ticker}</small><small class="chart-provider" data-chart-provider>${first.embed === true ? "TradingView 실시간 차트" : inlineChartProviderLabel(first)}</small></span>
           <div class="chart-link-row">
             <a data-chart-link href="${tradingViewLink(first.chartSymbol)}" target="_blank" rel="noreferrer">TradingView</a>
             <a data-yahoo-link href="${yahooFinanceLink(first.yahooSymbol)}" target="_blank" rel="noreferrer" ${first.yahooSymbol ? "" : "hidden"}>Yahoo Finance</a>
