@@ -20,6 +20,16 @@ window.ETF_ANALYSES = [
     snapshots: [TIGER_US_DIVIDEND_DOW_20260709]
   },
   {
+    id: "0183J0",
+    name: "TIGER 미국우주테크",
+    shortName: "TIGER 미국우주테크",
+    category: "해외주식 · 미국 · 우주테크",
+    listingMarket: "kr",
+    listingLabel: "국내상장 ETF",
+    tradingCurrency: "KRW",
+    snapshots: [TIGER_US_SPACE_TECH_20260710]
+  },
+  {
     id: "TLT",
     name: "iShares 20+ Year Treasury Bond ETF",
     shortName: "TLT 미국 장기국채",
