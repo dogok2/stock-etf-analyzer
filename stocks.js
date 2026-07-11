@@ -4,6 +4,9 @@
   const report = document.querySelector("#stock-report");
   const search = document.querySelector("#stock-search");
   const marketButtons = document.querySelectorAll(".stock-market-filter");
+  const allStockList = document.querySelector("#stock-all-list");
+  const allStockToggle = document.querySelector("#stock-all-toggle");
+  const stockListCount = document.querySelector("#stock-list-count");
   if (!list || !report || !search) return;
 
   const numberFormat = new Intl.NumberFormat("ko-KR");
@@ -14,6 +17,7 @@
   let selectedId = stocks.some((item) => item.id === requestedStockId) ? requestedStockId : stocks[0]?.id || null;
   let selectedDate = requestedStockDate || stocks.find((item) => item.id === selectedId)?.snapshots?.[0]?.researchDate || null;
   let selectedMarket = "all";
+  let showAllStockIndex = false;
 
   const escape = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -29,11 +33,16 @@
       const matchesText = `${item.name} ${item.shortName || ""} ${item.id} ${item.category}`.toLowerCase().includes(needle);
       const matchesMarket = selectedMarket === "all" || item.listingMarket === selectedMarket;
       return matchesText && matchesMarket;
+    }).sort((a, b) => {
+      const dateOrder = latest(b).researchDate.localeCompare(latest(a).researchDate);
+      return dateOrder || (a.shortName || a.name).localeCompare(b.shortName || b.name, "ko");
     });
+    const visible = needle ? filtered : filtered.slice(0, 6);
 
     if (!filtered.length) {
       list.innerHTML = '<div class="empty-state">아직 등록되지 않은 주식입니다. 분석할 종목명과 티커를 알려주세요.</div>';
       report.innerHTML = "";
+      renderAllStockIndex(filtered);
       return;
     }
 
@@ -42,7 +51,7 @@
       selectedDate = latest(filtered[0]).researchDate;
     }
 
-    list.innerHTML = filtered.map((item) => {
+    list.innerHTML = visible.map((item) => {
       const snapshot = latest(item);
       const quote = snapshot.quote;
       const scoreSummary = renderStockCardScores(snapshot);
@@ -69,7 +78,40 @@
       report.scrollIntoView({ behavior: "smooth", block: "start" });
     }));
 
+    renderAllStockIndex(filtered);
     renderReport(selectedId, selectedDate);
+  }
+
+  function renderAllStockIndex(filtered) {
+    if (!allStockList || !allStockToggle || !stockListCount) return;
+
+    stockListCount.textContent = `검색 가능한 주식 ${filtered.length}개 · 기본 화면은 최근 6개`;
+    allStockToggle.textContent = showAllStockIndex ? "전체 분석 목록 닫기" : "전체 분석 목록 보기";
+    allStockToggle.setAttribute("aria-expanded", String(showAllStockIndex));
+    allStockList.classList.toggle("hidden", !showAllStockIndex);
+    allStockList.innerHTML = filtered.length
+      ? filtered.map((item) => {
+        const snapshot = latest(item);
+        const userScore = resolveWeightedScore(snapshot.userAssessment || {});
+        const codexScore = resolveWeightedScore(snapshot.codexAssessment || {});
+        return `<button class="analysis-index-row ${item.id === selectedId ? "active" : ""}" type="button" data-stock-index-id="${escapeAttr(item.id)}">
+          <span><strong>${escape(item.shortName || item.name)}</strong><small>${escape(item.id)} · ${escape(item.category)}</small></span>
+          <span><b>${escape(snapshot.researchDate)}</b><small>내 점수 ${scoreLabel(userScore)} · Codex ${scoreLabel(codexScore)}</small></span>
+        </button>`;
+      }).join("")
+      : '<div class="analysis-index-empty">현재 검색 조건에 맞는 주식이 없습니다.</div>';
+
+    allStockList.querySelectorAll("[data-stock-index-id]").forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedId = button.dataset.stockIndexId;
+        const item = stocks.find((entry) => entry.id === selectedId);
+        selectedDate = latest(item).researchDate;
+        renderList(search.value);
+        renderReport(selectedId, selectedDate);
+        window.DeepTickerRoute?.set("stock", selectedId, selectedDate);
+        report.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
   }
 
   function renderReport(id, researchDate) {
@@ -460,6 +502,10 @@
   }
 
   search.addEventListener("input", (event) => renderList(event.target.value));
+  allStockToggle?.addEventListener("click", () => {
+    showAllStockIndex = !showAllStockIndex;
+    renderList(search.value);
+  });
   marketButtons.forEach((button) => {
     button.addEventListener("click", () => {
       selectedMarket = button.dataset.stockMarket || "all";

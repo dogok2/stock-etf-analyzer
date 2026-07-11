@@ -8,7 +8,7 @@
       content="주식과 ETF를 공식 자료 중심으로 깊이 있게 정리하는 정적 분석 리포트"
     />
     <title>DeepTicker | 주식 & ETF 분석기</title>
-    <link rel="stylesheet" href="styles.css?v=20260711-mobile-1" />
+    <link rel="stylesheet" href="styles.css?v=20260712-top3-1" />
   </head>
   <body>
     <header class="site-header">
@@ -24,6 +24,7 @@
         <button class="nav-button" data-view="stock">주식 분석</button>
         <button class="nav-button" data-view="indicators">기타 지표</button>
         <button class="nav-button" data-view="chat">채팅</button>
+        <button class="nav-button" data-view="top3">월간 TOP3</button>
       </nav>
     </header>
 
@@ -69,6 +70,11 @@
           </div>
         </div>
         <div id="etf-list" class="etf-list" aria-live="polite"></div>
+        <div class="library-footer">
+          <button id="etf-all-toggle" class="analysis-index-toggle" type="button" aria-expanded="false">전체 분석 목록 보기</button>
+          <span id="etf-list-count" class="analysis-index-count"></span>
+        </div>
+        <div id="etf-all-list" class="analysis-index hidden" aria-live="polite"></div>
         <article id="etf-report" class="report" aria-live="polite"></article>
       </section>
 
@@ -95,6 +101,11 @@
         </div>
         <div class="stock-intro"><strong>주식도 ETF처럼 날짜별로 보존합니다.</strong><p>내 최종 가중점수, 추천 보유 관점, Codex 독립 평가, 주가 차트, 최근 5년 분기 실적, 근거 기반 전망까지 한 리포트에 남깁니다.</p></div>
         <div id="stock-list" class="stock-list" aria-live="polite"></div>
+        <div class="library-footer">
+          <button id="stock-all-toggle" class="analysis-index-toggle" type="button" aria-expanded="false">전체 분석 목록 보기</button>
+          <span id="stock-list-count" class="analysis-index-count"></span>
+        </div>
+        <div id="stock-all-list" class="analysis-index hidden" aria-live="polite"></div>
         <article id="stock-report" class="report stock-report" aria-live="polite"></article>
       </section>
 
@@ -130,6 +141,20 @@
         </div>
         <article id="chat-root" class="report chat-report" aria-live="polite"></article>
       </section>
+
+      <section id="top3-view" class="view-section hidden">
+        <div class="catalog-head top3-catalog-head">
+          <div>
+            <p class="eyebrow">MONTHLY SCOREBOARD</p>
+            <h2>월간 평가 TOP 3</h2>
+          </div>
+        </div>
+        <div class="top3-intro">
+          <strong>한 달의 판단을 순위와 결과로 남깁니다.</strong>
+          <p>같은 종목을 한 달에 여러 번 분석하면 그달의 가장 최신 평가만 사용합니다. 수익률은 분석 당시 저장가격과 최신 저장가격을 비교한 주가 수익률이며 환율·세금은 포함하지 않습니다.</p>
+        </div>
+        <article id="top3-root" class="report top3-report" aria-live="polite"></article>
+      </section>
     </main>
 
     <footer>
@@ -149,10 +174,12 @@
     <script src="data/stocks/meta.js?v=20260711-split-1"></script>
     <script src="data/stocks/lg-energy-solution.js?v=20260711-financials-1"></script>
     <script src="data/stocks.js?v=20260711-split-1"></script>
+    <script src="data/stock-price-history.js?v=20260712-top3-1"></script>
     <script src="data/indicators.js?v=20260711-chart-fail-closed-1"></script>
     <script src="data/request-board-config.js?v=20260711-chat-2"></script>
-    <script src="app.js?v=20260711-chart-fail-closed-1"></script>
-    <script src="stocks.js?v=20260711-chart-fail-closed-1"></script>
+    <script src="app.js?v=20260712-library-1"></script>
+    <script src="stocks.js?v=20260712-library-1"></script>
+    <script src="rankings.js?v=20260712-top3-1"></script>
     <script src="indicators.js?v=20260711-chart-fail-closed-1"></script>
     <script src="requests.js?v=20260711-chat-2"></script>
   </body>

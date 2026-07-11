@@ -17,9 +17,12 @@ const listElement = document.querySelector("#etf-list");
 const reportElement = document.querySelector("#etf-report");
 const searchElement = document.querySelector("#etf-search");
 const marketButtons = document.querySelectorAll(".market-filter");
+const allEtfListElement = document.querySelector("#etf-all-list");
+const allEtfToggle = document.querySelector("#etf-all-toggle");
+const etfListCount = document.querySelector("#etf-list-count");
 const numberFormat = new Intl.NumberFormat("ko-KR");
 const routeParams = new URLSearchParams(window.location.search);
-const validViews = new Set(["etf", "stock", "indicators", "chat"]);
+const validViews = new Set(["etf", "stock", "indicators", "chat", "top3"]);
 const initialView = validViews.has(routeParams.get("view")) ? routeParams.get("view") : "etf";
 const requestedEtfId = initialView === "etf" ? routeParams.get("id") : null;
 const requestedEtfDate = initialView === "etf" ? routeParams.get("date") : null;
@@ -27,6 +30,7 @@ const requestedEtfDate = initialView === "etf" ? routeParams.get("date") : null;
 let selectedId = analyses.some((item) => item.id === requestedEtfId) ? requestedEtfId : analyses[0]?.id || null;
 let selectedResearchDate = requestedEtfDate || analyses.find((item) => item.id === selectedId)?.snapshots?.[0]?.researchDate || null;
 let selectedMarket = "all";
+let showAllEtfIndex = false;
 
 function setRoute(view, id = "", date = "", replace = false) {
   const params = new URLSearchParams();
@@ -83,15 +87,20 @@ function syncSelectionToList(filtered) {
 }
 
 function renderList(query = "") {
-  const filtered = getFilteredAnalyses(query);
+  const filtered = getFilteredAnalyses(query).sort((a, b) => {
+    const dateOrder = latestSnapshot(b).researchDate.localeCompare(latestSnapshot(a).researchDate);
+    return dateOrder || (a.shortName || a.name).localeCompare(b.shortName || b.name, "ko");
+  });
   const selectionChanged = syncSelectionToList(filtered);
+  const visible = query.trim() ? filtered : filtered.slice(0, 6);
 
   if (!filtered.length) {
     listElement.innerHTML = '<div class="empty-state">아직 등록되지 않은 ETF입니다. 분석할 이름을 알려주세요.</div>';
+    renderAllEtfIndex(filtered);
     return;
   }
 
-  listElement.innerHTML = filtered
+  listElement.innerHTML = visible
     .map((item) => {
       const snapshot = latestSnapshot(item);
       return `
@@ -119,9 +128,40 @@ function renderList(query = "") {
     });
   });
 
+  renderAllEtfIndex(filtered);
+
   if (selectionChanged) {
     renderReport(selectedId, selectedResearchDate);
   }
+}
+
+function renderAllEtfIndex(filtered) {
+  if (!allEtfListElement || !allEtfToggle || !etfListCount) return;
+
+  etfListCount.textContent = `검색 가능한 ETF ${filtered.length}개 · 기본 화면은 최근 6개`;
+  allEtfToggle.textContent = showAllEtfIndex ? "전체 분석 목록 닫기" : "전체 분석 목록 보기";
+  allEtfToggle.setAttribute("aria-expanded", String(showAllEtfIndex));
+  allEtfListElement.classList.toggle("hidden", !showAllEtfIndex);
+  allEtfListElement.innerHTML = filtered.length
+    ? filtered.map((item) => {
+      const snapshot = latestSnapshot(item);
+      return `<button class="analysis-index-row ${item.id === selectedId ? "active" : ""}" type="button" data-etf-index-id="${escapeAttr(item.id)}">
+        <span><strong>${escapeHtml(item.shortName || item.name)}</strong><small>${escapeHtml(item.id)} · ${escapeHtml(item.category)}</small></span>
+        <span><b>${escapeHtml(snapshot.researchDate)}</b><small>분석 ${item.snapshots.length}회</small></span>
+      </button>`;
+    }).join("")
+    : '<div class="analysis-index-empty">현재 검색 조건에 맞는 ETF가 없습니다.</div>';
+
+  allEtfListElement.querySelectorAll("[data-etf-index-id]").forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedId = button.dataset.etfIndexId;
+      selectedResearchDate = latestSnapshot(analyses.find((item) => item.id === selectedId)).researchDate;
+      renderList(searchElement.value);
+      renderReport(selectedId, selectedResearchDate);
+      setRoute("etf", selectedId, selectedResearchDate);
+      reportElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
 }
 
 function renderReport(id, researchDate) {
@@ -735,6 +775,10 @@ marketButtons.forEach((button) => {
 });
 
 searchElement.addEventListener("input", (event) => renderList(event.target.value));
+allEtfToggle?.addEventListener("click", () => {
+  showAllEtfIndex = !showAllEtfIndex;
+  renderList(searchElement.value);
+});
 renderList();
 renderReport(selectedId, selectedResearchDate);
 activateMainView(initialView);
