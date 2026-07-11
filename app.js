@@ -6,6 +6,7 @@ const marketHistory = {
 const blockedTradingViewEmbeds = new Set([
   "KRX:373220",
   "KRX:458730",
+  "KRX:0183J0",
   "TVC:US10Y",
   "TVC:US30Y",
   "COMEX:HG1!",
@@ -331,7 +332,7 @@ function renderSecurityCharts(snapshot) {
   const first = chartItems[0];
   return `<div class="security-chart-shell" data-security-chart>
     <div class="security-chart-copy">
-      <strong>1년 가격 흐름</strong>
+      <strong>가격 흐름</strong>
       <p>왼쪽 종목을 누르면 오른쪽 차트가 해당 종목으로 바뀝니다. 외부 위젯 제한과 관계없이 저장된 가격 데이터를 사용해 페이지 안에서 직접 그립니다.</p>
     </div>
     <div class="security-chart-layout">
@@ -348,7 +349,7 @@ function renderSecurityCharts(snapshot) {
       </div>
       <div class="security-chart-area">
         <div class="security-chart-meta">
-          <span><strong data-chart-name>${first.name}</strong><small data-chart-symbol>${first.exchange ? `${first.exchange}:${first.ticker}` : first.ticker}</small><small class="chart-provider" data-chart-provider>${first.embed === false ? "저장된 1년 일봉" : "TradingView 실시간 차트"}</small></span>
+          <span><strong data-chart-name>${first.name}</strong><small data-chart-symbol>${first.exchange ? `${first.exchange}:${first.ticker}` : first.ticker}</small><small class="chart-provider" data-chart-provider>${first.embed === false ? inlineChartProviderLabel(first) : "TradingView 실시간 차트"}</small></span>
           <div class="chart-link-row">
             <a data-chart-link href="${tradingViewLink(first.chartSymbol)}" target="_blank" rel="noreferrer">TradingView</a>
             <a data-yahoo-link href="${yahooFinanceLink(first.yahooSymbol)}" target="_blank" rel="noreferrer" ${first.yahooSymbol ? "" : "hidden"}>Yahoo Finance</a>
@@ -483,15 +484,16 @@ function bindReportInteractions(item) {
       linkElement.href = tradingViewLink(button.dataset.symbol);
       updateOptionalLink(yahooLinkElement, yahooFinanceLink(button.dataset.yahoo), Boolean(button.dataset.yahoo));
       updateOptionalLink(fredLinkElement, fredLink(button.dataset.fred), Boolean(button.dataset.fred));
-      providerElement.textContent = button.dataset.embed === "true" ? "TradingView 실시간 차트" : "저장된 1년 일봉";
-      renderMarketChart(container, {
+      const selectedChart = {
         name: button.dataset.name,
         ticker: button.dataset.ticker,
         symbol: button.dataset.symbol,
         yahooSymbol: button.dataset.yahoo,
         fredSymbol: button.dataset.fred,
         embed: button.dataset.embed === "true"
-      });
+      };
+      providerElement.textContent = selectedChart.embed ? "TradingView 실시간 차트" : inlineChartProviderLabel(selectedChart);
+      renderMarketChart(container, selectedChart);
     };
 
     buttons.forEach((button) => button.addEventListener("click", () => activate(button)));
@@ -560,15 +562,16 @@ function renderMarketChart(container, item) {
   const gridValues = [high - padding, (high + low) / 2, low + padding];
   const unit = history.kind === "rate" ? "%" : history.currency;
   const intervalLabel = history.interval === "sampled" ? "가격 표본" : "일봉";
+  const rangeLabel = history.rangeLabel || (history.range === "1y" ? "최근 1년" : "저장 구간");
   const gradientId = `chartFill-${safeId(item.yahooSymbol || item.symbol)}`;
 
   container.innerHTML = `<div class="market-chart-card">
     <div class="market-chart-stats">
       <div><small>최근값</small><strong>${formatChartValue(latest.value, history)}</strong></div>
-      <div><small>1년 변화</small><strong class="${change < 0 ? "negative" : "positive"}">${change >= 0 ? "+" : ""}${change.toFixed(2)}%</strong></div>
+      <div><small>${rangeLabel} 변화</small><strong class="${change < 0 ? "negative" : "positive"}">${change >= 0 ? "+" : ""}${change.toFixed(2)}%</strong></div>
       <div><small>고점 / 저점</small><strong>${formatChartValue(max, history)} / ${formatChartValue(min, history)}</strong></div>
     </div>
-    <svg class="line-chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeAttr(item.name)} 1년 가격 흐름">
+    <svg class="line-chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeAttr(item.name)} ${rangeLabel} 가격 흐름">
       <defs>
         <linearGradient id="${gradientId}" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#69b79c" stop-opacity="0.34" />
@@ -585,8 +588,13 @@ function renderMarketChart(container, item) {
         <text x="${width - right}" y="${height - 10}" text-anchor="end">${latest.date.slice(5)}</text>
       </g>
     </svg>
-    <p class="market-chart-note">저장된 최근 1년 ${intervalLabel} 데이터로 그린 차트입니다.${unit ? ` 단위: ${unit}.` : ""} 외부 링크는 보조 확인용입니다.</p>
+    <p class="market-chart-note">저장된 ${rangeLabel} ${intervalLabel} 데이터로 그린 차트입니다.${unit ? ` 단위: ${unit}.` : ""} 외부 링크는 보조 확인용입니다.</p>
   </div>`;
+}
+
+function inlineChartProviderLabel(item) {
+  const history = marketHistory[item.yahooSymbol] || marketHistory[item.symbol];
+  return `저장된 ${history?.rangeLabel || "최근 1년"} 일봉`;
 }
 
 function renderTradingViewChart(container, item) {

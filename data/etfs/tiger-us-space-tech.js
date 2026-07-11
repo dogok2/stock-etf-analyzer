@@ -146,9 +146,9 @@ const TIGER_US_SPACE_TECH_20260710 = {
       "ETF 자체와 스페이스X를 포함한 실제 상위 구성 종목의 주가 흐름을 비교합니다. 우주 테마는 종목 간 변동 차이가 매우 커 ETF 차트만 보는 것보다 상위 4개 종목을 함께 확인하는 편이 좋습니다.",
     asOf: "2026-07-10",
     note:
-      "0183J0과 상위 10개 종목 모두 TradingView 공식 심볼 페이지가 확인된 심볼을 사용합니다. 공유 페이지 임베드에서 제한 문구가 확인되는 심볼은 즉시 자체 차트로 전환하는 원칙을 유지합니다.",
+      "ETF 자체 KRX:0183J0은 TradingView 심볼 페이지와 달리 공유용 임베드에서 시세가 비어 저장 차트로 고정했습니다. 스페이스X를 포함한 상위 10개 구성 종목은 공유 페이지 임베드 실표시를 전수 확인했습니다.",
     symbols: [
-      { name: "TIGER 미국우주테크", ticker: "0183J0", exchange: "KRX", chartSymbol: "KRX:0183J0", yahooSymbol: "0183J0.KS", embed: true, role: "ETF 가격", weight: 100 },
+      { name: "TIGER 미국우주테크", ticker: "0183J0", exchange: "KRX", chartSymbol: "KRX:0183J0", yahooSymbol: "0183J0.KS", embed: false, role: "ETF 가격", weight: 100 },
       { name: "SpaceX", ticker: "SPCX", exchange: "NASDAQ", chartSymbol: "NASDAQ:SPCX", yahooSymbol: "SPCX", embed: true, role: "발사체/Starlink", weight: 25.17 },
       { name: "Redwire", ticker: "RDW", exchange: "NYSE", chartSymbol: "NYSE:RDW", yahooSymbol: "RDW", embed: true, role: "우주 인프라", weight: 15.05 },
       { name: "Rocket Lab", ticker: "RKLB", exchange: "NASDAQ", chartSymbol: "NASDAQ:RKLB", yahooSymbol: "RKLB", embed: true, role: "발사체/위성", weight: 14.26 },

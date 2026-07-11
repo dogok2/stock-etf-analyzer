@@ -53,5 +53,29 @@ Object.assign(window.MARKET_HISTORY.series, {
       ["2026-06-30", 15735],
       ["2026-07-09", 15480]
     ]
+  },
+  "0183J0.KS": {
+    symbol: "0183J0.KS",
+    name: "TIGER 미국우주테크",
+    kind: "stock",
+    currency: "KRW",
+    range: "recent",
+    rangeLabel: "최근 10거래일",
+    interval: "1d",
+    source: "Naver Finance KRX close",
+    sourceUrl: "https://finance.naver.com/item/main.naver?code=0183J0",
+    lastDate: "2026-07-10",
+    points: [
+      ["2026-06-29", 9875],
+      ["2026-06-30", 10775],
+      ["2026-07-01", 11165],
+      ["2026-07-02", 10565],
+      ["2026-07-03", 10610],
+      ["2026-07-06", 10610],
+      ["2026-07-07", 10000],
+      ["2026-07-08", 9275],
+      ["2026-07-09", 9425],
+      ["2026-07-10", 9180]
+    ]
   }
 });
