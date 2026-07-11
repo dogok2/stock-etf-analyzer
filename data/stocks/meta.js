@@ -59,7 +59,27 @@ const META_20260709 = {
     note:
       "TradingView에서 바로 표시 가능한 종목으로 보아 페이지 안에 실시간 차트를 임베드합니다. 시세 지연과 거래소 제공 범위는 TradingView 정책을 따릅니다."
   },
-  userAssessment: USER_ASSESSMENT_PENDING,
+  userAssessment: {
+    total: 3.3,
+    stance: "중립",
+    status: "사용자 평가 입력",
+    recommendation: {
+      period: "단기",
+      stance: "중립",
+      reason: "540 라인 부근 사수 여부를 가장 중요하게 봅니다."
+    },
+    note: "540 라인 부근 사수 매우 중요. 불안한 상승 모양이지만 흐름을 잘 타면 900 이상도 가능.",
+    scoreItems: [
+      { label: "1번 항목", score: 3, weight: 1 },
+      { label: "2번 항목", score: 3, weight: 1 },
+      { label: "3번 항목", score: 2, weight: 1 },
+      { label: "4번 항목", score: 3, weight: 1 },
+      { label: "5번 항목", score: 1, weight: 1 },
+      { label: "6번 항목", score: 1, weight: 1 },
+      { label: "7번 항목", score: 5, weight: 2 },
+      { label: "8번 항목", score: 5, weight: 2 }
+    ]
+  },
   codexAssessment: {
     total: 3.9,
     stance: "매수",
@@ -157,4 +177,3 @@ const META_20260709 = {
   ],
   sourcePolicy: STOCK_SOURCE_POLICY
 };
-

@@ -59,7 +59,27 @@ const LGES_20260709 = {
     note:
       "KRX:373220은 TradingView 사이트 안에서는 조회되지만 외부 임베드 위젯에서는 'TradingView에서만 제공' 문구가 뜨는 것으로 확인했습니다. 그래서 페이지 안에서는 저장 가격 차트를 기본으로 보여주고, TradingView 링크는 보조 확인용으로 유지합니다."
   },
-  userAssessment: USER_ASSESSMENT_PENDING,
+  userAssessment: {
+    total: 3.1,
+    stance: "중립",
+    status: "사용자 평가 입력",
+    recommendation: {
+      period: "장기",
+      stance: "중립",
+      reason: "30만 라인 유지 여부를 가장 중요하게 봅니다."
+    },
+    note: "30만 라인이 매우 중요. 깨진다면 저번 저점 이하까지도 무너지지 않을까.",
+    scoreItems: [
+      { label: "1번 항목", score: 3, weight: 1 },
+      { label: "2번 항목", score: 3, weight: 1 },
+      { label: "3번 항목", score: 3, weight: 1 },
+      { label: "4번 항목", score: 3, weight: 1 },
+      { label: "5번 항목", score: 3, weight: 1 },
+      { label: "6번 항목", score: 2, weight: 1 },
+      { label: "7번 항목", score: 4, weight: 2 },
+      { label: "8번 항목", score: 3, weight: 2 }
+    ]
+  },
   codexAssessment: {
     total: 2.8,
     stance: "중립",
