@@ -432,7 +432,7 @@ main { width: min(1280px, 92vw); margin: 0 auto; }
 .stock-score-pill { display: inline-flex; align-items: center; padding: 5px 8px; border-radius: 999px; font-size: .66rem; font-weight: 900; line-height: 1; }
 .stock-score-pill.user { color: #513b69; background: #eee4f6; }
 .stock-score-pill.codex { color: #174f3b; background: #d9f0e6; }
-.stock-card-quote { display: inline-flex; margin-top: 18px; padding: 6px 9px; color: #231c33; background: #eee4f6; border-radius: 999px; font-size: .72rem; font-weight: 900; }
+.stock-card-quote, .etf-card-quote { display: inline-flex; margin-top: 18px; padding: 6px 9px; color: #231c33; background: #eee4f6; border-radius: 999px; font-size: .72rem; font-weight: 900; }
 .stock-card::after { content: "↗"; position: absolute; right: 22px; bottom: 20px; font-size: 1.5rem; }
 .listing-badge.stock { color: #513b69; background: #eee4f6; }
 .listing-badge.stock.us { color: #664000; background: #fff0bc; }

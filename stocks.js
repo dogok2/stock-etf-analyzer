@@ -7,9 +7,12 @@
   if (!list || !report || !search) return;
 
   const numberFormat = new Intl.NumberFormat("ko-KR");
+  const routeParams = new URLSearchParams(window.location.search);
+  const requestedStockId = routeParams.get("view") === "stock" ? routeParams.get("id") : null;
+  const requestedStockDate = routeParams.get("view") === "stock" ? routeParams.get("date") : null;
 
-  let selectedId = stocks[0]?.id || null;
-  let selectedDate = stocks[0]?.snapshots?.[0]?.researchDate || null;
+  let selectedId = stocks.some((item) => item.id === requestedStockId) ? requestedStockId : stocks[0]?.id || null;
+  let selectedDate = requestedStockDate || stocks.find((item) => item.id === selectedId)?.snapshots?.[0]?.researchDate || null;
   let selectedMarket = "all";
 
   const escape = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
@@ -62,6 +65,7 @@
       selectedDate = latest(item).researchDate;
       renderList(search.value);
       renderReport(selectedId, selectedDate);
+      window.DeepTickerRoute?.set("stock", selectedId, selectedDate);
       report.scrollIntoView({ behavior: "smooth", block: "start" });
     }));
 
@@ -114,7 +118,10 @@
     </div>`;
 
     report.querySelectorAll("[data-stock-date]").forEach((button) => {
-      button.addEventListener("click", () => renderReport(item.id, button.dataset.stockDate));
+      button.addEventListener("click", () => {
+        renderReport(item.id, button.dataset.stockDate);
+        window.DeepTickerRoute?.set("stock", item.id, button.dataset.stockDate);
+      });
     });
 
     hydrateStockCharts();

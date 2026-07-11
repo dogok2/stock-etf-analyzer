@@ -3,15 +3,54 @@ const marketHistory = {
   ...(window.MARKET_HISTORY?.series || {}),
   ...(window.INDICATOR_HISTORY?.series || {})
 };
+const blockedTradingViewEmbeds = new Set([
+  "KRX:373220",
+  "KRX:458730",
+  "TVC:US10Y",
+  "TVC:US30Y",
+  "COMEX:HG1!",
+  "NYMEX:CL1!",
+  "NYMEX:NG1!"
+]);
 const listElement = document.querySelector("#etf-list");
 const reportElement = document.querySelector("#etf-report");
 const searchElement = document.querySelector("#etf-search");
 const marketButtons = document.querySelectorAll(".market-filter");
 const numberFormat = new Intl.NumberFormat("ko-KR");
+const routeParams = new URLSearchParams(window.location.search);
+const validViews = new Set(["etf", "stock", "indicators", "chat"]);
+const initialView = validViews.has(routeParams.get("view")) ? routeParams.get("view") : "etf";
+const requestedEtfId = initialView === "etf" ? routeParams.get("id") : null;
+const requestedEtfDate = initialView === "etf" ? routeParams.get("date") : null;
 
-let selectedId = analyses[0]?.id || null;
-let selectedResearchDate = analyses[0]?.snapshots?.[0]?.researchDate || null;
+let selectedId = analyses.some((item) => item.id === requestedEtfId) ? requestedEtfId : analyses[0]?.id || null;
+let selectedResearchDate = requestedEtfDate || analyses.find((item) => item.id === selectedId)?.snapshots?.[0]?.researchDate || null;
 let selectedMarket = "all";
+
+function setRoute(view, id = "", date = "", replace = false) {
+  const params = new URLSearchParams();
+  params.set("view", validViews.has(view) ? view : "etf");
+  if (id) params.set("id", id);
+  if (date) params.set("date", date);
+  const nextUrl = `${window.location.pathname}?${params.toString()}`;
+  const currentUrl = `${window.location.pathname}${window.location.search}`;
+  if (nextUrl === currentUrl) return;
+  window.history[replace ? "replaceState" : "pushState"]({}, "", nextUrl);
+}
+
+function activateMainView(view, { scrollToTop = false, updateUrl = false } = {}) {
+  const safeView = validViews.has(view) ? view : "etf";
+  document.querySelectorAll(".nav-button").forEach((item) => {
+    item.classList.toggle("active", item.dataset.view === safeView);
+  });
+  document.querySelectorAll(".view-section").forEach((section) => {
+    section.classList.toggle("hidden", section.id !== `${safeView}-view`);
+  });
+  if (updateUrl) setRoute(safeView);
+  if (scrollToTop) window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+window.DeepTickerRoute = { set: setRoute, activate: activateMainView };
 
 function latestSnapshot(item) {
   return [...item.snapshots].sort((a, b) => b.researchDate.localeCompare(a.researchDate))[0];
@@ -60,6 +99,7 @@ function renderList(query = "") {
           </span>
           <h3>${item.shortName || item.name}</h3>
           <p>${item.id} · 최근 분석 ${snapshot.researchDate}</p>
+          <span class="etf-card-quote">${formatMoney(snapshot.quote.price, snapshot.quote.currency)} · ${snapshot.quote.changePct == null ? "등락 미기록" : `${snapshot.quote.changePct > 0 ? "+" : ""}${snapshot.quote.changePct.toFixed(2)}%`}</span>
         </button>`;
     })
     .join("");
@@ -70,6 +110,7 @@ function renderList(query = "") {
       selectedResearchDate = latestSnapshot(analyses.find((item) => item.id === selectedId)).researchDate;
       renderList(searchElement.value);
       renderReport(selectedId, selectedResearchDate);
+      setRoute("etf", selectedId, selectedResearchDate);
       reportElement.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
@@ -404,7 +445,10 @@ function renderPeerComparison(comparison) {
 
 function bindReportInteractions(item) {
   reportElement.querySelectorAll(".history-date").forEach((button) => {
-    button.addEventListener("click", () => renderReport(item.id, button.dataset.date));
+    button.addEventListener("click", () => {
+      renderReport(item.id, button.dataset.date);
+      setRoute("etf", item.id, button.dataset.date);
+    });
   });
 
   reportElement.querySelectorAll(".chart-tab").forEach((button) => {
@@ -469,9 +513,11 @@ function renderMarketChart(container, item) {
     return;
   }
 
-  container.dataset.chartType = item.embed ? "tradingview" : "inline";
+  const symbol = String(item.symbol || "").toUpperCase();
+  const useTradingView = item.embed === true && !blockedTradingViewEmbeds.has(symbol);
+  container.dataset.chartType = useTradingView ? "tradingview" : "inline";
 
-  if (item.embed) {
+  if (useTradingView) {
     renderTradingViewChart(container, item);
     return;
   }
@@ -663,13 +709,11 @@ function sectionHeader(index, title, description) {
 
 document.querySelectorAll(".nav-button").forEach((button) => {
   button.addEventListener("click", () => {
-    document.querySelectorAll(".nav-button").forEach((item) => item.classList.remove("active"));
-    button.classList.add("active");
-    document.querySelectorAll(".view-section").forEach((section) => {
-      section.classList.toggle("hidden", section.id !== `${button.dataset.view}-view`);
-    });
+    activateMainView(button.dataset.view, { scrollToTop: true, updateUrl: true });
   });
 });
+
+window.addEventListener("popstate", () => window.location.reload());
 
 marketButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -682,3 +726,5 @@ marketButtons.forEach((button) => {
 searchElement.addEventListener("input", (event) => renderList(event.target.value));
 renderList();
 renderReport(selectedId, selectedResearchDate);
+activateMainView(initialView);
+setRoute(initialView, initialView === "etf" ? selectedId : routeParams.get("id"), initialView === "etf" ? selectedResearchDate : routeParams.get("date"), true);
