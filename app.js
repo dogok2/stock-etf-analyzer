@@ -47,7 +47,10 @@ function activateMainView(view, { scrollToTop = false, updateUrl = false } = {})
     section.classList.toggle("hidden", section.id !== `${safeView}-view`);
   });
   if (updateUrl) setRoute(safeView);
-  if (scrollToTop) window.scrollTo({ top: 0, behavior: "smooth" });
+  if (scrollToTop) {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    window.requestAnimationFrame(() => window.scrollTo(0, 0));
+  }
 }
 
 window.DeepTickerRoute = { set: setRoute, activate: activateMainView };
