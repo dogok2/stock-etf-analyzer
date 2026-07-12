@@ -17,5 +17,14 @@ window.STOCK_ANALYSES = [
     listingMarket: "kr",
     listingLabel: "국내 상장",
     snapshots: [LGES_20260709]
+  },
+  {
+    id: "NEE",
+    name: "NextEra Energy, Inc.",
+    shortName: "NextEra Energy",
+    category: "미국 주식 · 전력·재생에너지",
+    listingMarket: "us",
+    listingLabel: "미국 상장",
+    snapshots: [NEE_20260712]
   }
 ];

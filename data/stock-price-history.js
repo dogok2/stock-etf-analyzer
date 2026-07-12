@@ -15,6 +15,12 @@ window.STOCK_PRICE_HISTORY = {
         { date: "2026-07-09", close: 313500, source: "분석 당시 저장가격" },
         { date: "2026-07-10", close: 326000, source: "Investing.com", sourceUrl: "https://kr.investing.com/equities/lg-energy-solution" }
       ]
+    },
+    NEE: {
+      currency: "USD",
+      points: [
+        { date: "2026-07-10", close: 87.96, source: "Investing.com historical data", sourceUrl: "https://www.investing.com/equities/nextera-energy-inc-historical-data" }
+      ]
     }
   }
 };

@@ -85,6 +85,12 @@
   }
 
   function recommendationLabel(assessment = {}) {
+    if (Array.isArray(assessment.recommendations) && assessment.recommendations.length) {
+      return assessment.recommendations
+        .map((plan) => [plan.period || plan.horizon, plan.stance].filter(Boolean).join(" "))
+        .filter(Boolean)
+        .join(" / ");
+    }
     const plan = assessment.recommendation || {};
     const values = [plan.period || plan.horizon, plan.stance || assessment.stance].filter((value) => value && !String(value).includes("미입력"));
     return values.length ? values.join(" · ") : "평가 의견 기록";

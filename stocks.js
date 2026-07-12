@@ -136,7 +136,6 @@
       <div>
         <p class="eyebrow">STOCK RESEARCH ARCHIVE</p>
         <strong>분석 날짜별 기록</strong>
-        <small>새 분석을 추가해도 당시 평가와 전망을 그대로 보존합니다.</small>
       </div>
       <div class="history-dates">
         ${snapshots.map((entry) => `<button class="stock-history-date history-date ${entry.researchDate === snapshot.researchDate ? "active" : ""}" data-stock-date="${escapeAttr(entry.researchDate)}"><b>${escape(entry.researchDate)}</b><small>${escape(entry.archiveNote)}</small></button>`).join("")}
@@ -209,8 +208,7 @@
           <b>${escape(user.stance || "미입력")}</b>
         </div>
         <p>${escape(user.note || "")}</p>
-        <p class="score-privacy">세부 8개 항목은 기록에만 쓰고, 공유 화면에는 7·8번 항목 2배 가중 최종점수만 표시합니다.</p>
-        ${renderHoldingPlan(user.recommendation, "내 추천 보유 방식")}
+        ${renderHoldingPlan(user.recommendations || user.recommendation, "내 추천 보유 방식")}
       </article>
       <article class="assessment-panel codex-assessment">
         <div class="assessment-title">
@@ -229,15 +227,18 @@
   }
 
   function renderHoldingPlan(plan = {}, title) {
-    const period = plan.period || plan.horizon || "미입력";
-    const stance = plan.stance || "미입력";
-    const reason = plan.reason || "보유 기간과 투자 의견을 함께 기록합니다.";
-    return `<div class="holding-plan">
-      <small>${escape(title)}</small>
-      <strong>${escape(period)}</strong>
-      <b>${escape(stance)}</b>
-      <p>${escape(reason)}</p>
-    </div>`;
+    const plans = Array.isArray(plan) ? plan : [plan];
+    return `<div class="holding-plan-list">${plans.map((entry) => {
+      const period = entry?.period || entry?.horizon || "미입력";
+      const stance = entry?.stance || "미입력";
+      const reason = entry?.reason || "보유 기간과 투자 의견을 함께 기록합니다.";
+      return `<div class="holding-plan">
+        <small>${escape(title)}</small>
+        <strong>${escape(period)}</strong>
+        <b>${escape(stance)}</b>
+        <p>${escape(reason)}</p>
+      </div>`;
+    }).join("")}</div>`;
   }
 
   function renderStockCardScores(snapshot = {}) {
