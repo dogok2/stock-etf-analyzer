@@ -4,6 +4,7 @@ const marketHistory = {
   ...(window.INDICATOR_HISTORY?.series || {})
 };
 const blockedTradingViewEmbeds = new Set([
+  "KRX:000720",
   "KRX:034230",
   "KRX:373220",
   "KRX:458730",

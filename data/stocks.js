@@ -35,5 +35,14 @@ window.STOCK_ANALYSES = [
     listingMarket: "kr",
     listingLabel: "국내 상장",
     snapshots: [PARADISE_20260712]
+  },
+  {
+    id: "000720",
+    name: "현대건설",
+    shortName: "현대건설",
+    category: "국내 주식 · 종합건설·원전",
+    listingMarket: "kr",
+    listingLabel: "국내 상장",
+    snapshots: [HYUNDAI_EC_20260712]
   }
 ];
