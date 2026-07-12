@@ -26,5 +26,14 @@ window.STOCK_ANALYSES = [
     listingMarket: "us",
     listingLabel: "미국 상장",
     snapshots: [NEE_20260712]
+  },
+  {
+    id: "034230",
+    name: "파라다이스",
+    shortName: "파라다이스",
+    category: "국내 주식 · 카지노·복합리조트",
+    listingMarket: "kr",
+    listingLabel: "국내 상장",
+    snapshots: [PARADISE_20260712]
   }
 ];

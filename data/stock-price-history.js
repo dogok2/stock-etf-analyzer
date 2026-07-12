@@ -44,6 +44,17 @@ window.STOCK_PRICE_HISTORY = {
           "sourceUrl": "https://finance.yahoo.com/quote/NEE/history/"
         }
       ]
+    },
+    "034230": {
+      "currency": "KRW",
+      "points": [
+        {
+          "date": "2026-07-10",
+          "close": 12660,
+          "source": "분석 당시 저장가격",
+          "sourceUrl": "https://finance.yahoo.com/quote/034230.KS/history/"
+        }
+      ]
     }
   }
 };
