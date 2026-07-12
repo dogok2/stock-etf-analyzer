@@ -1,0 +1,43 @@
+name: Update daily stock TOP3 prices
+
+on:
+  # GitHub Actions cron uses UTC.
+  # 21:30 UTC Monday-Friday = 06:30 KST Tuesday-Saturday.
+  schedule:
+    - cron: "30 21 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-daily-stock-top3-prices
+  cancel-in-progress: false
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Update monthly TOP3 closing prices
+        run: node .github/scripts/update_top3_prices.mjs
+
+      - name: Commit and push if TOP3 prices changed
+        run: |
+          if git diff --quiet -- data/stock-price-history.js index.html; then
+            echo "No TOP3 price changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/stock-price-history.js index.html
+          git commit -m "Update daily stock TOP3 prices"
+          git push
