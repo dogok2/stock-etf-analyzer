@@ -48,5 +48,15 @@ window.ETF_ANALYSES = [
     listingLabel: "해외상장 ETF",
     tradingCurrency: "USD",
     snapshots: [SCHD_20260712]
+  },
+  {
+    id: "UVIX",
+    name: "2x Long VIX Futures ETF",
+    shortName: "UVIX VIX선물 2배",
+    category: "변동성 · 미국 · VIX선물 일일2배",
+    listingMarket: "us",
+    listingLabel: "해외상장 ETF",
+    tradingCurrency: "USD",
+    snapshots: [UVIX_20260712]
   }
 ];

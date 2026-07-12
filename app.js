@@ -4,6 +4,7 @@ const marketHistory = {
   ...(window.INDICATOR_HISTORY?.series || {})
 };
 const blockedTradingViewEmbeds = new Set([
+  "AMEX:UVIX",
   "AMEX:SCHD",
   "KRX:000720",
   "KRX:034230",
@@ -12,6 +13,7 @@ const blockedTradingViewEmbeds = new Set([
   "KRX:0183J0",
   "TVC:US10Y",
   "TVC:US30Y",
+  "TVC:VIX",
   "COMEX:HG1!",
   "NYMEX:CL1!",
   "NYMEX:NG1!"
@@ -436,20 +438,22 @@ function renderDistribution(distribution) {
     return `<div class="archive-warning"><strong>배당 상세 미기록</strong><p>이전 날짜의 분석을 원본 그대로 보존하고 있습니다. 최신 분석 날짜를 누르면 새로 추가된 배당 정보를 볼 수 있습니다.</p></div>`;
   }
 
-  const maxAmount = Math.max(...distribution.rows.map((row) => row.amount), 1);
+  const rows = distribution.rows || [];
+  const maxAmount = Math.max(...rows.map((row) => row.amount), 1);
+  const latestNote = distribution.latestNote || (rows[0]?.payDate ? `${rows[0].payDate} 지급` : "정기 지급 이력 없음");
   return `<div class="distribution-summary">
       <div><small>지급 주기</small><strong>${distribution.frequency}</strong><p>${distribution.schedule}</p></div>
-      <div><small>최근 주당 분배</small><strong>${distribution.latestAmount}</strong><p>${distribution.latestNote || `${distribution.rows[0].payDate} 지급`}</p></div>
+      <div><small>최근 주당 분배</small><strong>${distribution.latestAmount}</strong><p>${latestNote}</p></div>
       <div><small>${distribution.secYield ? "30일 SEC 수익률" : "최근 4회 합계"}</small><strong>${distribution.secYield || distribution.trailingAmount}</strong><p>${distribution.yieldAsOf}</p></div>
       <div><small>12개월 분배수익률</small><strong>${distribution.trailingYield}</strong><p>${distribution.yieldAsOf}</p></div>
     </div>
     <div class="distribution-explain">${distribution.explanation}</div>
     <div class="distribution-layout">
       <div class="distribution-chart" aria-label="분배금 이력 차트">
-        ${distribution.rows.map((row) => `<div class="distribution-bar"><span>${row.recordDate.slice(2, 7)}</span><i><b style="width:${(row.amount / maxAmount) * 100}%"></b></i><strong>${formatDistribution(row.amount, distribution.currency)}</strong></div>`).join("")}
+        ${rows.length ? rows.map((row) => `<div class="distribution-bar"><span>${row.recordDate.slice(2, 7)}</span><i><b style="width:${(row.amount / maxAmount) * 100}%"></b></i><strong>${formatDistribution(row.amount, distribution.currency)}</strong></div>`).join("") : '<div class="empty-state">정기 분배 이력이 없습니다.</div>'}
       </div>
       <div class="distribution-table-wrap"><table class="distribution-table"><thead><tr><th>기준일</th><th>지급일</th><th>주당 금액</th><th>분배율</th></tr></thead><tbody>
-        ${distribution.rows.map((row) => `<tr><td>${row.recordDate}</td><td>${row.payDate}</td><td>${formatDistribution(row.amount, distribution.currency)}</td><td>${row.rate || "-"}</td></tr>`).join("")}
+        ${rows.length ? rows.map((row) => `<tr><td>${row.recordDate}</td><td>${row.payDate}</td><td>${formatDistribution(row.amount, distribution.currency)}</td><td>${row.rate || "-"}</td></tr>`).join("") : '<tr><td colspan="4">정기 분배 이력이 없습니다.</td></tr>'}
       </tbody></table></div>
     </div>
     <p class="tax-callout"><strong>세금 메모</strong>${distribution.tax}</p>`;

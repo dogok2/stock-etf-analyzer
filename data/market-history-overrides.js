@@ -220,5 +220,59 @@ Object.assign(window.MARKET_HISTORY.series, {
       ["2026-06-30", 31.71],
       ["2026-07-10", 32.40]
     ]
+  },
+  "UVIX": {
+    symbol: "UVIX",
+    name: "2x Long VIX Futures ETF",
+    kind: "etf",
+    currency: "USD",
+    range: "1y",
+    interval: "sampled",
+    source: "Yahoo Finance split-adjusted daily close",
+    sourceUrl: "https://finance.yahoo.com/quote/UVIX/history/",
+    lastDate: "2026-07-10",
+    points: [
+      ["2025-07-11", 393.80],
+      ["2025-07-31", 344.00],
+      ["2025-08-29", 242.20],
+      ["2025-09-30", 198.60],
+      ["2025-10-31", 197.90],
+      ["2025-11-28", 169.40],
+      ["2025-12-31", 114.20],
+      ["2026-01-30", 117.80],
+      ["2026-02-27", 125.60],
+      ["2026-03-31", 173.20],
+      ["2026-04-30", 105.80],
+      ["2026-05-29", 76.60],
+      ["2026-06-30", 61.80],
+      ["2026-07-10", 56.41]
+    ]
+  },
+  "^VIX": {
+    symbol: "^VIX",
+    name: "Cboe Volatility Index",
+    kind: "index",
+    currency: "INDEX",
+    range: "1y",
+    interval: "sampled",
+    source: "Yahoo Finance daily close",
+    sourceUrl: "https://finance.yahoo.com/quote/%5EVIX/history/",
+    lastDate: "2026-07-10",
+    points: [
+      ["2025-07-10", 15.78],
+      ["2025-07-31", 16.72],
+      ["2025-08-29", 15.36],
+      ["2025-09-30", 16.28],
+      ["2025-10-31", 17.44],
+      ["2025-11-28", 16.35],
+      ["2025-12-31", 14.95],
+      ["2026-01-30", 17.44],
+      ["2026-02-27", 19.86],
+      ["2026-03-31", 25.25],
+      ["2026-04-30", 16.89],
+      ["2026-05-29", 15.32],
+      ["2026-06-30", 16.45],
+      ["2026-07-10", 15.03]
+    ]
   }
 });
