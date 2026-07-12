@@ -38,5 +38,15 @@ window.ETF_ANALYSES = [
     listingLabel: "해외상장 ETF",
     tradingCurrency: "USD",
     snapshots: [TLT_20260709, TLT_20260708]
+  },
+  {
+    id: "SCHD",
+    name: "Schwab U.S. Dividend Equity ETF",
+    shortName: "SCHD 미국배당주",
+    category: "해외주식 · 미국 · 배당퀄리티",
+    listingMarket: "us",
+    listingLabel: "해외상장 ETF",
+    tradingCurrency: "USD",
+    snapshots: [SCHD_20260712]
   }
 ];

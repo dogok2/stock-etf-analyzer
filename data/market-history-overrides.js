@@ -193,5 +193,32 @@ Object.assign(window.MARKET_HISTORY.series, {
       ["2026-06-30", 114200],
       ["2026-07-10", 107200]
     ]
+  },
+  "SCHD": {
+    symbol: "SCHD",
+    name: "Schwab U.S. Dividend Equity ETF",
+    kind: "etf",
+    currency: "USD",
+    range: "1y",
+    interval: "sampled",
+    source: "Yahoo Finance daily close",
+    sourceUrl: "https://finance.yahoo.com/quote/SCHD/history/",
+    lastDate: "2026-07-10",
+    points: [
+      ["2025-07-11", 27.33],
+      ["2025-07-31", 26.50],
+      ["2025-08-29", 27.92],
+      ["2025-09-30", 27.30],
+      ["2025-10-31", 26.75],
+      ["2025-11-28", 27.59],
+      ["2025-12-31", 27.43],
+      ["2026-01-30", 29.82],
+      ["2026-02-27", 31.77],
+      ["2026-03-31", 30.68],
+      ["2026-04-30", 32.07],
+      ["2026-05-29", 32.50],
+      ["2026-06-30", 31.71],
+      ["2026-07-10", 32.40]
+    ]
   }
 });
