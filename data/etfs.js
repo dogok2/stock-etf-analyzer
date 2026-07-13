@@ -60,6 +60,16 @@ window.ETF_ANALYSES = [
     snapshots: [BOTZ_20260713]
   },
   {
+    id: "QQQ",
+    name: "Invesco QQQ Trust",
+    shortName: "QQQ 나스닥100",
+    category: "해외주식 · 미국 · 대형성장/나스닥100",
+    listingMarket: "us",
+    listingLabel: "해외상장 ETF",
+    tradingCurrency: "USD",
+    snapshots: [QQQ_20260713]
+  },
+  {
     id: "UVIX",
     name: "2x Long VIX Futures ETF",
     shortName: "UVIX VIX선물 2배",

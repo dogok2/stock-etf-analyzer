@@ -4,6 +4,7 @@ const marketHistory = {
   ...(window.INDICATOR_HISTORY?.series || {})
 };
 const blockedTradingViewEmbeds = new Set([
+  "NASDAQ:QQQ",
   "NASDAQ:BOTZ",
   "AMEX:UVIX",
   "AMEX:SCHD",

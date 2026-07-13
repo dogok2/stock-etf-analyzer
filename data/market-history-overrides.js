@@ -482,5 +482,31 @@ Object.assign(window.MARKET_HISTORY.series, {
       ["2026-06-30", 7027],
       ["2026-07-13", 5972]
     ]
+  },
+  "QQQ": {
+    symbol: "QQQ",
+    name: "Invesco QQQ Trust",
+    kind: "etf",
+    currency: "USD",
+    range: "1y",
+    interval: "sampled",
+    source: "Yahoo Finance adjusted daily close",
+    sourceUrl: "https://finance.yahoo.com/quote/QQQ/history/",
+    lastDate: "2026-07-10",
+    points: [
+      ["2025-07-31", 562.30],
+      ["2025-08-29", 567.67],
+      ["2025-09-30", 598.18],
+      ["2025-10-31", 626.78],
+      ["2025-11-28", 617.00],
+      ["2025-12-31", 612.86],
+      ["2026-01-30", 620.41],
+      ["2026-02-27", 605.86],
+      ["2026-03-31", 576.55],
+      ["2026-04-30", 667.01],
+      ["2026-05-29", 737.50],
+      ["2026-06-30", 736.40],
+      ["2026-07-10", 725.51]
+    ]
   }
 });
