@@ -50,6 +50,16 @@ window.ETF_ANALYSES = [
     snapshots: [SCHD_20260712]
   },
   {
+    id: "BOTZ",
+    name: "Global X Robotics & Artificial Intelligence ETF",
+    shortName: "BOTZ 로봇·AI",
+    category: "해외주식 · 글로벌 · 로봇/물리적AI",
+    listingMarket: "us",
+    listingLabel: "해외상장 ETF",
+    tradingCurrency: "USD",
+    snapshots: [BOTZ_20260713]
+  },
+  {
     id: "UVIX",
     name: "2x Long VIX Futures ETF",
     shortName: "UVIX VIX선물 2배",

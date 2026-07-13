@@ -4,6 +4,7 @@ const marketHistory = {
   ...(window.INDICATOR_HISTORY?.series || {})
 };
 const blockedTradingViewEmbeds = new Set([
+  "NASDAQ:BOTZ",
   "AMEX:UVIX",
   "AMEX:SCHD",
   "KRX:000720",
@@ -708,7 +709,7 @@ function formatChartValue(value, history) {
     return `${value.toFixed(2)}%`;
   }
 
-  if (history.currency === "USD" || history.currency === "HKD" || history.currency === "CNY") {
+  if (["USD", "HKD", "CNY", "JPY", "CHF"].includes(history.currency)) {
     return `${history.currency} ${value.toLocaleString("ko-KR", { maximumFractionDigits: 2 })}`;
   }
 
