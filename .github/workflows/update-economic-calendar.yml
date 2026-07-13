@@ -2,13 +2,20 @@ name: Update weekly macro indicators
 
 on:
   # GitHub Actions cron uses UTC.
-  # 23:30 UTC Sunday = 08:30 KST Monday.
+  # Try at 08:30, 09:30, and 10:30 KST on Monday. Later attempts exit
+  # immediately when the current-week snapshot was already committed.
   schedule:
     - cron: "30 23 * * 0"
+    - cron: "30 0 * * 1"
+    - cron: "30 1 * * 1"
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-weekly-macro-indicators
+  cancel-in-progress: false
 
 jobs:
   update-calendar:
@@ -23,6 +30,8 @@ jobs:
           python-version: "3.x"
 
       - name: Update Investing.com calendar and FedWatch
+        env:
+          SKIP_IF_CURRENT_WEEK: ${{ github.event_name == 'schedule' && '1' || '0' }}
         run: python .github/scripts/update_indicators_calendar.py
 
       - name: Commit and push if macro indicators changed

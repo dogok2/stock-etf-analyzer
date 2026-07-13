@@ -14,9 +14,12 @@ from __future__ import annotations
 
 import html
 import json
+import os
 import re
 import sys
+import time
 import urllib.parse
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -29,6 +32,8 @@ SOURCE_URL = "https://www.investing.com/economic-calendar/"
 FEDWATCH_URL = "https://www.investing.com/central-banks/fed-rate-monitor"
 CME_FEDWATCH_URL = "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
 KST = timezone(timedelta(hours=9), name="KST")
+RETRY_DELAYS_SECONDS = (0, 30, 90, 180)
+RETRYABLE_HTTP_CODES = {403, 408, 425, 429, 500, 502, 503, 504}
 
 MONTHS = {
     "Jan": 1,
@@ -110,6 +115,45 @@ MEMO_RULES = [
 ]
 
 
+def read_url_with_retry(request: urllib.request.Request, label: str) -> str:
+    """Read an Investing.com response, retrying temporary blocks and outages."""
+
+    total_attempts = len(RETRY_DELAYS_SECONDS)
+    for attempt, delay_seconds in enumerate(RETRY_DELAYS_SECONDS, start=1):
+        if delay_seconds:
+            print(
+                f"Retrying {label} in {delay_seconds}s "
+                f"(attempt {attempt}/{total_attempts})...",
+                file=sys.stderr,
+                flush=True,
+            )
+            time.sleep(delay_seconds)
+
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return response.read().decode("utf-8", errors="replace")
+        except urllib.error.HTTPError as exc:
+            can_retry = exc.code in RETRYABLE_HTTP_CODES and attempt < total_attempts
+            print(
+                f"{label} attempt {attempt}/{total_attempts} failed: "
+                f"HTTP {exc.code}",
+                file=sys.stderr,
+                flush=True,
+            )
+            if not can_retry:
+                raise
+        except (urllib.error.URLError, TimeoutError) as exc:
+            print(
+                f"{label} attempt {attempt}/{total_attempts} failed: {exc}",
+                file=sys.stderr,
+                flush=True,
+            )
+            if attempt == total_attempts:
+                raise
+
+    raise RuntimeError(f"{label} retry loop ended unexpectedly.")
+
+
 def clean_html(value: str) -> str:
     value = re.sub(r"<script\b.*?</script>", "", value, flags=re.I | re.S)
     value = re.sub(r"<style\b.*?</style>", "", value, flags=re.I | re.S)
@@ -152,8 +196,7 @@ def fetch_calendar() -> dict:
             "X-Requested-With": "XMLHttpRequest",
         },
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        raw = response.read().decode("utf-8", errors="replace")
+    raw = read_url_with_retry(request, "Investing.com economic calendar")
     payload = json.loads(raw)
     if not payload.get("data"):
         raise RuntimeError("Investing.com returned no calendar HTML.")
@@ -260,8 +303,7 @@ def fetch_fedwatch_html() -> str:
             "Referer": "https://www.investing.com/",
         },
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return response.read().decode("utf-8", errors="replace")
+    return read_url_with_retry(request, "Investing.com Fed Rate Monitor")
 
 
 def html_to_lines(document: str) -> list[str]:
@@ -385,6 +427,19 @@ def existing_current_target(content: str) -> str:
     return match.group(1) if match else "-"
 
 
+def current_calendar_week_start(now: datetime | None = None) -> str:
+    """Return the Sunday that starts Investing.com's current-week window."""
+
+    current = now or datetime.now(KST)
+    days_since_sunday = (current.weekday() + 1) % 7
+    return (current - timedelta(days=days_since_sunday)).strftime("%Y-%m-%d")
+
+
+def existing_calendar_week_start(content: str) -> str:
+    match = re.search(r'"weekStart":\s*"([^"]+)"', content)
+    return match.group(1) if match else "-"
+
+
 def build_fedwatch(content: str) -> dict:
     lines = html_to_lines(fetch_fedwatch_html())
     date_pattern = re.compile(r"^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2},\s+\d{4}$")
@@ -502,11 +557,22 @@ def replace_fedwatch(content: str, fedwatch: dict) -> str:
 
 
 def main() -> int:
+    content = INDICATORS_PATH.read_text(encoding="utf-8")
+    expected_week_start = current_calendar_week_start()
+    if (
+        os.environ.get("SKIP_IF_CURRENT_WEEK") == "1"
+        and existing_calendar_week_start(content) == expected_week_start
+    ):
+        print(
+            f"Current-week macro snapshot already exists ({expected_week_start}). "
+            "Skipping this scheduled retry."
+        )
+        return 0
+
     payload = fetch_calendar()
     events = parse_events(payload)
     calendar = build_calendar(payload, events)
 
-    content = INDICATORS_PATH.read_text(encoding="utf-8")
     fedwatch = build_fedwatch(content)
     updated = replace_fedwatch(replace_calendar(content, calendar), fedwatch)
     if updated == content:
