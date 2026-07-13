@@ -1,10 +1,10 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-07-11",
+  asOf: "2026-07-13",
   calendar: {
-      "asOf": "2026-07-11 01:42 KST",
+      "asOf": "2026-07-13 20:29 KST",
       "periodLabel": "이번 주",
-      "weekStart": "2026-07-05",
-      "weekEnd": "2026-07-11",
+      "weekStart": "2026-07-12",
+      "weekEnd": "2026-07-18",
       "source": "Investing.com Economic Calendar",
       "sourceUrl": "https://www.investing.com/economic-calendar/",
       "filter": "currentTab=thisWeek · importance[]=3 · timezone=GMT+9",
@@ -13,133 +13,157 @@ window.OTHER_INDICATORS = {
           {
               "country": "US",
               "currency": "USD",
-              "date": "2026-07-06",
-              "time": "22:45",
-              "event": "S&P Global Services PMI (Jun)",
+              "date": "2026-07-14",
+              "time": "21:30",
+              "event": "Core CPI (MoM) (Jun)",
               "impact": "★★★",
-              "actual": "51.2",
-              "forecast": "51.3",
-              "previous": "51.3",
-              "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
+              "actual": "-",
+              "forecast": "0.2%",
+              "previous": "0.2%",
+              "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
               "country": "US",
               "currency": "USD",
-              "date": "2026-07-06",
-              "time": "23:00",
-              "event": "ISM Non-Manufacturing PMI (Jun)",
+              "date": "2026-07-14",
+              "time": "21:30",
+              "event": "CPI (MoM) (Jun)",
               "impact": "★★★",
-              "actual": "54.0",
-              "forecast": "54.2",
-              "previous": "54.5",
-              "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
+              "actual": "-",
+              "forecast": "-0.1%",
+              "previous": "0.5%",
+              "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
               "country": "US",
               "currency": "USD",
-              "date": "2026-07-06",
-              "time": "23:00",
-              "event": "ISM Non-Manufacturing Prices (Jun)",
+              "date": "2026-07-14",
+              "time": "21:30",
+              "event": "CPI (YoY) (Jun)",
               "impact": "★★★",
-              "actual": "67.7",
-              "forecast": "67.5",
-              "previous": "71.3",
-              "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
+              "actual": "-",
+              "forecast": "3.8%",
+              "previous": "4.2%",
+              "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
-              "country": "NZ",
-              "currency": "NZD",
-              "date": "2026-07-08",
+              "country": "CN",
+              "currency": "CNY",
+              "date": "2026-07-15",
               "time": "11:00",
-              "event": "RBNZ Interest Rate Decision",
+              "event": "GDP (YoY) (Q2)",
               "impact": "★★★",
-              "actual": "2.50%",
-              "forecast": "2.50%",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "5.0%",
+              "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-07-15",
+              "time": "21:30",
+              "event": "PPI (MoM) (Jun)",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "0.0%",
+              "previous": "1.1%",
+              "memo": "생산자 물가 압력을 보는 지표입니다. 비용 전가와 향후 소비자물가 경로를 함께 판단합니다."
+          },
+          {
+              "country": "CA",
+              "currency": "CAD",
+              "date": "2026-07-15",
+              "time": "22:45",
+              "event": "BoC Interest Rate Decision",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "2.25%",
               "previous": "2.25%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
           },
           {
               "country": "US",
               "currency": "USD",
-              "date": "2026-07-08",
+              "date": "2026-07-15",
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "2.998M",
-              "forecast": "-1.900M",
-              "previous": "-3.775M",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "2.998M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
           {
-              "country": "US",
-              "currency": "USD",
-              "date": "2026-07-09",
-              "time": "02:00",
-              "event": "10-Year Note Auction",
-              "impact": "★★★",
-              "actual": "4.580%",
-              "forecast": "-",
-              "previous": "4.538%",
-              "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
-          },
-          {
-              "country": "US",
-              "currency": "USD",
-              "date": "2026-07-09",
-              "time": "03:00",
-              "event": "FOMC Meeting Minutes",
+              "country": "GB",
+              "currency": "GBP",
+              "date": "2026-07-16",
+              "time": "15:00",
+              "event": "GDP (MoM) (May)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
-              "previous": "-",
-              "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
+              "forecast": "0.1%",
+              "previous": "-0.1%",
+              "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
               "country": "US",
               "currency": "USD",
-              "date": "2026-07-09",
+              "date": "2026-07-16",
+              "time": "21:30",
+              "event": "Core Retail Sales (MoM) (Jun)",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-0.1%",
+              "previous": "0.8%",
+              "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-07-16",
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "215K",
-              "forecast": "218K",
-              "previous": "217K",
+              "actual": "-",
+              "forecast": "215K",
+              "previous": "215K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
               "country": "US",
               "currency": "USD",
-              "date": "2026-07-09",
-              "time": "23:00",
-              "event": "Existing Home Sales (Jun)",
+              "date": "2026-07-16",
+              "time": "21:30",
+              "event": "Philadelphia Fed Manufacturing Index (Jul)",
               "impact": "★★★",
-              "actual": "4.09M",
-              "forecast": "4.19M",
-              "previous": "4.19M",
-              "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
+              "actual": "-",
+              "forecast": "12.1",
+              "previous": "10.3",
+              "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
           },
           {
               "country": "US",
               "currency": "USD",
-              "date": "2026-07-10",
-              "time": "02:01",
-              "event": "30-Year Bond Auction",
+              "date": "2026-07-16",
+              "time": "21:30",
+              "event": "Retail Sales (MoM) (Jun)",
               "impact": "★★★",
-              "actual": "5.058%",
-              "forecast": "-",
-              "previous": "5.050%",
-              "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
+              "actual": "-",
+              "forecast": "0.3%",
+              "previous": "0.9%",
+              "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
-              "country": "DE",
+              "country": "EU",
               "currency": "EUR",
-              "date": "2026-07-10",
-              "time": "15:00",
-              "event": "German CPI (MoM) (Jun)",
+              "date": "2026-07-17",
+              "time": "18:00",
+              "event": "CPI (YoY) (Jun)",
               "impact": "★★★",
-              "actual": "-0.3%",
-              "forecast": "-0.3%",
-              "previous": "-0.2%",
+              "actual": "-",
+              "forecast": "2.8%",
+              "previous": "2.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           }
       ]
@@ -243,7 +267,7 @@ window.OTHER_INDICATORS = {
     }
   ],
   fedWatch: {
-      "asOf": "2026-07-10 12:15 EDT / 2026-07-11 01:15 KST",
+      "asOf": "2026-07-13 07:05 EDT / 2026-07-13 20:05 KST",
       "source": "Investing.com Fed Rate Monitor · CME 30-Day Fed Funds futures 기반",
       "sourceUrl": "https://www.investing.com/central-banks/fed-rate-monitor",
       "cmeUrl": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
@@ -258,14 +282,14 @@ window.OTHER_INDICATORS = {
               "probabilities": [
                   {
                       "range": "3.50 - 3.75",
-                      "probability": 70.1,
-                      "previousDay": 75.6,
+                      "probability": 65.7,
+                      "previousDay": 64.6,
                       "previousWeek": 75.6
                   },
                   {
                       "range": "3.75 - 4.00",
-                      "probability": 29.9,
-                      "previousDay": 24.4,
+                      "probability": 34.3,
+                      "previousDay": 35.4,
                       "previousWeek": 24.4
                   }
               ]
@@ -278,20 +302,20 @@ window.OTHER_INDICATORS = {
               "probabilities": [
                   {
                       "range": "3.50 - 3.75",
-                      "probability": 34.1,
-                      "previousDay": 38.5,
+                      "probability": 31.0,
+                      "previousDay": 30.3,
                       "previousWeek": 44.4
                   },
                   {
                       "range": "3.75 - 4.00",
-                      "probability": 50.5,
-                      "previousDay": 49.5,
+                      "probability": 50.9,
+                      "previousDay": 50.9,
                       "previousWeek": 45.6
                   },
                   {
                       "range": "4.00 - 4.25",
-                      "probability": 15.3,
-                      "previousDay": 11.9,
+                      "probability": 18.1,
+                      "previousDay": 18.8,
                       "previousWeek": 10.1
                   }
               ]
@@ -304,26 +328,26 @@ window.OTHER_INDICATORS = {
               "probabilities": [
                   {
                       "range": "3.50 - 3.75",
-                      "probability": 27.1,
-                      "previousDay": 29.7,
+                      "probability": 23.2,
+                      "previousDay": 23.4,
                       "previousWeek": 35.2
                   },
                   {
                       "range": "3.75 - 4.00",
-                      "probability": 47.1,
-                      "previousDay": 47.0,
+                      "probability": 45.9,
+                      "previousDay": 46.2,
                       "previousWeek": 45.3
                   },
                   {
                       "range": "4.00 - 4.25",
-                      "probability": 22.6,
-                      "previousDay": 20.6,
+                      "probability": 26.4,
+                      "previousDay": 26.2,
                       "previousWeek": 17.4
                   },
                   {
                       "range": "4.25 - 4.50",
-                      "probability": 3.2,
-                      "previousDay": 2.7,
+                      "probability": 4.6,
+                      "previousDay": 4.3,
                       "previousWeek": 2.1
                   }
               ]
