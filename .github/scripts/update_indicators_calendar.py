@@ -558,6 +558,14 @@ def replace_fedwatch(content: str, fedwatch: dict) -> str:
 
 def main() -> int:
     content = INDICATORS_PATH.read_text(encoding="utf-8")
+    if "--probe-fedwatch" in sys.argv:
+        fedwatch = build_fedwatch(content)
+        print(
+            "FedWatch probe succeeded with "
+            f"{len(fedwatch['meetings'])} meetings as of {fedwatch['asOf']}."
+        )
+        return 0
+
     expected_week_start = current_calendar_week_start()
     if (
         os.environ.get("SKIP_IF_CURRENT_WEEK") == "1"

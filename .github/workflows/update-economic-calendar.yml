@@ -9,6 +9,15 @@ on:
     - cron: "30 0 * * 1"
     - cron: "30 1 * * 1"
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Run the full update or only test the FedWatch source
+        required: true
+        default: update
+        type: choice
+        options:
+          - update
+          - probe-fedwatch
 
 permissions:
   contents: write
@@ -32,9 +41,16 @@ jobs:
       - name: Update Investing.com calendar and FedWatch
         env:
           SKIP_IF_CURRENT_WEEK: ${{ github.event_name == 'schedule' && '1' || '0' }}
-        run: python .github/scripts/update_indicators_calendar.py
+          UPDATE_MODE: ${{ inputs.mode || 'update' }}
+        run: |
+          if [ "$UPDATE_MODE" = "probe-fedwatch" ]; then
+            python .github/scripts/update_indicators_calendar.py --probe-fedwatch
+          else
+            python .github/scripts/update_indicators_calendar.py
+          fi
 
       - name: Commit and push if macro indicators changed
+        if: ${{ inputs.mode != 'probe-fedwatch' }}
         run: |
           if git diff --quiet -- data/indicators.js; then
             echo "No macro indicator changes to commit."
