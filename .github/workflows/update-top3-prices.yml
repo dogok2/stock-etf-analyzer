@@ -2,9 +2,12 @@ name: Update daily stock TOP3 prices
 
 on:
   # GitHub Actions cron uses UTC.
-  # 21:30 UTC Monday-Friday = 06:30 KST Tuesday-Saturday.
+  # 21:10, 21:20, 21:30 UTC Monday-Friday
+  # = 06:10, 06:20, 06:30 KST Tuesday-Saturday.
+  # The first successful run writes the latest close; later retries exit
+  # without a commit when there is no price change.
   schedule:
-    - cron: "30 21 * * 1-5"
+    - cron: "10,20,30 21 * * 1-5"
   workflow_dispatch:
 
 permissions:
@@ -26,18 +29,27 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Update monthly TOP3 closing prices
         run: node .github/scripts/update_top3_prices.mjs
 
-      - name: Commit and push if TOP3 prices changed
+      - name: Update FedWatch probabilities
+        continue-on-error: true
+        run: python .github/scripts/update_indicators_calendar.py --fedwatch-only
+
+      - name: Commit and push if TOP3 prices or FedWatch changed
         run: |
-          if git diff --quiet -- data/stock-price-history.js index.html; then
-            echo "No TOP3 price changes to commit."
+          if git diff --quiet -- data/stock-price-history.js data/indicators.js index.html; then
+            echo "No TOP3 price or FedWatch changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/stock-price-history.js index.html
-          git commit -m "Update daily stock TOP3 prices"
+          git add data/stock-price-history.js data/indicators.js index.html
+          git commit -m "Update daily TOP3 prices and FedWatch"
           git push

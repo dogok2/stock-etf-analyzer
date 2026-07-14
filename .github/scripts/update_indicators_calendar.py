@@ -4,7 +4,8 @@
 The static site stores its macro dashboard in data/indicators.js. This script
 fetches the current Investing.com "this week" calendar filtered to importance 3
 events, removes holiday rows, fetches the Investing.com Fed Rate Monitor
-snapshot, and rewrites the calendar and FedWatch blocks together.
+snapshot, and rewrites the calendar and FedWatch blocks together. The
+``--fedwatch-only`` mode refreshes only the FedWatch block for the daily job.
 
 It intentionally fails instead of inventing events when the source is blocked or
 the response cannot be verified as source-backed data.
@@ -118,8 +119,9 @@ MEMO_RULES = [
 def read_url_with_retry(request: urllib.request.Request, label: str) -> str:
     """Read an Investing.com response, retrying temporary blocks and outages."""
 
-    total_attempts = len(RETRY_DELAYS_SECONDS)
-    for attempt, delay_seconds in enumerate(RETRY_DELAYS_SECONDS, start=1):
+    retry_delays = (0, 10, 30) if "--fedwatch-only" in sys.argv else RETRY_DELAYS_SECONDS
+    total_attempts = len(retry_delays)
+    for attempt, delay_seconds in enumerate(retry_delays, start=1):
         if delay_seconds:
             print(
                 f"Retrying {label} in {delay_seconds}s "
@@ -506,8 +508,8 @@ def build_fedwatch(content: str) -> dict:
         "cmeUrl": CME_FEDWATCH_URL,
         "currentTarget": current_target,
         "note": (
-            "경제 캘린더 주간 업데이트와 같은 실행에서 Investing.com Fed Rate Monitor에 표시된 "
-            "CME 기반 확률을 함께 저장합니다. 실제 거래 전에는 원문 링크에서 최신 값을 다시 확인해야 합니다."
+            "자동 갱신 시 Investing.com Fed Rate Monitor에 표시된 CME 기반 확률을 "
+            "스냅샷으로 저장합니다. 실제 거래 전에는 원문 링크에서 최신 값을 다시 확인해야 합니다."
         ),
         "meetings": meetings,
     }
@@ -563,6 +565,23 @@ def main() -> int:
         print(
             "FedWatch probe succeeded with "
             f"{len(fedwatch['meetings'])} meetings as of {fedwatch['asOf']}."
+        )
+        return 0
+
+    if "--fedwatch-only" in sys.argv:
+        fedwatch = build_fedwatch(content)
+        updated = replace_fedwatch(content, fedwatch)
+        if updated == content:
+            print(
+                "No changes. FedWatch is already current at "
+                f"{fedwatch['asOf']}."
+            )
+            return 0
+
+        INDICATORS_PATH.write_text(updated, encoding="utf-8", newline="\n")
+        print(
+            "Updated data/indicators.js with "
+            f"{len(fedwatch['meetings'])} FedWatch meetings as of {fedwatch['asOf']}."
         )
         return 0
 
