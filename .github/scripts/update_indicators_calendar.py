@@ -13,6 +13,7 @@ the response cannot be verified as source-backed data.
 
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import os
@@ -28,6 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 INDICATORS_PATH = ROOT / "data" / "indicators.js"
+INDEX_PATH = ROOT / "index.html"
 ENDPOINT = "https://www.investing.com/economic-calendar/Service/getCalendarFilteredData"
 SOURCE_URL = "https://www.investing.com/economic-calendar/"
 FEDWATCH_URL = "https://www.investing.com/central-banks/fed-rate-monitor"
@@ -558,6 +560,22 @@ def replace_fedwatch(content: str, fedwatch: dict) -> str:
     return updated
 
 
+def update_indicator_cache_version(content: str) -> None:
+    """Make browsers request the newly written indicator snapshot."""
+    stamp = hashlib.sha256(content.encode("utf-8")).hexdigest()[:12]
+    html_content = INDEX_PATH.read_text(encoding="utf-8")
+    updated_html, count = re.subn(
+        r'data/indicators\.js\?v=[^"\']+',
+        f"data/indicators.js?v=indicators-{stamp}",
+        html_content,
+        count=1,
+    )
+    if count != 1:
+        raise RuntimeError("Could not locate the indicator script tag in index.html.")
+    if updated_html != html_content:
+        INDEX_PATH.write_text(updated_html, encoding="utf-8", newline="\n")
+
+
 def main() -> int:
     content = INDICATORS_PATH.read_text(encoding="utf-8")
     if "--probe-fedwatch" in sys.argv:
@@ -572,6 +590,7 @@ def main() -> int:
         fedwatch = build_fedwatch(content)
         updated = replace_fedwatch(content, fedwatch)
         if updated == content:
+            update_indicator_cache_version(content)
             print(
                 "No changes. FedWatch is already current at "
                 f"{fedwatch['asOf']}."
@@ -579,6 +598,7 @@ def main() -> int:
             return 0
 
         INDICATORS_PATH.write_text(updated, encoding="utf-8", newline="\n")
+        update_indicator_cache_version(updated)
         print(
             "Updated data/indicators.js with "
             f"{len(fedwatch['meetings'])} FedWatch meetings as of {fedwatch['asOf']}."
@@ -603,10 +623,12 @@ def main() -> int:
     fedwatch = build_fedwatch(content)
     updated = replace_fedwatch(replace_calendar(content, calendar), fedwatch)
     if updated == content:
+        update_indicator_cache_version(content)
         print(f"No changes. {len(events)} high-importance events and FedWatch are already current.")
         return 0
 
     INDICATORS_PATH.write_text(updated, encoding="utf-8", newline="\n")
+    update_indicator_cache_version(updated)
     print(
         "Updated data/indicators.js with "
         f"{len(events)} high-importance events for {calendar['weekStart']} ~ {calendar['weekEnd']} "

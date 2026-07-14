@@ -52,13 +52,13 @@ jobs:
       - name: Commit and push if macro indicators changed
         if: ${{ inputs.mode != 'probe-fedwatch' }}
         run: |
-          if git diff --quiet -- data/indicators.js; then
+          if git diff --quiet -- data/indicators.js index.html; then
             echo "No macro indicator changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/indicators.js
+          git add data/indicators.js index.html
           git commit -m "Update weekly macro indicators"
           git push
