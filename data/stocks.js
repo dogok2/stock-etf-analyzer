@@ -10,6 +10,24 @@ window.STOCK_ANALYSES = [
     snapshots: [META_20260709]
   },
   {
+    id: "MSFT",
+    name: "Microsoft Corporation",
+    shortName: "Microsoft",
+    category: "미국 주식 · 클라우드·AI 소프트웨어",
+    listingMarket: "us",
+    listingLabel: "미국 상장",
+    snapshots: [MICROSOFT_20260715]
+  },
+  {
+    id: "AVGO",
+    name: "Broadcom Inc.",
+    shortName: "Broadcom",
+    category: "미국 주식 · AI 반도체·인프라 소프트웨어",
+    listingMarket: "us",
+    listingLabel: "미국 상장",
+    snapshots: [BROADCOM_20260715]
+  },
+  {
     id: "373220",
     name: "LG에너지솔루션",
     shortName: "LG에너지솔루션",
