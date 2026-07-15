@@ -1,5 +1,5 @@
 window.STOCK_PRICE_HISTORY = {
-  "generatedAt": "2026-07-14 22:15 KST",
+  "generatedAt": "2026-07-15 09:08 KST",
   "note": "월간 TOP3의 분석 이후 주가 수익률을 계산하기 위한 저장 종가입니다. 환율과 세금은 반영하지 않습니다.",
   "series": {
     "373220": {
@@ -19,6 +19,12 @@ window.STOCK_PRICE_HISTORY = {
         {
           "date": "2026-07-14",
           "close": 322000,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/373220.KS/history/"
+        },
+        {
+          "date": "2026-07-15",
+          "close": 0,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/373220.KS/history/"
         }
@@ -43,6 +49,12 @@ window.STOCK_PRICE_HISTORY = {
           "close": 656.73,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/META/history/"
+        },
+        {
+          "date": "2026-07-14",
+          "close": 661.04,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/META/history/"
         }
       ]
     },
@@ -60,6 +72,12 @@ window.STOCK_PRICE_HISTORY = {
           "close": 88.38,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/NEE/history/"
+        },
+        {
+          "date": "2026-07-14",
+          "close": 89.54,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/NEE/history/"
         }
       ]
     },
@@ -75,6 +93,12 @@ window.STOCK_PRICE_HISTORY = {
         {
           "date": "2026-07-14",
           "close": 12080,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/034230.KS/history/"
+        },
+        {
+          "date": "2026-07-15",
+          "close": 0,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/034230.KS/history/"
         }
