@@ -8,6 +8,7 @@
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   })[character]);
   const isFiniteNumber = (value) => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
+  const isValidPrice = (value) => isFiniteNumber(value) && Number(value) > 0;
   const months = [...new Set(stocks.flatMap((stock) => (stock.snapshots || []).map((snapshot) => snapshot.researchDate.slice(0, 7))))].sort((a, b) => b.localeCompare(a));
   let selectedMonth = months[0] || new Date().toISOString().slice(0, 7);
 
@@ -57,26 +58,26 @@
   }
 
   function parseQuotePrice(quote = {}) {
-    if (isFiniteNumber(quote.price)) return Number(quote.price);
+    if (isValidPrice(quote.price)) return Number(quote.price);
     const cleaned = String(quote.priceLabel || "").replace(/,/g, "").replace(/[^0-9.-]/g, "");
-    return isFiniteNumber(cleaned) ? Number(cleaned) : null;
+    return isValidPrice(cleaned) ? Number(cleaned) : null;
   }
 
   function performanceFor(entry) {
     const startPrice = parseQuotePrice(entry.snapshot.quote);
     const storedPoints = [...(priceHistory[entry.stock.id]?.points || [])]
-      .filter((point) => isFiniteNumber(point.close))
+      .filter((point) => isValidPrice(point.close))
       .sort((a, b) => b.date.localeCompare(a.date));
     const laterSnapshots = (entry.stock.snapshots || []).map((snapshot) => ({
       date: snapshot.researchDate,
       close: parseQuotePrice(snapshot.quote),
       source: "분석 기록 저장가격"
-    })).filter((point) => isFiniteNumber(point.close));
+    })).filter((point) => isValidPrice(point.close));
     const latest = [...storedPoints, ...laterSnapshots]
       .filter((point) => point.date >= entry.snapshot.researchDate)
       .sort((a, b) => b.date.localeCompare(a.date))[0];
 
-    if (!isFiniteNumber(startPrice) || !latest || latest.date <= entry.snapshot.researchDate) {
+    if (!isValidPrice(startPrice) || !latest || latest.date <= entry.snapshot.researchDate) {
       return { status: "pending", startPrice, latest };
     }
 
@@ -97,7 +98,7 @@
   }
 
   function formatPrice(value, stockId) {
-    if (!isFiniteNumber(value)) return "-";
+    if (!isValidPrice(value)) return "-";
     const currency = priceHistory[stockId]?.currency || (stockId === "META" ? "USD" : "KRW");
     return currency === "USD"
       ? `$${Number(value).toLocaleString("ko-KR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`

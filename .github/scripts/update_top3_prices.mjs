@@ -19,7 +19,8 @@ const STOCKS_INDEX_PATH = path.join(ROOT, "data", "stocks.js");
 const PRICE_HISTORY_PATH = path.join(ROOT, "data", "stock-price-history.js");
 const INDEX_PATH = path.join(ROOT, "index.html");
 const KST_TIME_ZONE = "Asia/Seoul";
-const SCRIPT_ARGS = typeof process !== "undefined" ? process.argv : [];
+const SCRIPT_ARGS = typeof process !== "undefined" && Array.isArray(process.argv) ? process.argv : [];
+const SELF_TEST = SCRIPT_ARGS.includes("--self-test") || globalThis.__TOP3_SELF_TEST__ === true;
 const DRY_RUN = SCRIPT_ARGS.includes("--dry-run") || typeof globalThis.nodeRepl !== "undefined";
 
 function finiteNumber(value) {
@@ -120,6 +121,29 @@ function dateInTimeZone(timestampSeconds, timeZone) {
   return `${values.year}-${values.month}-${values.day}`;
 }
 
+function latestCompletedClose(result, nowSeconds = Date.now() / 1000) {
+  const timestamps = result.timestamp || [];
+  const closes = result.indicators?.quote?.[0]?.close || [];
+  const timeZone = result.meta?.exchangeTimezoneName || "UTC";
+  const regularSession = result.meta?.currentTradingPeriod?.regular;
+  const sessionStart = Number(regularSession?.start);
+  const sessionEnd = Number(regularSession?.end);
+  const incompleteSessionDate = Number.isFinite(sessionStart)
+    && Number.isFinite(sessionEnd)
+    && nowSeconds < sessionEnd
+    ? dateInTimeZone(sessionStart, timeZone)
+    : null;
+
+  const points = timestamps.map((timestamp, index) => ({
+    date: dateInTimeZone(timestamp, timeZone),
+    close: Number(closes[index])
+  })).filter((point) => Number.isFinite(point.close)
+    && point.close > 0
+    && point.date !== incompleteSessionDate);
+
+  return points.at(-1) || null;
+}
+
 function kstTimestamp(now = new Date()) {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: KST_TIME_ZONE,
@@ -157,15 +181,8 @@ async function fetchYahooClose(symbol) {
   const result = payload?.chart?.result?.[0];
   if (!result) throw new Error("Yahoo Finance returned no chart result");
 
-  const timestamps = result.timestamp || [];
-  const closes = result.indicators?.quote?.[0]?.close || [];
-  const timeZone = result.meta?.exchangeTimezoneName || "UTC";
-  const points = timestamps.map((timestamp, index) => ({
-    date: dateInTimeZone(timestamp, timeZone),
-    close: Number(closes[index])
-  })).filter((point) => Number.isFinite(point.close));
-  const latest = points.at(-1);
-  if (!latest) throw new Error("Yahoo Finance returned no completed daily close");
+  const latest = latestCompletedClose(result);
+  if (!latest) throw new Error("Yahoo Finance returned no positive completed daily close");
 
   const currency = result.meta?.currency || (symbol.endsWith(".KS") ? "KRW" : "USD");
   const close = currency === "KRW"
@@ -180,7 +197,42 @@ async function fetchYahooClose(symbol) {
   };
 }
 
+function runSelfTest() {
+  const day14 = Date.parse("2026-07-14T00:00:00Z") / 1000;
+  const day15 = Date.parse("2026-07-15T00:00:00Z") / 1000;
+  const regularStart = Date.parse("2026-07-15T00:00:00Z") / 1000;
+  const regularEnd = Date.parse("2026-07-15T06:30:00Z") / 1000;
+  const fixture = {
+    timestamp: [day14, day15],
+    meta: {
+      exchangeTimezoneName: "Asia/Seoul",
+      currentTradingPeriod: { regular: { start: regularStart, end: regularEnd } }
+    },
+    indicators: { quote: [{ close: [322000, 0] }] }
+  };
+  const duringSession = latestCompletedClose(
+    fixture,
+    Date.parse("2026-07-15T00:08:00Z") / 1000
+  );
+  if (duringSession?.date !== "2026-07-14" || duringSession.close !== 322000) {
+    throw new Error("Self-test failed: zero or incomplete daily candle was selected");
+  }
+
+  fixture.indicators.quote[0].close[1] = 323500;
+  const afterSession = latestCompletedClose(
+    fixture,
+    Date.parse("2026-07-15T07:00:00Z") / 1000
+  );
+  if (afterSession?.date !== "2026-07-15" || afterSession.close !== 323500) {
+    throw new Error("Self-test failed: completed positive daily close was not selected");
+  }
+  console.log("Self-test passed: invalid and incomplete daily candles are rejected.");
+}
+
 function upsertPoint(history, stockId, point) {
+  if (!finiteNumber(point.close) || Number(point.close) <= 0) {
+    throw new Error(`Refusing to store a non-positive close for ${stockId}`);
+  }
   const series = history.series[stockId] || { currency: point.currency, points: [] };
   series.currency = point.currency || series.currency;
   series.points = Array.isArray(series.points) ? series.points : [];
@@ -274,4 +326,8 @@ async function main() {
   console.log(`Updated ${PRICE_HISTORY_PATH} at ${timestamp.label}.`);
 }
 
-await main();
+if (SELF_TEST) {
+  runSelfTest();
+} else {
+  await main();
+}
