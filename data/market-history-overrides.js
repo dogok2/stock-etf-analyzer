@@ -2,6 +2,58 @@ window.MARKET_HISTORY = window.MARKET_HISTORY || { series: {} };
 window.MARKET_HISTORY.series = window.MARKET_HISTORY.series || {};
 
 Object.assign(window.MARKET_HISTORY.series, {
+  "KRX:035900": {
+    symbol: "KRX:035900",
+    name: "JYP Entertainment",
+    kind: "stock",
+    currency: "KRW",
+    range: "1y",
+    interval: "sampled",
+    source: "Naver Finance daily close",
+    sourceUrl: "https://finance.naver.com/item/main.naver?code=035900",
+    lastDate: "2026-07-16",
+    points: [
+      ["2025-07-31", 72700],
+      ["2025-08-29", 72700],
+      ["2025-09-30", 74600],
+      ["2025-10-31", 80900],
+      ["2025-11-28", 68000],
+      ["2025-12-30", 72600],
+      ["2026-01-30", 73800],
+      ["2026-02-27", 69800],
+      ["2026-03-31", 61500],
+      ["2026-04-30", 62900],
+      ["2026-05-29", 57700],
+      ["2026-06-30", 51400],
+      ["2026-07-16", 46650]
+    ]
+  },
+  "005380.KS": {
+    symbol: "005380.KS",
+    name: "Hyundai Motor Company",
+    kind: "stock",
+    currency: "KRW",
+    range: "1y",
+    interval: "sampled",
+    source: "Naver Finance daily close",
+    sourceUrl: "https://finance.naver.com/item/main.naver?code=005380",
+    lastDate: "2026-07-16",
+    points: [
+      ["2025-07-31", 213000],
+      ["2025-08-29", 220000],
+      ["2025-09-30", 215000],
+      ["2025-10-31", 290000],
+      ["2025-11-28", 261500],
+      ["2025-12-30", 296500],
+      ["2026-01-30", 500000],
+      ["2026-02-27", 674000],
+      ["2026-03-31", 445500],
+      ["2026-04-30", 531000],
+      ["2026-05-29", 723000],
+      ["2026-06-30", 495000],
+      ["2026-07-16", 425000]
+    ]
+  },
   "373220.KS": {
     symbol: "373220.KS",
     name: "LG Energy Solution",
