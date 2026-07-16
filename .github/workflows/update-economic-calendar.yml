@@ -38,19 +38,28 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Update Investing.com calendar and FedWatch
+      - name: Update Investing.com calendar and released Actual values
+        id: calendar
+        if: ${{ inputs.mode != 'probe-fedwatch' }}
+        continue-on-error: true
         env:
           SKIP_IF_CURRENT_WEEK: ${{ github.event_name == 'schedule' && '1' || '0' }}
+        run: python .github/scripts/update_indicators_calendar.py --calendar-only
+
+      - name: Update or probe FedWatch
+        id: fedwatch
+        continue-on-error: true
+        env:
           UPDATE_MODE: ${{ inputs.mode || 'update' }}
         run: |
           if [ "$UPDATE_MODE" = "probe-fedwatch" ]; then
             python .github/scripts/update_indicators_calendar.py --probe-fedwatch
           else
-            python .github/scripts/update_indicators_calendar.py
+            python .github/scripts/update_indicators_calendar.py --fedwatch-only
           fi
 
       - name: Commit and push if macro indicators changed
-        if: ${{ inputs.mode != 'probe-fedwatch' }}
+        if: ${{ always() && inputs.mode != 'probe-fedwatch' }}
         run: |
           if git diff --quiet -- data/indicators.js index.html; then
             echo "No macro indicator changes to commit."
@@ -62,3 +71,9 @@ jobs:
           git add data/indicators.js index.html
           git commit -m "Update weekly macro indicators"
           git push
+
+      - name: Report blocked macro sources
+        if: ${{ always() && (steps.fedwatch.outcome == 'failure' || (inputs.mode != 'probe-fedwatch' && steps.calendar.outcome == 'failure')) }}
+        run: |
+          echo "::error title=Macro source update failed::Calendar outcome: ${{ steps.calendar.outcome }}; FedWatch outcome: ${{ steps.fedwatch.outcome }}"
+          exit 1

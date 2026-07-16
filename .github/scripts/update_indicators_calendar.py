@@ -5,7 +5,9 @@ The static site stores its macro dashboard in data/indicators.js. This script
 fetches the current Investing.com "this week" calendar filtered to importance 3
 events, removes holiday rows, fetches the Investing.com Fed Rate Monitor
 snapshot, and rewrites the calendar and FedWatch blocks together. The
-``--fedwatch-only`` mode refreshes only the FedWatch block for the daily job.
+``--calendar-only`` mode refreshes the weekly event list and released Actual
+values without depending on FedWatch. The ``--fedwatch-only`` mode refreshes
+only the FedWatch block.
 
 It intentionally fails instead of inventing events when the source is blocked or
 the response cannot be verified as source-backed data.
@@ -121,7 +123,10 @@ MEMO_RULES = [
 def read_url_with_retry(request: urllib.request.Request, label: str) -> str:
     """Read an Investing.com response, retrying temporary blocks and outages."""
 
-    retry_delays = (0, 10, 30) if "--fedwatch-only" in sys.argv else RETRY_DELAYS_SECONDS
+    quick_retry_mode = any(
+        flag in sys.argv for flag in ("--calendar-only", "--fedwatch-only")
+    )
+    retry_delays = (0, 10, 30) if quick_retry_mode else RETRY_DELAYS_SECONDS
     total_attempts = len(retry_delays)
     for attempt, delay_seconds in enumerate(retry_delays, start=1):
         if delay_seconds:
@@ -444,6 +449,20 @@ def existing_calendar_week_start(content: str) -> str:
     return match.group(1) if match else "-"
 
 
+def existing_calendar_snapshot(content: str) -> dict | None:
+    match = re.search(
+        r"\n  calendar:\s*(\{.*?\})\s*,\n  marketCharts:",
+        content,
+        flags=re.S,
+    )
+    if not match:
+        return None
+    try:
+        return json.loads(match.group(1))
+    except json.JSONDecodeError:
+        return None
+
+
 def build_fedwatch(content: str) -> dict:
     lines = html_to_lines(fetch_fedwatch_html())
     date_pattern = re.compile(r"^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2},\s+\d{4}$")
@@ -583,6 +602,48 @@ def main() -> int:
         print(
             "FedWatch probe succeeded with "
             f"{len(fedwatch['meetings'])} meetings as of {fedwatch['asOf']}."
+        )
+        return 0
+
+    if "--calendar-only" in sys.argv:
+        expected_week_start = current_calendar_week_start()
+        if (
+            os.environ.get("SKIP_IF_CURRENT_WEEK") == "1"
+            and existing_calendar_week_start(content) == expected_week_start
+        ):
+            print(
+                f"Current-week calendar snapshot already exists ({expected_week_start}). "
+                "Skipping this scheduled retry."
+            )
+            return 0
+
+        payload = fetch_calendar()
+        events = parse_events(payload)
+        calendar = build_calendar(payload, events)
+        existing_calendar = existing_calendar_snapshot(content)
+        if existing_calendar:
+            existing_comparable = {
+                key: value for key, value in existing_calendar.items() if key != "asOf"
+            }
+            incoming_comparable = {
+                key: value for key, value in calendar.items() if key != "asOf"
+            }
+            if existing_comparable == incoming_comparable:
+                update_indicator_cache_version(content)
+                print(
+                    f"No changes. {len(events)} high-importance events and their Actual values "
+                    f"are already current at {existing_calendar.get('asOf', '-')}."
+                )
+                return 0
+
+        updated = replace_calendar(content, calendar)
+        INDICATORS_PATH.write_text(updated, encoding="utf-8", newline="\n")
+        update_indicator_cache_version(updated)
+        released_count = sum(1 for event in events if event.get("actual") not in (None, "", "-"))
+        print(
+            "Updated data/indicators.js with "
+            f"{len(events)} high-importance events and {released_count} released Actual values "
+            f"for {calendar['weekStart']} ~ {calendar['weekEnd']}."
         )
         return 0
 
