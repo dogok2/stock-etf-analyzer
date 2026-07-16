@@ -62,5 +62,23 @@ window.STOCK_ANALYSES = [
     listingMarket: "kr",
     listingLabel: "국내 상장",
     snapshots: [HYUNDAI_EC_20260712]
+  },
+  {
+    id: "035900",
+    name: "JYP Entertainment Corporation",
+    shortName: "JYP Ent.",
+    category: "국내 주식 · 엔터테인먼트·아티스트 IP",
+    listingMarket: "kr",
+    listingLabel: "국내 상장",
+    snapshots: [JYP_20260717]
+  },
+  {
+    id: "005380",
+    name: "현대자동차",
+    shortName: "현대자동차",
+    category: "국내 주식 · 완성차·하이브리드",
+    listingMarket: "kr",
+    listingLabel: "국내 상장",
+    snapshots: [HYUNDAI_MOTOR_20260717]
   }
 ];
