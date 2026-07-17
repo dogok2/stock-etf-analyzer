@@ -2,6 +2,33 @@ window.MARKET_HISTORY = window.MARKET_HISTORY || { series: {} };
 window.MARKET_HISTORY.series = window.MARKET_HISTORY.series || {};
 
 Object.assign(window.MARKET_HISTORY.series, {
+  "493810.KS": {
+    symbol: "493810.KS",
+    name: "TIGER 미국AI빅테크10타겟데일리커버드콜",
+    kind: "etf",
+    currency: "KRW",
+    range: "1y",
+    interval: "sampled",
+    source: "Naver Finance daily close",
+    sourceUrl: "https://finance.naver.com/item/main.naver?code=493810",
+    lastDate: "2026-07-16",
+    points: [
+      ["2025-07-16", 10380],
+      ["2025-07-31", 11025],
+      ["2025-08-29", 10960],
+      ["2025-09-30", 11565],
+      ["2025-10-31", 12580],
+      ["2025-11-28", 12470],
+      ["2025-12-30", 12030],
+      ["2026-01-30", 11800],
+      ["2026-02-27", 11295],
+      ["2026-03-31", 10760],
+      ["2026-04-30", 12365],
+      ["2026-05-29", 13210],
+      ["2026-06-30", 12225],
+      ["2026-07-16", 12370]
+    ]
+  },
   "KRX:035900": {
     symbol: "KRX:035900",
     name: "JYP Entertainment",

@@ -30,6 +30,16 @@ window.ETF_ANALYSES = [
     snapshots: [TIGER_US_SPACE_TECH_20260710]
   },
   {
+    id: "493810",
+    name: "TIGER 미국AI빅테크10타겟데일리커버드콜",
+    shortName: "TIGER 미국AI빅테크10 데일리커버드콜",
+    category: "해외주식 · 미국 · AI빅테크/커버드콜",
+    listingMarket: "kr",
+    listingLabel: "국내상장 ETF",
+    tradingCurrency: "KRW",
+    snapshots: [TIGER_US_AI_BIGTECH10_TARGET_DAILY_CC_20260718]
+  },
+  {
     id: "TLT",
     name: "iShares 20+ Year Treasury Bond ETF",
     shortName: "TLT 미국 장기국채",

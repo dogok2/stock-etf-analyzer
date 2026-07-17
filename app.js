@@ -15,6 +15,7 @@ const blockedTradingViewEmbeds = new Set([
   "KRX:373220",
   "KRX:458730",
   "KRX:0183J0",
+  "KRX:493810",
   "TVC:US10Y",
   "TVC:US30Y",
   "TVC:VIX",
