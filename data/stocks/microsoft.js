@@ -57,7 +57,27 @@ const MICROSOFT_20260715 = {
     provider: "TradingView 실시간 차트",
     note: "공유 페이지에서 바로 볼 수 있도록 TradingView 차트를 사용합니다."
   },
-  userAssessment: USER_ASSESSMENT_PENDING,
+  userAssessment: {
+    total: 2.8,
+    stance: "기간별 의견",
+    status: "사용자 평가 입력",
+    recommendations: [
+      { period: "단기", stance: "중립", reason: "저번 저점인 355달러 부근의 지지 여부를 확인해야 한다는 관점입니다." },
+      { period: "중기", stance: "매수", reason: "355달러 부근을 지키는 동안에는 중기 매수 관점을 유지합니다." },
+      { period: "장기", stance: "강력매수", reason: "단기 가격 변동보다 장기 보유 매력을 더 높게 평가합니다." }
+    ],
+    note: "저번 저점인 355달러 부근이 깨진다면 매우 위험.",
+    scoreItems: [
+      { label: "1번 항목", score: 4, weight: 1 },
+      { label: "2번 항목", score: 3, weight: 1 },
+      { label: "3번 항목", score: 3.5, weight: 1 },
+      { label: "4번 항목", score: 2.5, weight: 1 },
+      { label: "5번 항목", score: 3, weight: 1 },
+      { label: "6번 항목", score: 3.5, weight: 1 },
+      { label: "7번 항목", score: 2, weight: 2 },
+      { label: "8번 항목", score: 2, weight: 2 }
+    ]
+  },
   codexAssessment: {
     total: 4.4,
     stance: "매수",
