@@ -1,4 +1,4 @@
-name: Update weekly macro indicators
+name: Update weekly economic calendar
 
 on:
   # GitHub Actions cron uses UTC.
@@ -9,15 +9,6 @@ on:
     - cron: "30 0 * * 1"
     - cron: "30 1 * * 1"
   workflow_dispatch:
-    inputs:
-      mode:
-        description: Run the full update or only test the FedWatch source
-        required: true
-        default: update
-        type: choice
-        options:
-          - update
-          - probe-fedwatch
 
 permissions:
   contents: write
@@ -40,40 +31,27 @@ jobs:
 
       - name: Update Investing.com calendar and released Actual values
         id: calendar
-        if: ${{ inputs.mode != 'probe-fedwatch' }}
         continue-on-error: true
         env:
           SKIP_IF_CURRENT_WEEK: ${{ github.event_name == 'schedule' && '1' || '0' }}
         run: python .github/scripts/update_indicators_calendar.py --calendar-only
 
-      - name: Update or probe FedWatch
-        id: fedwatch
-        continue-on-error: true
-        env:
-          UPDATE_MODE: ${{ inputs.mode || 'update' }}
-        run: |
-          if [ "$UPDATE_MODE" = "probe-fedwatch" ]; then
-            python .github/scripts/update_indicators_calendar.py --probe-fedwatch
-          else
-            python .github/scripts/update_indicators_calendar.py --fedwatch-only
-          fi
-
-      - name: Commit and push if macro indicators changed
-        if: ${{ always() && inputs.mode != 'probe-fedwatch' }}
+      - name: Commit and push if calendar changed
+        if: ${{ always() }}
         run: |
           if git diff --quiet -- data/indicators.js index.html; then
-            echo "No macro indicator changes to commit."
+            echo "No economic calendar changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/indicators.js index.html
-          git commit -m "Update weekly macro indicators"
+          git commit -m "Update weekly economic calendar"
           git push
 
-      - name: Report blocked macro sources
-        if: ${{ always() && (steps.fedwatch.outcome == 'failure' || (inputs.mode != 'probe-fedwatch' && steps.calendar.outcome == 'failure')) }}
+      - name: Report blocked calendar source
+        if: ${{ always() && steps.calendar.outcome == 'failure' }}
         run: |
-          echo "::error title=Macro source update failed::Calendar outcome: ${{ steps.calendar.outcome }}; FedWatch outcome: ${{ steps.fedwatch.outcome }}"
+          echo "::error title=Calendar source update failed::Calendar outcome: ${{ steps.calendar.outcome }}"
           exit 1

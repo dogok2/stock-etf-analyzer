@@ -43,15 +43,10 @@ jobs:
         continue-on-error: true
         run: python .github/scripts/update_indicators_calendar.py --calendar-only
 
-      - name: Update FedWatch probabilities
-        id: fedwatch
-        continue-on-error: true
-        run: python .github/scripts/update_indicators_calendar.py --fedwatch-only
-
       - name: Commit and push successful daily updates
         run: |
           if git diff --quiet -- data/stock-price-history.js data/indicators.js index.html; then
-            echo "No TOP3 price, calendar, or FedWatch changes to commit."
+            echo "No TOP3 price or calendar changes to commit."
             exit 0
           fi
 
@@ -61,8 +56,8 @@ jobs:
           git commit -m "Update daily TOP3 prices and macro data"
           git push
 
-      - name: Report blocked macro sources
-        if: ${{ always() && (steps.calendar.outcome == 'failure' || steps.fedwatch.outcome == 'failure') }}
+      - name: Report blocked calendar source
+        if: ${{ always() && steps.calendar.outcome == 'failure' }}
         run: |
-          echo "::error title=Macro source update failed::Calendar outcome: ${{ steps.calendar.outcome }}; FedWatch outcome: ${{ steps.fedwatch.outcome }}"
+          echo "::error title=Calendar source update failed::Calendar outcome: ${{ steps.calendar.outcome }}"
           exit 1
