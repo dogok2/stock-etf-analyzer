@@ -57,7 +57,26 @@ const HYUNDAI_MOTOR_20260717 = {
     provider: "저장된 최근 1년 가격 차트",
     note: "TradingView 종목 페이지에는 존재하지만 외부 임베드가 제한되는 심볼입니다. 오류 문구 대신 페이지 안의 저장 가격 차트를 기본으로 보여주고 TradingView는 보조 링크로 제공합니다."
   },
-  userAssessment: USER_ASSESSMENT_PENDING,
+  userAssessment: {
+    total: 1.9,
+    stance: "기간별 의견",
+    status: "사용자 평가 입력",
+    recommendations: [
+      { period: "단기", stance: "매도", reason: "당장은 좋은 지점이 아니라고 보고 하락 흐름을 관망하는 판단입니다." },
+      { period: "장기", stance: "매수", reason: "단기 하락 흐름을 천천히 지켜본 뒤 장기 매수를 고려하는 관점입니다." }
+    ],
+    note: "당장은 좋은 지점은 아닌 것으로 생각됨. 하락 흐름을 천천히 관망.",
+    scoreItems: [
+      { label: "1번 항목", score: 3, weight: 1 },
+      { label: "2번 항목", score: 3.5, weight: 1 },
+      { label: "3번 항목", score: 3, weight: 1 },
+      { label: "4번 항목", score: 3, weight: 1 },
+      { label: "5번 항목", score: 1, weight: 1 },
+      { label: "6번 항목", score: 1, weight: 1 },
+      { label: "7번 항목", score: 1, weight: 2 },
+      { label: "8번 항목", score: 1, weight: 2 }
+    ]
+  },
   codexAssessment: {
     total: 3.7,
     stance: "매수",
