@@ -219,12 +219,12 @@ window.OTHER_INDICATORS = {
     }
   ],
   fedWatch: {
-      "asOf": "2026-07-16 05:25 EDT / 2026-07-16 18:25 KST",
+      "asOf": "2026-07-20 09:35 EDT / 2026-07-20 22:35 KST",
       "source": "Investing.com Fed Rate Monitor · CME 30-Day Fed Funds futures 기반",
       "sourceUrl": "https://www.investing.com/central-banks/fed-rate-monitor",
       "cmeUrl": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
       "currentTarget": "3.50% ~ 3.75%",
-      "note": "자동 갱신 시 Investing.com Fed Rate Monitor에 표시된 CME 기반 확률을 스냅샷으로 저장합니다. 실제 거래 전에는 원문 링크에서 최신 값을 다시 확인해야 합니다.",
+      "note": "주식·ETF 분석 작업 시 Investing.com Fed Rate Monitor에 표시된 CME 기반 확률을 하루 한 번 확인해 스냅샷으로 저장합니다. 실제 거래 전에는 원문 링크에서 최신 값을 다시 확인해야 합니다.",
       "meetings": [
           {
               "date": "2026-07-29",
@@ -234,15 +234,15 @@ window.OTHER_INDICATORS = {
               "probabilities": [
                   {
                       "range": "3.50 - 3.75",
-                      "probability": 90.0,
-                      "previousDay": 90.0,
-                      "previousWeek": 73.4
+                      "probability": 83.4,
+                      "previousDay": 86.7,
+                      "previousWeek": 64.6
                   },
                   {
                       "range": "3.75 - 4.00",
-                      "probability": 10.0,
-                      "previousDay": 10.0,
-                      "previousWeek": 26.6
+                      "probability": 16.6,
+                      "previousDay": 13.3,
+                      "previousWeek": 35.4
                   }
               ]
           },
@@ -254,21 +254,21 @@ window.OTHER_INDICATORS = {
               "probabilities": [
                   {
                       "range": "3.50 - 3.75",
-                      "probability": 47.4,
-                      "previousDay": 47.2,
-                      "previousWeek": 36.0
+                      "probability": 36.3,
+                      "previousDay": 42.7,
+                      "previousWeek": 29.2
                   },
                   {
                       "range": "3.75 - 4.00",
-                      "probability": 47.9,
-                      "previousDay": 48.1,
-                      "previousWeek": 50.5
+                      "probability": 54.3,
+                      "previousDay": 50.5,
+                      "previousWeek": 51.4
                   },
                   {
                       "range": "4.00 - 4.25",
-                      "probability": 4.7,
-                      "previousDay": 4.7,
-                      "previousWeek": 13.6
+                      "probability": 9.4,
+                      "previousDay": 6.7,
+                      "previousWeek": 19.4
                   }
               ]
           },
@@ -280,27 +280,27 @@ window.OTHER_INDICATORS = {
               "probabilities": [
                   {
                       "range": "3.50 - 3.75",
-                      "probability": 37.6,
-                      "previousDay": 38.5,
-                      "previousWeek": 27.7
+                      "probability": 26.3,
+                      "previousDay": 31.9,
+                      "previousWeek": 21.8
                   },
                   {
                       "range": "3.75 - 4.00",
-                      "probability": 47.8,
-                      "previousDay": 47.9,
-                      "previousWeek": 47.1
+                      "probability": 49.3,
+                      "previousDay": 48.6,
+                      "previousWeek": 45.8
                   },
                   {
                       "range": "4.00 - 4.25",
-                      "probability": 13.6,
-                      "previousDay": 12.7,
-                      "previousWeek": 22.0
+                      "probability": 21.8,
+                      "previousDay": 17.8,
+                      "previousWeek": 27.5
                   },
                   {
                       "range": "4.25 - 4.50",
-                      "probability": 1.0,
-                      "previousDay": 0.9,
-                      "previousWeek": 3.1
+                      "probability": 2.6,
+                      "previousDay": 1.7,
+                      "previousWeek": 4.9
                   }
               ]
           }

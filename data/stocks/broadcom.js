@@ -57,7 +57,27 @@ const BROADCOM_20260715 = {
     provider: "TradingView 실시간 차트",
     note: "공유 페이지에서 바로 볼 수 있도록 TradingView 차트를 사용합니다."
   },
-  userAssessment: USER_ASSESSMENT_PENDING,
+  userAssessment: {
+    total: 2.0,
+    stance: "중립",
+    status: "사용자 평가 입력",
+    recommendation: {
+      period: "단기",
+      stance: "중립",
+      reason: "300달러 초반까지 빠지는 흐름을 지켜본 뒤 다시 분석한다는 관점입니다."
+    },
+    note: "300달러 초반까지 빠지는 흐름을 보고 추후 다시 분석.",
+    scoreItems: [
+      { label: "1번 항목", score: 3, weight: 1 },
+      { label: "2번 항목", score: 2, weight: 1 },
+      { label: "3번 항목", score: 1, weight: 1 },
+      { label: "4번 항목", score: 1, weight: 1 },
+      { label: "5번 항목", score: 3, weight: 1 },
+      { label: "6번 항목", score: 2, weight: 1 },
+      { label: "7번 항목", score: 2, weight: 2 },
+      { label: "8번 항목", score: 2, weight: 2 }
+    ]
+  },
   codexAssessment: {
     total: 4.2,
     stance: "매수",
