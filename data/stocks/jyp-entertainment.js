@@ -52,7 +52,7 @@ const JYP_20260717 = {
     name: "JYP Entertainment",
     ticker: "035900",
     symbol: "KRX:035900",
-    yahooSymbol: "",
+    yahooSymbol: "035900.KQ",
     embed: false,
     provider: "저장된 최근 1년 가격 차트",
     note: "TradingView 종목 페이지에는 존재하지만 외부 임베드가 제한되는 심볼입니다. 오류 문구 대신 페이지 안의 저장 가격 차트를 기본으로 보여주고 TradingView는 보조 링크로 제공합니다."
