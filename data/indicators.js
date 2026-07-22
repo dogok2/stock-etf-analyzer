@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-07-20",
+  asOf: "2026-07-22",
   calendar: {
-      "asOf": "2026-07-20 19:29 KST",
+      "asOf": "2026-07-22 09:11 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-07-19",
       "weekEnd": "2026-07-25",
@@ -30,7 +30,7 @@ window.OTHER_INDICATORS = {
               "event": "Crude Oil Inventories",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "-1.500M",
               "previous": "-1.692M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
