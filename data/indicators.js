@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-07-22",
+  asOf: "2026-07-23",
   calendar: {
-      "asOf": "2026-07-22 09:11 KST",
+      "asOf": "2026-07-23 15:38 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-07-19",
       "weekEnd": "2026-07-25",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "CPI (YoY) (Jun)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.6%",
               "forecast": "2.7%",
               "previous": "2.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -29,10 +29,22 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-1.500M",
+              "actual": "2.010M",
+              "forecast": "-2.000M",
               "previous": "-1.692M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-07-23",
+              "time": "04:00",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
               "country": "EU",
