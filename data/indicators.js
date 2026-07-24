@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-07-23",
+  asOf: "2026-07-24",
   calendar: {
-      "asOf": "2026-07-23 15:38 KST",
+      "asOf": "2026-07-24 09:15 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-07-19",
       "weekEnd": "2026-07-25",
@@ -53,7 +53,7 @@ window.OTHER_INDICATORS = {
               "time": "21:15",
               "event": "Deposit Facility Rate (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.25%",
               "forecast": "2.25%",
               "previous": "2.25%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
@@ -65,7 +65,7 @@ window.OTHER_INDICATORS = {
               "time": "21:15",
               "event": "ECB Interest Rate Decision (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.40%",
               "forecast": "2.40%",
               "previous": "2.40%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -77,9 +77,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "187K",
               "forecast": "211K",
-              "previous": "208K",
+              "previous": "209K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -102,7 +102,7 @@ window.OTHER_INDICATORS = {
               "event": "S&P Global Manufacturing PMI (Jul)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "54.5",
+              "forecast": "54.4",
               "previous": "53.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -114,7 +114,7 @@ window.OTHER_INDICATORS = {
               "event": "S&P Global Services PMI (Jul)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "51.4",
+              "forecast": "51.3",
               "previous": "51.2",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -126,7 +126,7 @@ window.OTHER_INDICATORS = {
               "event": "New Home Sales (Jun)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "604K",
+              "forecast": "609K",
               "previous": "580K",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
           }
