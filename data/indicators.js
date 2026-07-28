@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-07-27",
+  asOf: "2026-07-28",
   calendar: {
-      "asOf": "2026-07-27 20:59 KST",
+      "asOf": "2026-07-28 09:14 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-07-26",
       "weekEnd": "2026-08-01",
@@ -17,9 +17,21 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Durable Goods Orders (MoM) (Jun)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "1.6%",
-              "previous": "-4.5%",
+              "previous": "-4.0%",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-07-28",
+              "time": "03:50",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
