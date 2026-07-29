@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-07-28",
+  asOf: "2026-07-29",
   calendar: {
-      "asOf": "2026-07-28 09:14 KST",
+      "asOf": "2026-07-29 09:13 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-07-26",
       "weekEnd": "2026-08-01",
@@ -41,9 +41,9 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "CB Consumer Confidence (Jul)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "92.1",
-              "previous": "91.2",
+              "actual": "90.8",
+              "forecast": "92.4",
+              "previous": "92.2",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
@@ -54,7 +54,7 @@ window.OTHER_INDICATORS = {
               "event": "Crude Oil Inventories",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "-1.700M",
               "previous": "2.010M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
