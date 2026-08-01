@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-07-29",
+  asOf: "2026-08-01",
   calendar: {
-      "asOf": "2026-07-29 09:13 KST",
+      "asOf": "2026-08-01 09:15 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-07-26",
       "weekEnd": "2026-08-01",
@@ -53,8 +53,8 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-1.700M",
+              "actual": "-7.167M",
+              "forecast": "0.700M",
               "previous": "2.010M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "03:00",
               "event": "Fed Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.75%",
               "forecast": "3.75%",
               "previous": "3.75%",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
@@ -101,7 +101,7 @@ window.OTHER_INDICATORS = {
               "time": "17:00",
               "event": "German GDP (QoQ) (Q2)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.2%",
               "forecast": "0.1%",
               "previous": "0.3%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -113,7 +113,7 @@ window.OTHER_INDICATORS = {
               "time": "20:00",
               "event": "BoE Interest Rate Decision (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.75%",
               "forecast": "3.75%",
               "previous": "3.75%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -125,7 +125,7 @@ window.OTHER_INDICATORS = {
               "time": "21:00",
               "event": "German CPI (MoM) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.8%",
               "forecast": "0.7%",
               "previous": "-0.3%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -137,8 +137,8 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core PCE Price Index (MoM) (Jun)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "0.1%",
+              "actual": "0.1%",
+              "forecast": "0.2%",
               "previous": "0.3%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
@@ -149,8 +149,8 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core PCE Price Index (YoY) (Jun)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "3.3%",
+              "forecast": "3.3%",
               "previous": "3.4%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
@@ -161,8 +161,8 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "GDP (QoQ) (Q2)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "2.3%",
+              "actual": "1.5%",
+              "forecast": "2.1%",
               "previous": "2.1%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
@@ -173,9 +173,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "206K",
-              "previous": "187K",
+              "actual": "197K",
+              "forecast": "201K",
+              "previous": "188K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -185,8 +185,8 @@ window.OTHER_INDICATORS = {
               "time": "10:30",
               "event": "Manufacturing PMI (Jul)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "49.9",
+              "actual": "49.2",
+              "forecast": "50.1",
               "previous": "50.3",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -197,7 +197,7 @@ window.OTHER_INDICATORS = {
               "time": "12:00",
               "event": "BoJ Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "1.00%",
               "forecast": "1.00%",
               "previous": "1.00%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -209,7 +209,7 @@ window.OTHER_INDICATORS = {
               "time": "18:00",
               "event": "CPI (YoY) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.9%",
               "forecast": "2.9%",
               "previous": "2.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -221,8 +221,8 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "Chicago PMI (Jul)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "57.6",
+              "forecast": "56.0",
               "previous": "56.7",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           }
