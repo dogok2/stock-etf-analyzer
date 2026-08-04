@@ -267,33 +267,13 @@ window.OTHER_INDICATORS = {
     }
   ],
   fedWatch: {
-      "asOf": "2026-07-20 09:35 EDT / 2026-07-20 22:35 KST",
+      "asOf": "2026-08-04 08:05 EDT / 2026-08-04 21:05 KST",
       "source": "Investing.com Fed Rate Monitor · CME 30-Day Fed Funds futures 기반",
       "sourceUrl": "https://www.investing.com/central-banks/fed-rate-monitor",
       "cmeUrl": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
       "currentTarget": "3.50% ~ 3.75%",
       "note": "주식·ETF 분석 작업 시 Investing.com Fed Rate Monitor에 표시된 CME 기반 확률을 하루 한 번 확인해 스냅샷으로 저장합니다. 실제 거래 전에는 원문 링크에서 최신 값을 다시 확인해야 합니다.",
       "meetings": [
-          {
-              "date": "2026-07-29",
-              "label": "7월 FOMC",
-              "meetingTime": "Jul 29, 2026 02:00PM ET",
-              "dominant": "동결 우세",
-              "probabilities": [
-                  {
-                      "range": "3.50 - 3.75",
-                      "probability": 83.4,
-                      "previousDay": 86.7,
-                      "previousWeek": 64.6
-                  },
-                  {
-                      "range": "3.75 - 4.00",
-                      "probability": 16.6,
-                      "previousDay": 13.3,
-                      "previousWeek": 35.4
-                  }
-              ]
-          },
           {
               "date": "2026-09-16",
               "label": "9월 FOMC",
@@ -302,21 +282,21 @@ window.OTHER_INDICATORS = {
               "probabilities": [
                   {
                       "range": "3.50 - 3.75",
-                      "probability": 36.3,
-                      "previousDay": 42.7,
-                      "previousWeek": 29.2
+                      "probability": 42.9,
+                      "previousDay": 37.9,
+                      "previousWeek": 19.1
                   },
                   {
                       "range": "3.75 - 4.00",
-                      "probability": 54.3,
-                      "previousDay": 50.5,
-                      "previousWeek": 51.4
+                      "probability": 57.1,
+                      "previousDay": 62.1,
+                      "previousWeek": 55.3
                   },
                   {
                       "range": "4.00 - 4.25",
-                      "probability": 9.4,
-                      "previousDay": 6.7,
-                      "previousWeek": 19.4
+                      "probability": 0.0,
+                      "previousDay": 0.0,
+                      "previousWeek": 25.5
                   }
               ]
           },
@@ -328,27 +308,65 @@ window.OTHER_INDICATORS = {
               "probabilities": [
                   {
                       "range": "3.50 - 3.75",
-                      "probability": 26.3,
-                      "previousDay": 31.9,
-                      "previousWeek": 21.8
+                      "probability": 30.1,
+                      "previousDay": 26.6,
+                      "previousWeek": 13.0
                   },
                   {
                       "range": "3.75 - 4.00",
-                      "probability": 49.3,
-                      "previousDay": 48.6,
-                      "previousWeek": 45.8
+                      "probability": 52.9,
+                      "previousDay": 54.9,
+                      "previousWeek": 43.7
                   },
                   {
                       "range": "4.00 - 4.25",
-                      "probability": 21.8,
-                      "previousDay": 17.8,
-                      "previousWeek": 27.5
+                      "probability": 17.1,
+                      "previousDay": 18.6,
+                      "previousWeek": 35.1
                   },
                   {
                       "range": "4.25 - 4.50",
-                      "probability": 2.6,
-                      "previousDay": 1.7,
-                      "previousWeek": 4.9
+                      "probability": 0.0,
+                      "previousDay": 0.0,
+                      "previousWeek": 8.2
+                  }
+              ]
+          },
+          {
+              "date": "2026-12-09",
+              "label": "12월 FOMC",
+              "meetingTime": "Dec 09, 2026 02:00PM ET",
+              "dominant": "25bp 인상 우세",
+              "probabilities": [
+                  {
+                      "range": "3.50 - 3.75",
+                      "probability": 17.8,
+                      "previousDay": 14.6,
+                      "previousWeek": 8.4
+                  },
+                  {
+                      "range": "3.75 - 4.00",
+                      "probability": 43.5,
+                      "previousDay": 42.2,
+                      "previousWeek": 32.9
+                  },
+                  {
+                      "range": "4.00 - 4.25",
+                      "probability": 31.7,
+                      "previousDay": 34.9,
+                      "previousWeek": 38.1
+                  },
+                  {
+                      "range": "4.25 - 4.50",
+                      "probability": 7.0,
+                      "previousDay": 8.3,
+                      "previousWeek": 17.7
+                  },
+                  {
+                      "range": "4.50 - 4.75",
+                      "probability": 0.0,
+                      "previousDay": 0.0,
+                      "previousWeek": 2.9
                   }
               ]
           }
