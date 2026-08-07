@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-07",
+  asOf: "2026-08-08",
   calendar: {
-      "asOf": "2026-08-07 10:01 KST",
+      "asOf": "2026-08-08 06:53 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-02",
       "weekEnd": "2026-08-08",
@@ -149,7 +149,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Average Hourly Earnings (MoM) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.1%",
               "forecast": "0.3%",
               "previous": "0.3%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
@@ -161,9 +161,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Nonfarm Payrolls (Jul)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "88K",
-              "previous": "57K",
+              "actual": "-23K",
+              "forecast": "85K",
+              "previous": "20K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -173,7 +173,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Unemployment Rate (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.1%",
               "forecast": "4.2%",
               "previous": "4.2%",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
