@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-03",
+  asOf: "2026-08-07",
   calendar: {
-      "asOf": "2026-08-03 21:43 KST",
+      "asOf": "2026-08-07 10:01 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-02",
       "weekEnd": "2026-08-08",
@@ -17,9 +17,9 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Manufacturing PMI (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "53.9",
               "forecast": "53.8",
-              "previous": "53.8",
+              "previous": "53.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
           {
@@ -29,7 +29,7 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Manufacturing PMI (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "55.6",
               "forecast": "54.0",
               "previous": "53.3",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -41,7 +41,7 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Manufacturing Prices (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "71.1",
               "forecast": "70.0",
               "previous": "73.0",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -53,9 +53,9 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "JOLTS Job Openings (Jun)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "7.420M",
-              "previous": "7.594M",
+              "actual": "7.359M",
+              "forecast": "7.440M",
+              "previous": "7.537M",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -65,9 +65,9 @@ window.OTHER_INDICATORS = {
               "time": "21:15",
               "event": "ADP Nonfarm Employment Change (Jul)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "71K",
-              "previous": "98K",
+              "actual": "44K",
+              "forecast": "68K",
+              "previous": "95K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -77,9 +77,9 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Services PMI (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "54.6",
               "forecast": "53.6",
-              "previous": "53.6",
+              "previous": "51.2",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
           {
@@ -89,8 +89,8 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Non-Manufacturing PMI (Jul)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "54.2",
+              "actual": "54.1",
+              "forecast": "54.5",
               "previous": "54.0",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -101,8 +101,8 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Non-Manufacturing Prices (Jul)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "70.3",
+              "forecast": "65.0",
               "previous": "67.7",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -113,10 +113,22 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "2.479M",
+              "forecast": "-1.500M",
               "previous": "-7.167M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-08-06",
+              "time": "05:30",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
               "country": "US",
@@ -125,9 +137,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "205K",
-              "previous": "197K",
+              "actual": "199K",
+              "forecast": "203K",
+              "previous": "198K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
