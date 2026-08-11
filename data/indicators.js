@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-11",
+  asOf: "2026-08-12",
   calendar: {
-      "asOf": "2026-08-11 06:56 KST",
+      "asOf": "2026-08-12 07:02 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-09",
       "weekEnd": "2026-08-15",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "13:30",
               "event": "RBA Interest Rate Decision (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.35%",
               "forecast": "4.35%",
               "previous": "4.35%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -29,9 +29,9 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "Existing Home Sales (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.06M",
               "forecast": "4.05M",
-              "previous": "4.09M",
+              "previous": "4.13M",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
           },
           {
@@ -43,7 +43,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "0.8%",
-              "previous": "0.8%",
+              "previous": "-0.3%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
@@ -90,7 +90,7 @@ window.OTHER_INDICATORS = {
               "event": "Crude Oil Inventories",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "-1.300M",
               "previous": "2.479M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
