@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-12",
+  asOf: "2026-08-13",
   calendar: {
-      "asOf": "2026-08-12 07:02 KST",
+      "asOf": "2026-08-13 07:00 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-09",
       "weekEnd": "2026-08-15",
@@ -41,7 +41,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "German CPI (MoM) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.8%",
               "forecast": "0.8%",
               "previous": "-0.3%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -53,7 +53,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core CPI (MoM) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.2%",
               "forecast": "0.2%",
               "previous": "0.0%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -65,7 +65,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "CPI (MoM) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.1%",
               "forecast": "0.1%",
               "previous": "-0.4%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "CPI (YoY) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.4%",
               "forecast": "3.4%",
               "previous": "3.5%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -89,8 +89,8 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-1.300M",
+              "actual": "17.423M",
+              "forecast": "-1.700M",
               "previous": "2.479M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -101,7 +101,7 @@ window.OTHER_INDICATORS = {
               "time": "02:00",
               "event": "10-Year Note Auction",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.683%",
               "forecast": "-",
               "previous": "4.580%",
               "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
@@ -126,7 +126,7 @@ window.OTHER_INDICATORS = {
               "event": "GDP (YoY) (Q2)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "1.1%",
               "previous": "0.9%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
@@ -138,7 +138,7 @@ window.OTHER_INDICATORS = {
               "event": "GDP (MoM) (Jun)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-0.1%",
+              "forecast": "0.0%",
               "previous": "0.1%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
