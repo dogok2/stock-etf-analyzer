@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-13",
+  asOf: "2026-08-14",
   calendar: {
-      "asOf": "2026-08-13 07:00 KST",
+      "asOf": "2026-08-14 07:00 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-09",
       "weekEnd": "2026-08-15",
@@ -113,7 +113,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "GDP (QoQ) (Q2)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.4%",
               "forecast": "0.4%",
               "previous": "0.6%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -125,7 +125,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "GDP (YoY) (Q2)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "1.2%",
               "forecast": "1.1%",
               "previous": "0.9%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -137,9 +137,9 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "GDP (MoM) (Jun)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "0.0%",
-              "previous": "0.1%",
+              "previous": "0.0%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -149,9 +149,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "209K",
               "forecast": "202K",
-              "previous": "199K",
+              "previous": "200K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -161,9 +161,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "PPI (MoM) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.0%",
               "forecast": "0.2%",
-              "previous": "-0.3%",
+              "previous": "-0.1%",
               "memo": "생산자 물가 압력을 보는 지표입니다. 비용 전가와 향후 소비자물가 경로를 함께 판단합니다."
           },
           {
@@ -173,7 +173,7 @@ window.OTHER_INDICATORS = {
               "time": "02:00",
               "event": "30-Year Bond Auction",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "5.216%",
               "forecast": "-",
               "previous": "5.058%",
               "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
