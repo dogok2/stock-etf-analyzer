@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-14",
+  asOf: "2026-08-15",
   calendar: {
-      "asOf": "2026-08-14 07:00 KST",
+      "asOf": "2026-08-15 06:37 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-09",
       "weekEnd": "2026-08-15",
@@ -123,11 +123,11 @@ window.OTHER_INDICATORS = {
               "currency": "GBP",
               "date": "2026-08-13",
               "time": "15:00",
-              "event": "GDP (YoY) (Q2)",
+              "event": "GDP (MoM) (Jun)",
               "impact": "★★★",
-              "actual": "1.2%",
-              "forecast": "1.1%",
-              "previous": "0.9%",
+              "actual": "0.3%",
+              "forecast": "0.0%",
+              "previous": "0.0%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -135,11 +135,11 @@ window.OTHER_INDICATORS = {
               "currency": "GBP",
               "date": "2026-08-13",
               "time": "15:00",
-              "event": "GDP (MoM) (Jun)",
+              "event": "GDP (YoY) (Q2)",
               "impact": "★★★",
-              "actual": "0.3%",
-              "forecast": "0.0%",
-              "previous": "0.0%",
+              "actual": "1.2%",
+              "forecast": "1.1%",
+              "previous": "0.9%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -185,7 +185,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core Retail Sales (MoM) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "-0.3%",
               "forecast": "0.2%",
               "previous": "-0.2%",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
@@ -197,10 +197,22 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Retail Sales (MoM) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "-0.6%",
               "forecast": "0.1%",
               "previous": "0.2%",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-08-15",
+              "time": "04:00",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           }
       ]
   },
