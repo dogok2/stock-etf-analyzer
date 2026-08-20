@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-17",
+  asOf: "2026-08-21",
   calendar: {
-      "asOf": "2026-08-17 08:44 KST",
+      "asOf": "2026-08-21 06:41 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-16",
       "weekEnd": "2026-08-22",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "08:50",
               "event": "GDP (QoQ) (Q2)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "0.5%",
               "previous": "0.5%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -29,8 +29,8 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "CPI (YoY) (Jul)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "2.5%",
+              "actual": "2.9%",
+              "forecast": "2.9%",
               "previous": "2.6%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
@@ -41,9 +41,9 @@ window.OTHER_INDICATORS = {
               "time": "18:00",
               "event": "CPI (YoY) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.9%",
               "forecast": "2.9%",
-              "previous": "2.9%",
+              "previous": "2.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
@@ -53,8 +53,8 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "4.405M",
+              "forecast": "0.200M",
               "previous": "17.423M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -74,12 +74,24 @@ window.OTHER_INDICATORS = {
               "country": "US",
               "currency": "USD",
               "date": "2026-08-20",
+              "time": "03:30",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-08-20",
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "206K",
               "forecast": "210K",
-              "previous": "209K",
+              "previous": "212K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -89,8 +101,8 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Philadelphia Fed Manufacturing Index (Aug)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "24.3",
+              "actual": "47.4",
+              "forecast": "24.1",
               "previous": "41.4",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
           },
