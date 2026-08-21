@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-21",
+  asOf: "2026-08-22",
   calendar: {
-      "asOf": "2026-08-21 06:41 KST",
+      "asOf": "2026-08-22 06:36 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-16",
       "weekEnd": "2026-08-22",
@@ -113,7 +113,7 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Manufacturing PMI (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "53.2",
               "forecast": "54.0",
               "previous": "53.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -125,10 +125,22 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Services PMI (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "56.8",
               "forecast": "53.9",
               "previous": "54.6",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-08-22",
+              "time": "08:00",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           }
       ]
   },
