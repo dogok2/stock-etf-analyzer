@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-24",
+  asOf: "2026-08-25",
   calendar: {
-      "asOf": "2026-08-24 11:07 KST",
+      "asOf": "2026-08-25 06:42 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-23",
       "weekEnd": "2026-08-29",
@@ -19,7 +19,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "0.2%",
-              "previous": "0.2%",
+              "previous": "0.4%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
