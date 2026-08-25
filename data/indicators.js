@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-25",
+  asOf: "2026-08-26",
   calendar: {
-      "asOf": "2026-08-25 06:42 KST",
+      "asOf": "2026-08-26 06:42 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-23",
       "weekEnd": "2026-08-29",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "German GDP (QoQ) (Q2)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "0.2%",
               "previous": "0.4%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -29,9 +29,9 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "CB Consumer Confidence (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "89.4",
               "forecast": "90.3",
-              "previous": "90.8",
+              "previous": "90.2",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
@@ -41,9 +41,9 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "New Home Sales (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "607K",
               "forecast": "620K",
-              "previous": "628K",
+              "previous": "678K",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
           },
           {
@@ -78,8 +78,8 @@ window.OTHER_INDICATORS = {
               "event": "Durable Goods Orders (MoM) (Jul)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "0.5%",
-              "previous": "0.5%",
+              "forecast": "0.4%",
+              "previous": "0.3%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
@@ -91,7 +91,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "1.5%",
-              "previous": "1.5%",
+              "previous": "2.1%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -102,7 +102,7 @@ window.OTHER_INDICATORS = {
               "event": "Crude Oil Inventories",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "1.900M",
               "previous": "4.405M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
