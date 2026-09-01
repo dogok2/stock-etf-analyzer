@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-01",
+  asOf: "2026-09-02",
   calendar: {
-      "asOf": "2026-09-01 09:36 KST",
+      "asOf": "2026-09-02 08:17 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-30",
       "weekEnd": "2026-09-05",
@@ -53,7 +53,7 @@ window.OTHER_INDICATORS = {
               "time": "18:00",
               "event": "CPI (YoY) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.3%",
               "forecast": "3.3%",
               "previous": "2.9%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -65,9 +65,9 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Manufacturing PMI (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "53.9",
               "forecast": "53.2",
-              "previous": "53.2",
+              "previous": "53.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
           {
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Manufacturing PMI (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "54.6",
               "forecast": "55.2",
               "previous": "55.6",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -89,8 +89,8 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Manufacturing Prices (Aug)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "71.2",
+              "actual": "71.1",
+              "forecast": "70.5",
               "previous": "71.1",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -101,9 +101,9 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "JOLTS Job Openings (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "7.271M",
               "forecast": "7.330M",
-              "previous": "7.359M",
+              "previous": "7.182M",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -126,7 +126,7 @@ window.OTHER_INDICATORS = {
               "event": "ADP Nonfarm Employment Change (Aug)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "47K",
+              "forecast": "48K",
               "previous": "44K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
