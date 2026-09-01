@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-08-31",
+  asOf: "2026-09-01",
   calendar: {
-      "asOf": "2026-08-31 16:06 KST",
+      "asOf": "2026-09-01 09:36 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-30",
       "weekEnd": "2026-09-05",
@@ -29,7 +29,7 @@ window.OTHER_INDICATORS = {
               "time": "21:00",
               "event": "German CPI (MoM) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.2%",
               "forecast": "0.3%",
               "previous": "0.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -38,10 +38,10 @@ window.OTHER_INDICATORS = {
               "country": "US",
               "currency": "USD",
               "date": "2026-08-31",
-              "time": "22:45",
+              "time": "22:30",
               "event": "Chicago PMI (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "47.1",
               "forecast": "57.8",
               "previous": "57.6",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
