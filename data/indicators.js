@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-02",
+  asOf: "2026-09-03",
   calendar: {
-      "asOf": "2026-09-02 08:17 KST",
+      "asOf": "2026-09-03 08:17 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-30",
       "weekEnd": "2026-09-05",
@@ -113,7 +113,7 @@ window.OTHER_INDICATORS = {
               "time": "11:00",
               "event": "RBNZ Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.75%",
               "forecast": "2.75%",
               "previous": "2.50%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -125,9 +125,9 @@ window.OTHER_INDICATORS = {
               "time": "21:15",
               "event": "ADP Nonfarm Employment Change (Aug)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "48K",
-              "previous": "44K",
+              "actual": "38K",
+              "forecast": "47K",
+              "previous": "46K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -137,7 +137,7 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "BoC Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.25%",
               "forecast": "2.25%",
               "previous": "2.25%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -149,8 +149,8 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "-4.450M",
+              "forecast": "-0.400M",
               "previous": "0.095M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -175,8 +175,20 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "56.8",
-              "previous": "56.8",
+              "previous": "54.6",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
+          },
+          {
+              "country": "CA",
+              "currency": "CAD",
+              "date": "2026-09-03",
+              "time": "22:45",
+              "event": "BoC Interest Rate Decision",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "2.25%",
+              "previous": "2.25%",
+              "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
           },
           {
               "country": "US",
@@ -186,7 +198,7 @@ window.OTHER_INDICATORS = {
               "event": "ISM Non-Manufacturing PMI (Aug)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "54.1",
+              "forecast": "54.2",
               "previous": "54.1",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
