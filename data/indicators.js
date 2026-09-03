@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-03",
+  asOf: "2026-09-04",
   calendar: {
-      "asOf": "2026-09-03 08:17 KST",
+      "asOf": "2026-09-04 08:15 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-08-30",
       "weekEnd": "2026-09-05",
@@ -161,9 +161,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "206K",
               "forecast": "205K",
-              "previous": "203K",
+              "previous": "204K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -173,22 +173,10 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Services PMI (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "56.5",
               "forecast": "56.8",
               "previous": "54.6",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
-          },
-          {
-              "country": "CA",
-              "currency": "CAD",
-              "date": "2026-09-03",
-              "time": "22:45",
-              "event": "BoC Interest Rate Decision",
-              "impact": "★★★",
-              "actual": "-",
-              "forecast": "2.25%",
-              "previous": "2.25%",
-              "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
           },
           {
               "country": "US",
@@ -197,8 +185,8 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Non-Manufacturing PMI (Aug)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "54.2",
+              "actual": "55.4",
+              "forecast": "54.1",
               "previous": "54.1",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -209,8 +197,8 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Non-Manufacturing Prices (Aug)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "72.6",
+              "forecast": "70.0",
               "previous": "70.3",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -234,7 +222,7 @@ window.OTHER_INDICATORS = {
               "event": "Nonfarm Payrolls (Aug)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "58K",
+              "forecast": "55K",
               "previous": "-23K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
