@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-09",
+  asOf: "2026-09-10",
   calendar: {
-      "asOf": "2026-09-09 08:21 KST",
+      "asOf": "2026-09-10 08:12 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-06",
       "weekEnd": "2026-09-12",
@@ -29,7 +29,7 @@ window.OTHER_INDICATORS = {
               "time": "02:00",
               "event": "10-Year Note Auction",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.834%",
               "forecast": "-",
               "previous": "4.683%",
               "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
@@ -43,7 +43,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "0.2%",
-              "previous": "0.2%",
+              "previous": "0.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
