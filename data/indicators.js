@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-10",
+  asOf: "2026-09-11",
   calendar: {
-      "asOf": "2026-09-10 08:12 KST",
+      "asOf": "2026-09-11 08:08 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-06",
       "weekEnd": "2026-09-12",
@@ -35,13 +35,25 @@ window.OTHER_INDICATORS = {
               "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
           },
           {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-09-10",
+              "time": "10:15",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
+          },
+          {
               "country": "DE",
               "currency": "EUR",
               "date": "2026-09-10",
               "time": "15:00",
               "event": "German CPI (MoM) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.2%",
               "forecast": "0.2%",
               "previous": "0.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -53,7 +65,7 @@ window.OTHER_INDICATORS = {
               "time": "21:15",
               "event": "Deposit Facility Rate (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.50%",
               "forecast": "2.50%",
               "previous": "2.25%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
@@ -65,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "21:15",
               "event": "ECB Interest Rate Decision (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.65%",
               "forecast": "2.65%",
               "previous": "2.40%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -77,9 +89,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "206K",
               "forecast": "205K",
-              "previous": "206K",
+              "previous": "207K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -89,9 +101,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "PPI (MoM) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.4%",
               "forecast": "0.4%",
-              "previous": "0.0%",
+              "previous": "0.1%",
               "memo": "생산자 물가 압력을 보는 지표입니다. 비용 전가와 향후 소비자물가 경로를 함께 판단합니다."
           },
           {
@@ -113,7 +125,7 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "Existing Home Sales (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.98M",
               "forecast": "3.98M",
               "previous": "4.06M",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
@@ -125,8 +137,8 @@ window.OTHER_INDICATORS = {
               "time": "01:00",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "-0.391M",
+              "forecast": "-1.400M",
               "previous": "-4.450M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -137,7 +149,7 @@ window.OTHER_INDICATORS = {
               "time": "02:01",
               "event": "30-Year Bond Auction",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "5.308%",
               "forecast": "-",
               "previous": "5.216%",
               "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
