@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-11",
+  asOf: "2026-09-12",
   calendar: {
-      "asOf": "2026-09-11 08:08 KST",
+      "asOf": "2026-09-12 08:14 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-06",
       "weekEnd": "2026-09-12",
@@ -161,7 +161,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "GDP (MoM) (Jul)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.4%",
               "forecast": "0.0%",
               "previous": "0.3%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -173,7 +173,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core CPI (MoM) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "0.2%",
               "previous": "0.2%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -185,7 +185,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "CPI (MoM) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.4%",
               "forecast": "0.4%",
               "previous": "0.1%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -197,7 +197,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "CPI (YoY) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.4%",
               "forecast": "3.4%",
               "previous": "3.4%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
