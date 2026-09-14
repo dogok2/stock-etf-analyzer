@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-14",
+  asOf: "2026-09-15",
   calendar: {
-      "asOf": "2026-09-14 10:21 KST",
+      "asOf": "2026-09-15 08:51 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-13",
       "weekEnd": "2026-09-19",
@@ -90,7 +90,7 @@ window.OTHER_INDICATORS = {
               "event": "Fed Interest Rate Decision",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "4.00%",
               "previous": "3.75%",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
           },
