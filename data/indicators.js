@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-15",
+  asOf: "2026-09-17",
   calendar: {
-      "asOf": "2026-09-15 08:51 KST",
+      "asOf": "2026-09-17 08:38 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-13",
       "weekEnd": "2026-09-19",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "CPI (YoY) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.1%",
               "forecast": "3.1%",
               "previous": "2.9%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -29,9 +29,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core Retail Sales (MoM) (Aug)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "0.5%",
-              "previous": "-0.3%",
+              "actual": "1.4%",
+              "forecast": "0.6%",
+              "previous": "-0.2%",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
@@ -41,9 +41,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Retail Sales (MoM) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "1.2%",
               "forecast": "0.8%",
-              "previous": "-0.6%",
+              "previous": "-0.5%",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
@@ -53,8 +53,8 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "-0.640M",
+              "forecast": "-1.600M",
               "previous": "-0.391M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -89,7 +89,7 @@ window.OTHER_INDICATORS = {
               "time": "03:00",
               "event": "Fed Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.00%",
               "forecast": "4.00%",
               "previous": "3.75%",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
@@ -115,7 +115,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "3.3%",
-              "previous": "3.3%",
+              "previous": "2.9%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
@@ -138,7 +138,7 @@ window.OTHER_INDICATORS = {
               "event": "Initial Jobless Claims",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "209K",
+              "forecast": "207K",
               "previous": "206K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
@@ -150,7 +150,7 @@ window.OTHER_INDICATORS = {
               "event": "Philadelphia Fed Manufacturing Index (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "28.9",
+              "forecast": "31.3",
               "previous": "47.4",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
           },
