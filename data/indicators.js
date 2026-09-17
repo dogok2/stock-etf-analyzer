@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-17",
+  asOf: "2026-09-18",
   calendar: {
-      "asOf": "2026-09-17 08:38 KST",
+      "asOf": "2026-09-18 08:32 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-13",
       "weekEnd": "2026-09-19",
@@ -113,7 +113,7 @@ window.OTHER_INDICATORS = {
               "time": "18:00",
               "event": "CPI (YoY) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.2%",
               "forecast": "3.3%",
               "previous": "2.9%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -125,7 +125,7 @@ window.OTHER_INDICATORS = {
               "time": "20:00",
               "event": "BoE Interest Rate Decision (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.75%",
               "forecast": "3.75%",
               "previous": "3.75%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -137,7 +137,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "196K",
               "forecast": "207K",
               "previous": "206K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
@@ -149,7 +149,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Philadelphia Fed Manufacturing Index (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "37.8",
               "forecast": "31.3",
               "previous": "47.4",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
