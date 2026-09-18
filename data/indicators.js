@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-18",
+  asOf: "2026-09-19",
   calendar: {
-      "asOf": "2026-09-18 08:32 KST",
+      "asOf": "2026-09-19 08:16 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-13",
       "weekEnd": "2026-09-19",
@@ -161,7 +161,7 @@ window.OTHER_INDICATORS = {
               "time": "12:00",
               "event": "BoJ Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "1.25%",
               "forecast": "1.25%",
               "previous": "1.00%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
