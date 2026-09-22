@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-21",
+  asOf: "2026-09-23",
   calendar: {
-      "asOf": "2026-09-21 10:23 KST",
+      "asOf": "2026-09-23 08:35 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-20",
       "weekEnd": "2026-09-26",
@@ -11,6 +11,30 @@ window.OTHER_INDICATORS = {
       "note": "Investing.com 경제 캘린더의 이번 주 필터에서 중요도 3개로 반환된 이벤트만 저장했습니다. 휴장일은 이벤트 수에서 제외했습니다.",
       "events": [
           {
+              "country": "CH",
+              "currency": "CHF",
+              "date": "2026-09-22",
+              "time": "16:30",
+              "event": "SNB Interest Rate Decision (Q3)",
+              "impact": "★★★",
+              "actual": "0.00%",
+              "forecast": "-",
+              "previous": "0.00%",
+              "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-09-22",
+              "time": "22:55",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
+          },
+          {
               "country": "US",
               "currency": "USD",
               "date": "2026-09-23",
@@ -18,7 +42,7 @@ window.OTHER_INDICATORS = {
               "event": "S&P Global Manufacturing PMI (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "53.4",
+              "forecast": "53.6",
               "previous": "53.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -30,7 +54,7 @@ window.OTHER_INDICATORS = {
               "event": "S&P Global Services PMI (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "56.0",
+              "forecast": "55.8",
               "previous": "56.5",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -42,7 +66,7 @@ window.OTHER_INDICATORS = {
               "event": "Crude Oil Inventories",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "-0.600M",
               "previous": "-0.640M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
