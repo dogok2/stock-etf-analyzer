@@ -1,5 +1,5 @@
 window.STOCK_PRICE_HISTORY = {
-  "generatedAt": "2026-09-19 08:16 KST",
+  "generatedAt": "2026-09-22 09:04 KST",
   "note": "월간 TOP3의 분석 이후 주가 수익률을 계산하기 위한 저장 종가입니다. 환율과 세금은 반영하지 않습니다.",
   "series": {
     "373220": {
@@ -259,6 +259,12 @@ window.STOCK_PRICE_HISTORY = {
         {
           "date": "2026-09-18",
           "close": 364000,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/373220.KS/history/"
+        },
+        {
+          "date": "2026-09-21",
+          "close": 352000,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/373220.KS/history/"
         }
@@ -837,6 +843,12 @@ window.STOCK_PRICE_HISTORY = {
         {
           "date": "2026-09-18",
           "close": 9600,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/034230.KS/history/"
+        },
+        {
+          "date": "2026-09-21",
+          "close": 9540,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/034230.KS/history/"
         }
@@ -1637,6 +1649,12 @@ window.STOCK_PRICE_HISTORY = {
         {
           "date": "2026-09-18",
           "close": 38500,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/035900.KQ/history/"
+        },
+        {
+          "date": "2026-09-21",
+          "close": 38200,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/035900.KQ/history/"
         }
