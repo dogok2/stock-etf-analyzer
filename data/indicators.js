@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-23",
+  asOf: "2026-09-24",
   calendar: {
-      "asOf": "2026-09-23 08:35 KST",
+      "asOf": "2026-09-24 08:39 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-20",
       "weekEnd": "2026-09-26",
@@ -41,7 +41,7 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Manufacturing PMI (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "57.0",
               "forecast": "53.6",
               "previous": "53.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -53,7 +53,7 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Services PMI (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "58.7",
               "forecast": "55.8",
               "previous": "56.5",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -65,8 +65,8 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-0.600M",
+              "actual": "2.969M",
+              "forecast": "-0.700M",
               "previous": "-0.640M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -102,7 +102,7 @@ window.OTHER_INDICATORS = {
               "event": "New Home Sales (Aug)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "619K",
+              "forecast": "615K",
               "previous": "607K",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
           },
