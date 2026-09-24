@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-24",
+  asOf: "2026-09-25",
   calendar: {
-      "asOf": "2026-09-24 08:39 KST",
+      "asOf": "2026-09-25 08:52 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-20",
       "weekEnd": "2026-09-26",
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "16:30",
               "event": "SNB Interest Rate Decision (Q3)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.00%",
               "forecast": "0.00%",
               "previous": "0.00%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -89,9 +89,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "197K",
               "forecast": "201K",
-              "previous": "196K",
+              "previous": "198K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -101,10 +101,22 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "New Home Sales (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "684K",
               "forecast": "615K",
-              "previous": "607K",
+              "previous": "643K",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-09-24",
+              "time": "23:15",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
               "country": "US",
