@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-28",
+  asOf: "2026-09-30",
   calendar: {
-      "asOf": "2026-09-28 10:51 KST",
+      "asOf": "2026-09-30 09:24 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-27",
       "weekEnd": "2026-10-03",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "13:30",
               "event": "RBA Interest Rate Decision (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.60%",
               "forecast": "4.60%",
               "previous": "4.35%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -29,9 +29,9 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "CB Consumer Confidence (Sep)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "90.1",
-              "previous": "89.4",
+              "actual": "81.9",
+              "forecast": "89.2",
+              "previous": "88.6",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
@@ -41,9 +41,9 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "JOLTS Job Openings (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "7.079M",
               "forecast": "7.230M",
-              "previous": "7.271M",
+              "previous": "7.335M",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -67,7 +67,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "0.4%",
-              "previous": "0.4%",
+              "previous": "0.6%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -79,7 +79,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "1.2%",
-              "previous": "1.2%",
+              "previous": "0.9%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -90,7 +90,7 @@ window.OTHER_INDICATORS = {
               "event": "German CPI (MoM) (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "0.5%",
               "previous": "0.2%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
@@ -102,7 +102,7 @@ window.OTHER_INDICATORS = {
               "event": "ADP Nonfarm Employment Change (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "70K",
+              "forecast": "73K",
               "previous": "38K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
@@ -139,7 +139,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "1.5%",
-              "previous": "1.5%",
+              "previous": "2.1%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -150,7 +150,7 @@ window.OTHER_INDICATORS = {
               "event": "Chicago PMI (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "51.3",
+              "forecast": "51.2",
               "previous": "47.1",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
