@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-09-30",
+  asOf: "2026-10-01",
   calendar: {
-      "asOf": "2026-09-30 09:24 KST",
+      "asOf": "2026-10-01 09:31 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-27",
       "weekEnd": "2026-10-03",
@@ -53,7 +53,7 @@ window.OTHER_INDICATORS = {
               "time": "10:30",
               "event": "Manufacturing PMI (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "50.1",
               "forecast": "50.1",
               "previous": "49.8",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -65,7 +65,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "GDP (QoQ) (Q2)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.5%",
               "forecast": "0.4%",
               "previous": "0.6%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "GDP (YoY) (Q2)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "1.4%",
               "forecast": "1.2%",
               "previous": "0.9%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -89,7 +89,7 @@ window.OTHER_INDICATORS = {
               "time": "21:00",
               "event": "German CPI (MoM) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.6%",
               "forecast": "0.5%",
               "previous": "0.2%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -101,22 +101,10 @@ window.OTHER_INDICATORS = {
               "time": "21:15",
               "event": "ADP Nonfarm Employment Change (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "90K",
               "forecast": "73K",
-              "previous": "38K",
+              "previous": "36K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
-          },
-          {
-              "country": "US",
-              "currency": "USD",
-              "date": "2026-09-30",
-              "time": "21:30",
-              "event": "Core PCE Price Index (YoY) (Aug)",
-              "impact": "★★★",
-              "actual": "-",
-              "forecast": "3.4%",
-              "previous": "3.3%",
-              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
               "country": "US",
@@ -125,9 +113,21 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core PCE Price Index (MoM) (Aug)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.2%",
               "forecast": "0.3%",
-              "previous": "0.2%",
+              "previous": "0.1%",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-09-30",
+              "time": "21:30",
+              "event": "Core PCE Price Index (YoY) (Aug)",
+              "impact": "★★★",
+              "actual": "3.0%",
+              "forecast": "3.3%",
+              "previous": "3.0%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
@@ -137,7 +137,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "GDP (QoQ) (Q2)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.2%",
               "forecast": "1.5%",
               "previous": "2.1%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -149,7 +149,7 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "Chicago PMI (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "58.8",
               "forecast": "51.2",
               "previous": "47.1",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -161,10 +161,22 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "0.922M",
+              "forecast": "-0.700M",
               "previous": "2.969M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-10-01",
+              "time": "04:30",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
               "country": "US",
@@ -174,7 +186,7 @@ window.OTHER_INDICATORS = {
               "event": "Initial Jobless Claims",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "199K",
+              "forecast": "201K",
               "previous": "197K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
@@ -187,7 +199,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "57.0",
-              "previous": "57.0",
+              "previous": "53.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
           {
@@ -198,7 +210,7 @@ window.OTHER_INDICATORS = {
               "event": "ISM Manufacturing PMI (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "55.0",
+              "forecast": "54.8",
               "previous": "54.6",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -210,7 +222,7 @@ window.OTHER_INDICATORS = {
               "event": "ISM Manufacturing Prices (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "72.0",
+              "forecast": "72.9",
               "previous": "71.1",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
