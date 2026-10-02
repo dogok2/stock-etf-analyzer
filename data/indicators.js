@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-01",
+  asOf: "2026-10-02",
   calendar: {
-      "asOf": "2026-10-01 09:31 KST",
+      "asOf": "2026-10-02 09:45 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-27",
       "weekEnd": "2026-10-03",
@@ -185,9 +185,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "197K",
               "forecast": "201K",
-              "previous": "197K",
+              "previous": "198K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -197,7 +197,7 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Manufacturing PMI (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "55.9",
               "forecast": "57.0",
               "previous": "53.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -209,7 +209,7 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Manufacturing PMI (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "54.5",
               "forecast": "54.8",
               "previous": "54.6",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -221,7 +221,7 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Manufacturing Prices (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "77.9",
               "forecast": "72.9",
               "previous": "71.1",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -258,7 +258,7 @@ window.OTHER_INDICATORS = {
               "event": "Nonfarm Payrolls (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "98K",
+              "forecast": "89K",
               "previous": "162K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
