@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-02",
+  asOf: "2026-10-03",
   calendar: {
-      "asOf": "2026-10-02 09:45 KST",
+      "asOf": "2026-10-03 09:27 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-09-27",
       "weekEnd": "2026-10-03",
@@ -233,7 +233,7 @@ window.OTHER_INDICATORS = {
               "time": "18:00",
               "event": "CPI (YoY) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.8%",
               "forecast": "3.7%",
               "previous": "3.2%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -245,7 +245,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Average Hourly Earnings (MoM) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.1%",
               "forecast": "0.3%",
               "previous": "0.3%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
@@ -257,9 +257,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Nonfarm Payrolls (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "29K",
               "forecast": "89K",
-              "previous": "162K",
+              "previous": "133K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -269,7 +269,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Unemployment Rate (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.2%",
               "forecast": "4.1%",
               "previous": "4.1%",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
