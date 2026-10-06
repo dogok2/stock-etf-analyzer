@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-05",
+  asOf: "2026-10-06",
   calendar: {
-      "asOf": "2026-10-05 11:15 KST",
+      "asOf": "2026-10-06 10:44 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-04",
       "weekEnd": "2026-10-10",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "S&P Global Services PMI (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "58.8",
               "forecast": "58.7",
               "previous": "58.7",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -29,8 +29,8 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Non-Manufacturing PMI (Sep)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "55.7",
+              "actual": "54.9",
+              "forecast": "55.1",
               "previous": "55.4",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -41,8 +41,8 @@ window.OTHER_INDICATORS = {
               "time": "23:00",
               "event": "ISM Non-Manufacturing Prices (Sep)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "74.0",
+              "forecast": "73.3",
               "previous": "72.6",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
