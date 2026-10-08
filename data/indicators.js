@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-06",
+  asOf: "2026-10-08",
   calendar: {
-      "asOf": "2026-10-06 10:44 KST",
+      "asOf": "2026-10-08 09:57 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-04",
       "weekEnd": "2026-10-10",
@@ -53,8 +53,8 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "-3.186M",
+              "forecast": "1.900M",
               "previous": "0.922M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -65,10 +65,22 @@ window.OTHER_INDICATORS = {
               "time": "02:00",
               "event": "10-Year Note Auction",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "5.300%",
               "forecast": "-",
               "previous": "4.834%",
               "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
+          },
+          {
+              "country": "US",
+              "currency": "USD",
+              "date": "2026-10-08",
+              "time": "02:00",
+              "event": "U.S. President Trump Speaks",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "-",
+              "previous": "-",
+              "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
               "country": "US",
