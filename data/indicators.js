@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-08",
+  asOf: "2026-10-09",
   calendar: {
-      "asOf": "2026-10-08 09:57 KST",
+      "asOf": "2026-10-09 10:11 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-04",
       "weekEnd": "2026-10-10",
@@ -101,9 +101,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "197K",
               "forecast": "200K",
-              "previous": "197K",
+              "previous": "199K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -113,7 +113,7 @@ window.OTHER_INDICATORS = {
               "time": "02:00",
               "event": "30-Year Bond Auction",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "5.618%",
               "forecast": "-",
               "previous": "5.308%",
               "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
