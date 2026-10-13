@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-12",
+  asOf: "2026-10-13",
   calendar: {
-      "asOf": "2026-10-12 11:34 KST",
+      "asOf": "2026-10-13 11:33 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-11",
       "weekEnd": "2026-10-17",
@@ -19,7 +19,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "0.6%",
-              "previous": "0.6%",
+              "previous": "0.2%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
@@ -30,7 +30,7 @@ window.OTHER_INDICATORS = {
               "event": "Existing Home Sales (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "3.97M",
+              "forecast": "3.96M",
               "previous": "3.98M",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
           },
