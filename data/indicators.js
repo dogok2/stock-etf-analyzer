@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-14",
+  asOf: "2026-10-15",
   calendar: {
-      "asOf": "2026-10-14 09:16 KST",
+      "asOf": "2026-10-15 08:53 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-11",
       "weekEnd": "2026-10-17",
@@ -41,7 +41,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core CPI (MoM) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "0.2%",
               "previous": "0.3%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -53,7 +53,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "CPI (MoM) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.6%",
               "forecast": "0.6%",
               "previous": "0.4%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -65,7 +65,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "CPI (YoY) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.7%",
               "forecast": "3.6%",
               "previous": "3.4%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -90,8 +90,8 @@ window.OTHER_INDICATORS = {
               "event": "Core Retail Sales (MoM) (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "0.5%",
-              "previous": "1.4%",
+              "forecast": "0.6%",
+              "previous": "1.3%",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
@@ -102,7 +102,7 @@ window.OTHER_INDICATORS = {
               "event": "Initial Jobless Claims",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "195K",
+              "forecast": "199K",
               "previous": "197K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
@@ -114,7 +114,7 @@ window.OTHER_INDICATORS = {
               "event": "Philadelphia Fed Manufacturing Index (Oct)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "26.5",
+              "forecast": "28.2",
               "previous": "37.8",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
           },
@@ -126,7 +126,7 @@ window.OTHER_INDICATORS = {
               "event": "PPI (MoM) (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "0.5%",
+              "forecast": "0.6%",
               "previous": "0.4%",
               "memo": "생산자 물가 압력을 보는 지표입니다. 비용 전가와 향후 소비자물가 경로를 함께 판단합니다."
           },
@@ -139,7 +139,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "0.3%",
-              "previous": "1.2%",
+              "previous": "1.1%",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
