@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-16",
+  asOf: "2026-10-17",
   calendar: {
-      "asOf": "2026-10-16 08:40 KST",
+      "asOf": "2026-10-17 08:33 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-11",
       "weekEnd": "2026-10-17",
@@ -173,7 +173,7 @@ window.OTHER_INDICATORS = {
               "time": "18:00",
               "event": "CPI (YoY) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.8%",
               "forecast": "3.8%",
               "previous": "3.2%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
