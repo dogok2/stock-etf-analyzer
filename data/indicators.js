@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-19",
+  asOf: "2026-10-20",
   calendar: {
-      "asOf": "2026-10-19 10:30 KST",
+      "asOf": "2026-10-20 09:18 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-18",
       "weekEnd": "2026-10-24",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "11:00",
               "event": "GDP (YoY) (Q3)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.5%",
               "forecast": "4.4%",
               "previous": "4.3%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
