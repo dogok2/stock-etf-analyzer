@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-21",
+  asOf: "2026-10-22",
   calendar: {
-      "asOf": "2026-10-21 08:50 KST",
+      "asOf": "2026-10-22 08:59 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-18",
       "weekEnd": "2026-10-24",
@@ -29,7 +29,7 @@ window.OTHER_INDICATORS = {
               "time": "15:00",
               "event": "CPI (YoY) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.5%",
               "forecast": "3.4%",
               "previous": "3.1%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -41,8 +41,8 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-0.300M",
+              "actual": "-3.060M",
+              "forecast": "-0.100M",
               "previous": "-8.557M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
