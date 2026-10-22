@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-22",
+  asOf: "2026-10-23",
   calendar: {
-      "asOf": "2026-10-22 08:59 KST",
+      "asOf": "2026-10-23 08:58 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-18",
       "weekEnd": "2026-10-24",
@@ -53,9 +53,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "194K",
               "forecast": "200K",
-              "previous": "199K",
+              "previous": "200K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -66,7 +66,7 @@ window.OTHER_INDICATORS = {
               "event": "S&P Global Manufacturing PMI (Oct)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "55.5",
+              "forecast": "55.4",
               "previous": "55.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -78,7 +78,7 @@ window.OTHER_INDICATORS = {
               "event": "S&P Global Services PMI (Oct)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "58.0",
+              "forecast": "57.9",
               "previous": "58.8",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           }

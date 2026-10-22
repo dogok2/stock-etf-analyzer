@@ -1,5 +1,5 @@
 window.STOCK_PRICE_HISTORY = {
-  "generatedAt": "2026-10-22 08:59 KST",
+  "generatedAt": "2026-10-23 08:58 KST",
   "note": "월간 TOP3의 분석 이후 주가 수익률을 계산하기 위한 저장 종가입니다. 환율과 세금은 반영하지 않습니다.",
   "series": {
     "373220": {
@@ -367,6 +367,12 @@ window.STOCK_PRICE_HISTORY = {
         {
           "date": "2026-10-21",
           "close": 411500,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/373220.KS/history/"
+        },
+        {
+          "date": "2026-10-22",
+          "close": 390000,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/373220.KS/history/"
         }
@@ -781,6 +787,12 @@ window.STOCK_PRICE_HISTORY = {
           "close": 697.52,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/META/history/"
+        },
+        {
+          "date": "2026-10-22",
+          "close": 648.85,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/META/history/"
         }
       ]
     },
@@ -1160,6 +1172,12 @@ window.STOCK_PRICE_HISTORY = {
         },
         {
           "date": "2026-10-21",
+          "close": 9730,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/034230.KS/history/"
+        },
+        {
+          "date": "2026-10-22",
           "close": 9730,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/034230.KS/history/"
@@ -1563,6 +1581,12 @@ window.STOCK_PRICE_HISTORY = {
           "close": 532.95,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/MSFT/history/"
+        },
+        {
+          "date": "2026-10-22",
+          "close": 521.08,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/MSFT/history/"
         }
       ]
     },
@@ -1952,6 +1976,12 @@ window.STOCK_PRICE_HISTORY = {
           "close": 337.8,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/AVGO/history/"
+        },
+        {
+          "date": "2026-10-22",
+          "close": 323.24,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/AVGO/history/"
         }
       ]
     },
@@ -2285,6 +2315,12 @@ window.STOCK_PRICE_HISTORY = {
         {
           "date": "2026-10-21",
           "close": 39700,
+          "source": "Yahoo Finance daily close",
+          "sourceUrl": "https://finance.yahoo.com/quote/035900.KQ/history/"
+        },
+        {
+          "date": "2026-10-22",
+          "close": 38100,
           "source": "Yahoo Finance daily close",
           "sourceUrl": "https://finance.yahoo.com/quote/035900.KQ/history/"
         }
