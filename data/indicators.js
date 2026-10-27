@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-26",
+  asOf: "2026-10-27",
   calendar: {
-      "asOf": "2026-10-26 10:28 KST",
+      "asOf": "2026-10-27 09:23 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-25",
       "weekEnd": "2026-10-31",
@@ -18,8 +18,8 @@ window.OTHER_INDICATORS = {
               "event": "Durable Goods Orders (MoM) (Sep)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "0.6%",
-              "previous": "-0.1%",
+              "forecast": "1.8%",
+              "previous": "0.0%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
