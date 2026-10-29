@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-28",
+  asOf: "2026-10-29",
   calendar: {
-      "asOf": "2026-10-28 09:28 KST",
+      "asOf": "2026-10-29 09:52 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-25",
       "weekEnd": "2026-10-31",
@@ -53,7 +53,7 @@ window.OTHER_INDICATORS = {
               "time": "10:00",
               "event": "RBNZ Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.75%",
               "forecast": "3.00%",
               "previous": "2.75%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "BoC Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.50%",
               "forecast": "2.50%",
               "previous": "2.25%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -89,8 +89,8 @@ window.OTHER_INDICATORS = {
               "time": "23:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-0.300M",
+              "actual": "-1.892M",
+              "forecast": "0.100M",
               "previous": "-3.060M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -113,7 +113,7 @@ window.OTHER_INDICATORS = {
               "time": "03:00",
               "event": "Fed Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.00%",
               "forecast": "4.00%",
               "previous": "4.00%",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
@@ -200,6 +200,18 @@ window.OTHER_INDICATORS = {
               "actual": "-",
               "forecast": "2.65%",
               "previous": "2.65%",
+              "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
+          },
+          {
+              "country": "CA",
+              "currency": "CAD",
+              "date": "2026-10-29",
+              "time": "22:45",
+              "event": "BoC Interest Rate Decision",
+              "impact": "★★★",
+              "actual": "-",
+              "forecast": "2.50%",
+              "previous": "2.25%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
           },
           {
