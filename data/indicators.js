@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-29",
+  asOf: "2026-10-30",
   calendar: {
-      "asOf": "2026-10-29 09:52 KST",
+      "asOf": "2026-10-30 09:56 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-25",
       "weekEnd": "2026-10-31",
@@ -137,9 +137,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core PCE Price Index (MoM) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "0.3%",
-              "previous": "0.2%",
+              "previous": "0.3%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
@@ -149,7 +149,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Core PCE Price Index (YoY) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.1%",
               "forecast": "3.1%",
               "previous": "3.0%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
@@ -161,7 +161,7 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "GDP (QoQ) (Q3)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.4%",
               "forecast": "3.2%",
               "previous": "2.2%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -173,9 +173,9 @@ window.OTHER_INDICATORS = {
               "time": "21:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "194K",
               "forecast": "198K",
-              "previous": "194K",
+              "previous": "195K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -185,7 +185,7 @@ window.OTHER_INDICATORS = {
               "time": "22:15",
               "event": "Deposit Facility Rate (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.50%",
               "forecast": "2.50%",
               "previous": "2.50%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
@@ -197,21 +197,9 @@ window.OTHER_INDICATORS = {
               "time": "22:15",
               "event": "ECB Interest Rate Decision (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "2.65%",
               "forecast": "2.65%",
               "previous": "2.65%",
-              "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
-          },
-          {
-              "country": "CA",
-              "currency": "CAD",
-              "date": "2026-10-29",
-              "time": "22:45",
-              "event": "BoC Interest Rate Decision",
-              "impact": "★★★",
-              "actual": "-",
-              "forecast": "2.50%",
-              "previous": "2.25%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
           },
           {
