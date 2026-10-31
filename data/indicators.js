@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-10-30",
+  asOf: "2026-10-31",
   calendar: {
-      "asOf": "2026-10-30 09:56 KST",
+      "asOf": "2026-10-31 09:44 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-10-25",
       "weekEnd": "2026-10-31",
@@ -221,7 +221,7 @@ window.OTHER_INDICATORS = {
               "time": "12:00",
               "event": "BoJ Interest Rate Decision",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "1.25%",
               "forecast": "1.25%",
               "previous": "1.25%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -233,7 +233,7 @@ window.OTHER_INDICATORS = {
               "time": "18:00",
               "event": "German GDP (QoQ) (Q3)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.2%",
               "forecast": "0.1%",
               "previous": "0.3%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -245,7 +245,7 @@ window.OTHER_INDICATORS = {
               "time": "22:00",
               "event": "German CPI (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "-0.2%",
               "forecast": "0.1%",
               "previous": "0.6%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -257,8 +257,8 @@ window.OTHER_INDICATORS = {
               "time": "22:45",
               "event": "Chicago PMI (Oct)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "54.8",
+              "actual": "55.3",
+              "forecast": "55.8",
               "previous": "58.8",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
