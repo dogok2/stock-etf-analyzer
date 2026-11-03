@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-02",
+  asOf: "2026-11-03",
   calendar: {
-      "asOf": "2026-11-02 11:40 KST",
+      "asOf": "2026-11-03 11:53 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-01",
       "weekEnd": "2026-11-07",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "23:45",
               "event": "S&P Global Manufacturing PMI (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "54.9",
               "forecast": "56.0",
               "previous": "56.0",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -29,8 +29,8 @@ window.OTHER_INDICATORS = {
               "time": "00:00",
               "event": "ISM Manufacturing PMI (Oct)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "54.7",
+              "actual": "55.5",
+              "forecast": "54.5",
               "previous": "54.5",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -41,7 +41,7 @@ window.OTHER_INDICATORS = {
               "time": "00:00",
               "event": "ISM Manufacturing Prices (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "75.2",
               "forecast": "77.2",
               "previous": "77.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
