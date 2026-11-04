@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-03",
+  asOf: "2026-11-04",
   calendar: {
-      "asOf": "2026-11-03 11:53 KST",
+      "asOf": "2026-11-04 10:18 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-01",
       "weekEnd": "2026-11-07",
@@ -53,22 +53,10 @@ window.OTHER_INDICATORS = {
               "time": "12:30",
               "event": "RBA Interest Rate Decision (Nov)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.85%",
               "forecast": "4.85%",
               "previous": "4.60%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
-          },
-          {
-              "country": "US",
-              "currency": "USD",
-              "date": "2026-11-03",
-              "time": "23:45",
-              "event": "S&P Global Manufacturing PMI (Oct)",
-              "impact": "★★★",
-              "actual": "-",
-              "forecast": "56.0",
-              "previous": "55.9",
-              "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
           {
               "country": "US",
@@ -77,9 +65,9 @@ window.OTHER_INDICATORS = {
               "time": "00:00",
               "event": "JOLTS Job Openings (Sep)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "7.110M",
-              "previous": "7.079M",
+              "actual": "7.523M",
+              "forecast": "7.150M",
+              "previous": "7.190M",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -102,7 +90,7 @@ window.OTHER_INDICATORS = {
               "event": "ADP Nonfarm Employment Change (Oct)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "68K",
+              "forecast": "67K",
               "previous": "90K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
@@ -115,7 +103,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "57.9",
-              "previous": "57.9",
+              "previous": "58.8",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
           {
