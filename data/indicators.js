@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-04",
+  asOf: "2026-11-05",
   calendar: {
-      "asOf": "2026-11-04 10:18 KST",
+      "asOf": "2026-11-05 10:26 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-01",
       "weekEnd": "2026-11-07",
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "19:00",
               "event": "CPI (YoY) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.0%",
               "forecast": "4.0%",
               "previous": "3.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -89,9 +89,9 @@ window.OTHER_INDICATORS = {
               "time": "22:15",
               "event": "ADP Nonfarm Employment Change (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "86K",
               "forecast": "67K",
-              "previous": "90K",
+              "previous": "86K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -101,7 +101,7 @@ window.OTHER_INDICATORS = {
               "time": "23:45",
               "event": "S&P Global Services PMI (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "56.1",
               "forecast": "57.9",
               "previous": "58.8",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -113,7 +113,7 @@ window.OTHER_INDICATORS = {
               "time": "00:00",
               "event": "ISM Non-Manufacturing PMI (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "54.5",
               "forecast": "54.8",
               "previous": "54.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -125,8 +125,8 @@ window.OTHER_INDICATORS = {
               "time": "00:00",
               "event": "ISM Non-Manufacturing Prices (Oct)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "73.0",
+              "forecast": "74.6",
               "previous": "74.0",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
           },
@@ -137,8 +137,8 @@ window.OTHER_INDICATORS = {
               "time": "00:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "-0.865M",
+              "forecast": "-1.700M",
               "previous": "-1.892M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
