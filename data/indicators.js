@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-05",
+  asOf: "2026-11-06",
   calendar: {
-      "asOf": "2026-11-05 10:26 KST",
+      "asOf": "2026-11-06 10:30 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-01",
       "weekEnd": "2026-11-07",
@@ -149,7 +149,7 @@ window.OTHER_INDICATORS = {
               "time": "21:00",
               "event": "BoE Interest Rate Decision (Nov)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.00%",
               "forecast": "4.00%",
               "previous": "3.75%",
               "memo": "중앙은행 금리 결정입니다. 통화정책 온도와 글로벌 금리 기대를 비교할 때 중요합니다."
@@ -161,9 +161,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "189K",
               "forecast": "197K",
-              "previous": "194K",
+              "previous": "195K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -186,7 +186,7 @@ window.OTHER_INDICATORS = {
               "event": "Nonfarm Payrolls (Oct)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "63K",
+              "forecast": "65K",
               "previous": "29K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
