@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-06",
+  asOf: "2026-11-07",
   calendar: {
-      "asOf": "2026-11-06 10:30 KST",
+      "asOf": "2026-11-07 09:53 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-01",
       "weekEnd": "2026-11-07",
@@ -173,9 +173,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Average Hourly Earnings (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.4%",
               "forecast": "0.3%",
-              "previous": "0.1%",
+              "previous": "0.3%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
@@ -185,9 +185,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Nonfarm Payrolls (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "165K",
               "forecast": "65K",
-              "previous": "29K",
+              "previous": "60K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -197,7 +197,7 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Unemployment Rate (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.1%",
               "forecast": "4.2%",
               "previous": "4.2%",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
