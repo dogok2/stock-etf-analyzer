@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-10",
+  asOf: "2026-11-11",
   calendar: {
-      "asOf": "2026-11-10 12:31 KST",
+      "asOf": "2026-11-11 10:13 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-08",
       "weekEnd": "2026-11-14",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Core CPI (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "0.2%",
               "previous": "0.3%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -29,21 +29,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "CPI (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.4%",
               "forecast": "0.3%",
               "previous": "0.6%",
-              "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
-          },
-          {
-              "country": "US",
-              "currency": "USD",
-              "date": "2026-11-10",
-              "time": "22:30",
-              "event": "CPI (YoY) (Oct)",
-              "impact": "★★★",
-              "actual": "-",
-              "forecast": "3.9%",
-              "previous": "3.7%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
@@ -53,7 +41,7 @@ window.OTHER_INDICATORS = {
               "time": "03:00",
               "event": "10-Year Note Auction",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "5.020%",
               "forecast": "-",
               "previous": "5.300%",
               "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
@@ -67,7 +55,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "-0.2%",
-              "previous": "-0.2%",
+              "previous": "0.6%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
