@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-11",
+  asOf: "2026-11-12",
   calendar: {
-      "asOf": "2026-11-11 10:13 KST",
+      "asOf": "2026-11-12 11:14 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-08",
       "weekEnd": "2026-11-14",
@@ -53,7 +53,7 @@ window.OTHER_INDICATORS = {
               "time": "16:00",
               "event": "German CPI (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "-0.2%",
               "forecast": "-0.2%",
               "previous": "0.6%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -78,7 +78,7 @@ window.OTHER_INDICATORS = {
               "event": "GDP (YoY) (Q3)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "1.9%",
               "previous": "1.4%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
@@ -114,7 +114,7 @@ window.OTHER_INDICATORS = {
               "event": "Existing Home Sales (Oct)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "3.86M",
+              "forecast": "3.89M",
               "previous": "3.99M",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
           },
@@ -126,7 +126,7 @@ window.OTHER_INDICATORS = {
               "event": "Crude Oil Inventories",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "-",
+              "forecast": "-0.600M",
               "previous": "-0.865M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
