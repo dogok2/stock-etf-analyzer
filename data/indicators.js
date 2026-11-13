@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-12",
+  asOf: "2026-11-13",
   calendar: {
-      "asOf": "2026-11-12 11:14 KST",
+      "asOf": "2026-11-13 10:47 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-08",
       "weekEnd": "2026-11-14",
@@ -65,7 +65,7 @@ window.OTHER_INDICATORS = {
               "time": "16:00",
               "event": "GDP (QoQ) (Q3)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.7%",
               "forecast": "0.7%",
               "previous": "0.5%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "16:00",
               "event": "GDP (YoY) (Q3)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "1.9%",
               "forecast": "1.9%",
               "previous": "1.4%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -89,9 +89,9 @@ window.OTHER_INDICATORS = {
               "time": "16:00",
               "event": "GDP (MoM) (Sep)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.2%",
               "forecast": "0.0%",
-              "previous": "0.1%",
+              "previous": "0.0%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -101,9 +101,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "200K",
               "forecast": "194K",
-              "previous": "189K",
+              "previous": "191K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -113,9 +113,9 @@ window.OTHER_INDICATORS = {
               "time": "00:00",
               "event": "Existing Home Sales (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.75M",
               "forecast": "3.89M",
-              "previous": "3.99M",
+              "previous": "3.97M",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
           },
           {
@@ -125,7 +125,7 @@ window.OTHER_INDICATORS = {
               "time": "02:00",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.657M",
               "forecast": "-0.600M",
               "previous": "-0.865M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
@@ -137,7 +137,7 @@ window.OTHER_INDICATORS = {
               "time": "03:00",
               "event": "30-Year Bond Auction",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "5.441%",
               "forecast": "-",
               "previous": "5.618%",
               "memo": "미국 국채 수요와 낙찰 금리를 확인하는 이벤트입니다. 장기금리 민감 자산과 채권 ETF에 중요합니다."
