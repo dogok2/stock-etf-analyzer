@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-13",
+  asOf: "2026-11-14",
   calendar: {
-      "asOf": "2026-11-13 10:47 KST",
+      "asOf": "2026-11-14 10:25 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-08",
       "weekEnd": "2026-11-14",
@@ -149,9 +149,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "PPI (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "0.4%",
-              "previous": "1.3%",
+              "previous": "1.4%",
               "memo": "생산자 물가 압력을 보는 지표입니다. 비용 전가와 향후 소비자물가 경로를 함께 판단합니다."
           }
       ]
