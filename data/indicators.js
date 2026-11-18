@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-16",
+  asOf: "2026-11-18",
   calendar: {
-      "asOf": "2026-11-16 11:56 KST",
+      "asOf": "2026-11-18 11:52 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-15",
       "weekEnd": "2026-11-21",
@@ -41,9 +41,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Core Retail Sales (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.6%",
               "forecast": "0.4%",
-              "previous": "0.9%",
+              "previous": "1.1%",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
@@ -53,8 +53,8 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Retail Sales (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "0.2%",
+              "actual": "0.2%",
+              "forecast": "0.1%",
               "previous": "0.8%",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
@@ -79,7 +79,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "4.0%",
-              "previous": "4.0%",
+              "previous": "3.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
           },
           {
