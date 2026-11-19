@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-18",
+  asOf: "2026-11-19",
   calendar: {
-      "asOf": "2026-11-18 11:52 KST",
+      "asOf": "2026-11-19 11:31 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-15",
       "weekEnd": "2026-11-21",
@@ -65,7 +65,7 @@ window.OTHER_INDICATORS = {
               "time": "16:00",
               "event": "CPI (YoY) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.6%",
               "forecast": "3.6%",
               "previous": "3.5%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "19:00",
               "event": "CPI (YoY) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.0%",
               "forecast": "4.0%",
               "previous": "3.8%",
               "memo": "물가 압력을 확인하는 핵심 지표입니다. 금리 기대, 환율, 성장주 할인율에 영향을 줄 수 있습니다."
@@ -89,8 +89,8 @@ window.OTHER_INDICATORS = {
               "time": "00:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "3.380M",
+              "forecast": "0.400M",
               "previous": "4.657M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           },
@@ -114,7 +114,7 @@ window.OTHER_INDICATORS = {
               "event": "Initial Jobless Claims",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "199K",
+              "forecast": "198K",
               "previous": "200K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
@@ -126,7 +126,7 @@ window.OTHER_INDICATORS = {
               "event": "Philadelphia Fed Manufacturing Index (Nov)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "19.2",
+              "forecast": "20.6",
               "previous": "20.9",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
           }
