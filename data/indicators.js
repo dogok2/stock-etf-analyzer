@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-19",
+  asOf: "2026-11-20",
   calendar: {
-      "asOf": "2026-11-19 11:31 KST",
+      "asOf": "2026-11-20 11:17 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-15",
       "weekEnd": "2026-11-21",
@@ -113,9 +113,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "203K",
               "forecast": "198K",
-              "previous": "200K",
+              "previous": "202K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -125,7 +125,7 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Philadelphia Fed Manufacturing Index (Nov)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "6.3",
               "forecast": "20.6",
               "previous": "20.9",
               "memo": "연준 정책 경로를 확인하는 이벤트입니다. 다음 FOMC 확률, 달러, 장단기 금리 방향성을 같이 봅니다."
