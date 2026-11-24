@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-23",
+  asOf: "2026-11-24",
   calendar: {
-      "asOf": "2026-11-23 12:53 KST",
+      "asOf": "2026-11-24 14:17 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-22",
       "weekEnd": "2026-11-28",
@@ -17,7 +17,7 @@ window.OTHER_INDICATORS = {
               "time": "23:45",
               "event": "S&P Global Manufacturing PMI (Nov)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "54.5",
               "forecast": "54.5",
               "previous": "54.9",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -29,7 +29,7 @@ window.OTHER_INDICATORS = {
               "time": "23:45",
               "event": "S&P Global Services PMI (Nov)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "54.7",
               "forecast": "55.6",
               "previous": "56.1",
               "memo": "기업 체감 경기와 주문 흐름을 보는 선행 지표입니다. 50선을 기준으로 확장·위축을 함께 확인합니다."
@@ -42,7 +42,7 @@ window.OTHER_INDICATORS = {
               "event": "CB Consumer Confidence (Nov)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "92.1",
+              "forecast": "92.4",
               "previous": "91.7",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
