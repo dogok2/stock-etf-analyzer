@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-24",
+  asOf: "2026-11-25",
   calendar: {
-      "asOf": "2026-11-24 14:17 KST",
+      "asOf": "2026-11-25 13:08 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-22",
       "weekEnd": "2026-11-28",
@@ -41,9 +41,9 @@ window.OTHER_INDICATORS = {
               "time": "00:00",
               "event": "CB Consumer Confidence (Nov)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "103.3",
               "forecast": "92.4",
-              "previous": "91.7",
+              "previous": "91.9",
               "memo": "소비 모멘텀을 확인하는 지표입니다. 경기 방어력과 기업 실적 기대를 판단할 때 참고합니다."
           },
           {
@@ -90,8 +90,8 @@ window.OTHER_INDICATORS = {
               "event": "Durable Goods Orders (MoM) (Oct)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "0.0%",
-              "previous": "1.9%",
+              "forecast": "0.7%",
+              "previous": "1.8%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
@@ -103,7 +103,7 @@ window.OTHER_INDICATORS = {
               "impact": "★★★",
               "actual": "-",
               "forecast": "3.4%",
-              "previous": "3.4%",
+              "previous": "2.2%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -126,7 +126,7 @@ window.OTHER_INDICATORS = {
               "event": "New Home Sales (Oct)",
               "impact": "★★★",
               "actual": "-",
-              "forecast": "649K",
+              "forecast": "650K",
               "previous": "676K",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
           },
