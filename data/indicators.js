@@ -1,7 +1,7 @@
 window.OTHER_INDICATORS = {
-  asOf: "2026-11-25",
+  asOf: "2026-11-26",
   calendar: {
-      "asOf": "2026-11-25 13:08 KST",
+      "asOf": "2026-11-26 12:31 KST",
       "periodLabel": "이번 주",
       "weekStart": "2026-11-22",
       "weekEnd": "2026-11-28",
@@ -53,9 +53,9 @@ window.OTHER_INDICATORS = {
               "time": "16:00",
               "event": "German GDP (QoQ) (Q3)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.1%",
               "forecast": "0.2%",
-              "previous": "0.2%",
+              "previous": "0.3%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
           },
           {
@@ -65,7 +65,7 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Core PCE Price Index (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.3%",
               "forecast": "0.3%",
               "previous": "0.3%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
@@ -77,7 +77,7 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Core PCE Price Index (YoY) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "3.3%",
               "forecast": "3.2%",
               "previous": "3.1%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
@@ -89,9 +89,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Durable Goods Orders (MoM) (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "0.2%",
               "forecast": "0.7%",
-              "previous": "1.8%",
+              "previous": "2.0%",
               "memo": "시장 변동성이 커질 수 있는 고중요 이벤트입니다. 실제값과 예상치 차이를 중심으로 확인합니다."
           },
           {
@@ -101,7 +101,7 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "GDP (QoQ) (Q3)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "4.3%",
               "forecast": "3.4%",
               "previous": "2.2%",
               "memo": "경제 성장률을 확인하는 핵심 지표입니다. 경기 국면과 기업 이익 기대를 함께 판단합니다."
@@ -113,9 +113,9 @@ window.OTHER_INDICATORS = {
               "time": "22:30",
               "event": "Initial Jobless Claims",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "189K",
               "forecast": "201K",
-              "previous": "203K",
+              "previous": "202K",
               "memo": "고용 둔화 또는 과열 여부를 보는 지표입니다. 연준 정책 기대와 경기 민감 업종에 영향을 줍니다."
           },
           {
@@ -125,9 +125,9 @@ window.OTHER_INDICATORS = {
               "time": "00:00",
               "event": "New Home Sales (Oct)",
               "impact": "★★★",
-              "actual": "-",
+              "actual": "701K",
               "forecast": "650K",
-              "previous": "676K",
+              "previous": "614K",
               "memo": "주택 경기를 확인하는 지표입니다. 금리 부담과 소비·은행·건설 관련 심리에 영향을 줄 수 있습니다."
           },
           {
@@ -137,8 +137,8 @@ window.OTHER_INDICATORS = {
               "time": "00:30",
               "event": "Crude Oil Inventories",
               "impact": "★★★",
-              "actual": "-",
-              "forecast": "-",
+              "actual": "1.109M",
+              "forecast": "2.000M",
               "previous": "3.380M",
               "memo": "원유 수급을 보는 에너지 지표입니다. 유가, 물가 기대, 에너지주 흐름과 함께 확인합니다."
           }
